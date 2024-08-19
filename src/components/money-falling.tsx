@@ -11,12 +11,16 @@ interface NoteProps{
     rotation: number
 }
 
-export function FreeFallingBanknotes() {
+interface freeFalingBankNotesProps{
+    isPlaying: boolean
+}
+
+export function FreeFallingBanknotes({isPlaying}: freeFalingBankNotesProps) {
     const mainDivRef = useRef<HTMLDivElement>(null);
     const [notePosition, setNotePosition] = useState<NoteProps[]>([]);
     const bankNoteSizes = 50;
     const numberOfFallingNotes = 60;
-    const maxSpeed = 3
+    const maxSpeed = 4
     const minSpeed = 1
 
     function returnValidSpawnPositionToElement(): NoteProps {
@@ -45,18 +49,20 @@ export function FreeFallingBanknotes() {
                 <motion.div 
                     key={position.id}
                     className="absolute"
-                    initial={{top: 0, left: `${position.x}px`, opacity: 1}}  
-                    animate={{
-                        rotate: position.rotation,
-                        opacity: 0,
-                        y: ["-100px", "100vh"],
-                        transition: {
-                            duration: position.speed,
-                            ease: "linear",
-                            repeat: Infinity,
-                            repeatType: "loop"
-                        }
-                    }}
+                    initial={{top: 0, left: `${position.x}px`, opacity: 1, rotate: -position.rotation}}  
+                    animate={
+                        isPlaying? {
+                            rotate: position.rotation,
+                            opacity: 0,
+                            y: [ "-100%", "100vh"],
+                            transition: {
+                                duration: position.speed,
+                                ease: "linear",
+                                repeat: Infinity,
+                                repeatType: "loop"
+                            }
+                        } : {}
+                    }
                     onAnimationComplete={() => {
                         const newNote = returnValidSpawnPositionToElement()
                         position.x = newNote.x
