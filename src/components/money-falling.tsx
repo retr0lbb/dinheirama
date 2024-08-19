@@ -1,7 +1,7 @@
 "use client";
 import { Banknote } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
-import { motion, MotionConfig } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface NoteProps{
     id: number, 
@@ -65,13 +65,15 @@ export function FreeFallingBanknotes({isPlaying}: freeFalingBankNotesProps) {
                     }
                     onAnimationComplete={() => {
                         const newNote = returnValidSpawnPositionToElement()
-                        position.x = newNote.x
+                        position = newNote
+                        console.log(position)
                     }}
                 >
-                    <Banknote 
+                    <Banknote
+                        rotate={position.rotation}
                         key={index} 
                         size={bankNoteSizes} 
-                        className="text-green-600"
+                        className="text-ofice_green"
                     />
                 </motion.div>
             ))}
