@@ -2,7 +2,7 @@ import React from "react"
 import { tv, VariantProps } from "tailwind-variants"
 
 const linkVariant = tv({
-    base: "underline-offset-2 text-apple_green cursor-pointer",
+    base: "text-apple_green cursor-pointer underline hover:underline-offset-2 transition-all",
     variants: {
         sizes: {
             sm: "text-sm",

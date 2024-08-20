@@ -15,7 +15,7 @@ export default function Home() {
 
       <div className="flex flex-col items-center justify-center gap-2 px-4">
         <Button sizes="md">Acessar</Button>
-        <p className="text-snow-400">não tem conta? <Link className="underline hover:underline-offset-4 transition-all">cadastre-se</Link></p>
+        <p className="text-snow-400">não tem conta? <Link>cadastre-se</Link></p>
       </div>
     </main>
   );
