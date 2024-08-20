@@ -1,16 +1,27 @@
 import React from "react"
-import { tv } from "tailwind-variants"
+import { tv, VariantProps } from "tailwind-variants"
 
 const linkVariant = tv({
-    base: "undeline"
+    base: "underline-offset-2 text-apple_green cursor-pointer",
+    variants: {
+        sizes: {
+            sm: "text-sm",
+            md: "text-md",
+            lg: "text-lg",
+            xl: "text-xl"
+        },
+    },
+    defaultVariants: {
+        sizes: "md"
+    }
 })
 
 
-interface LinkProps extends React.ComponentProps<"a"> {}
+interface LinkProps extends React.ComponentProps<"a">, VariantProps<typeof linkVariant>{}
 
-export async function Link({href, children}: LinkProps) {
+export async function Link({href, sizes, className, children}: LinkProps) {
     return (
-        <a className="underline" href={href}>
+        <a className={linkVariant({sizes, className})} href={href}>
             {children}
         </a>
     )

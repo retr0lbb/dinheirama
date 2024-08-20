@@ -15,7 +15,12 @@ const config: Config = {
       },
 
       colors: {
-        snow: "#FFFAFB",
+        snow: {
+          200: "#FFFAFB",
+          400: "#DADADA",
+          600: "#676767",
+          800: "#232323"
+        },
         apple_green: "#72B01D",
         ofice_green: "#3F7D20"
       }
