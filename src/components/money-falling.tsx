@@ -19,7 +19,7 @@ export function FreeFallingBanknotes({isPlaying}: freeFalingBankNotesProps) {
     const mainDivRef = useRef<HTMLDivElement>(null);
     const [notePosition, setNotePosition] = useState<NoteProps[]>([]);
     const bankNoteSizes = 50;
-    const numberOfFallingNotes = 60;
+    const numberOfFallingNotes = 50;
     const maxSpeed = 4
     const minSpeed = 1
 
@@ -44,7 +44,7 @@ export function FreeFallingBanknotes({isPlaying}: freeFalingBankNotesProps) {
     }, []);
 
     return (
-        <div className="absolute inset-0 w-full h-full overflow-hidden " ref={mainDivRef}>
+        <div className="absolute inset-0 w-full h-full overflow-hidden bg-zinc-950 -z-50" ref={mainDivRef}>
             {notePosition.map((position, index) => (
                 <motion.div 
                     key={position.id}
@@ -54,6 +54,7 @@ export function FreeFallingBanknotes({isPlaying}: freeFalingBankNotesProps) {
                         isPlaying? {
                             rotate: position.rotation,
                             opacity: 0,
+                            scale: .5,
                             y: [ "-100%", "100vh"],
                             transition: {
                                 duration: position.speed,
