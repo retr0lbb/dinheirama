@@ -11,7 +11,7 @@ const button = tv({
             secondary: "bg-zinc-900 text-snow-400"
         },
         sizes: {
-            sm: "text-sm py-1 px-1.5",
+            sm: "text-sm py-2 px-3",
             md: "text-lg py-2 px-3.5",
             lg: "text-xl py-3 px-5"
         }
