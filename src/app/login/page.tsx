@@ -42,7 +42,7 @@ export default function Login(){
 
 
                         <div className="grid place-items-center px-4">
-                            <Button type="submit" sizes="md" className="">
+                            <Button type="submit" sizes="sm" className="">
                                 Entrar
                             </Button>
                         </div>
@@ -56,15 +56,15 @@ export default function Login(){
                     </div>
 
                     <div className="flex items-center justify-around gap-2 text-lg">
-                        <Button variant="secondary" sizes="sm" className="flex flex-row flex-grow-0 flex-shrink-0 w-auto gap-2 text-snow-600">
+                        <Button variant="secondary" sizes="sm" className="flex flex-row h-10 py-0 flex-grow-0 flex-shrink-0 w-auto gap-2 text-snow-600">
                             <FaGoogle className="text-snow-400"></FaGoogle> Entre com o Google.
                         </Button>
 
-                        <Button variant="secondary" sizes="sm" className="flex flex-row flex-grow-0 flex-shrink-0 w-auto gap-2 text-snow-600">
+                        <Button variant="secondary" sizes="sm" className="flex flex-row h-10 py-0 flex-grow-0 flex-shrink-0 w-auto gap-2 text-snow-600">
                             <FaXTwitter className="text-snow-400"></FaXTwitter> Entre com Twitter.
                         </Button>
 
-                        <Button variant="secondary" sizes="sm" className="flex flex-row flex-grow-0 flex-shrink-0 w-auto gap-2 text-snow-600">
+                        <Button variant="secondary" sizes="sm" className="flex flex-row h-10 py-0 flex-grow-0 flex-shrink-0 w-auto gap-2 text-snow-600">
                             <FaApple className="text-snow-400"></FaApple> Entre com Apple.
                         </Button>
                     </div>
