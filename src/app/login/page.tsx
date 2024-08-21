@@ -1,7 +1,9 @@
 import { Button } from "@/components/button";
+import { Input } from "@/components/input";
 import { Link } from "@/components/link";
 import { FaGoogle, FaApple } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { IoLogoAndroid } from "react-icons/io";
 
 export default function Login(){
     return(
@@ -16,33 +18,41 @@ export default function Login(){
                 <div className="space-y-5">
                     <form className="px-4 space-y-5" action="">
                         <div className="space-y-4">
-                            <div className="flex flex-col px-4">
-                                <label className="text-snow-600" htmlFor="name">Email</label>
-                                <input 
-                                  className="py-2 px-5 text-snow-400 bg-transparent outline-none border border-snow-800 rounded-lg focus:border-apple_green transition-all" 
-                                  name="email" 
-                                  id="email" 
-                                  type="email" 
-                                  placeholder="example@mail.com" 
-                                />
-                            </div>
 
-                            <div className="flex flex-col px-4">
-                                <label className="text-snow-600" htmlFor="name">Password</label>
-                                <input 
-                                  className="py-2 px-5 text-snow-400 bg-transparent outline-none border border-snow-800 rounded-lg focus:border-apple_green transition-all" 
-                                  name="password" 
-                                  id="password" 
-                                  type="password" 
-                                  placeholder="password" 
+                            <Input Title="Email">
+                                <Input.Field
+                                  type="email"
+                                  name="email"
+                                  id="email"
+                                  placeholder="example@mail.com"
                                 />
-                                <p className="text-sm text-apple_green w-full text-right mt-2"><Link>Esqueci minha senha.</Link></p>
-                            </div>
+                            </Input>
+
+                            <Input Title="Senha">
+                                <Input.Field 
+                                  type="password"
+                                  name="password"
+                                  id="password"
+                                  placeholder="Sua senha"
+                                />
+                            </Input>
+                            <p className="text-sm text-apple_green w-full text-right pr-4"><Link>Esqueci minha senha.</Link></p>
+
+
+                            <Input Title="Teste tamanho icones">
+                                <IoLogoAndroid />
+                                <Input.Field 
+                                  type="password"
+                                  name="password"
+                                  id="password"
+                                  placeholder="Sua senha"
+                                />
+                            </Input>
                        </div>
 
 
                         <div className="grid place-items-center px-4">
-                            <Button type="submit" sizes="sm" className="">
+                            <Button type="submit" sizes="md" className="">
                                 Entrar
                             </Button>
                         </div>
