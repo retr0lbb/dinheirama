@@ -1,5 +1,6 @@
 import React from "react"
 import { tv, VariantProps } from "tailwind-variants"
+import Link, {LinkProps} from "next/link"
 
 const linkVariant = tv({
     base: "text-apple_green cursor-pointer underline hover:underline-offset-2 transition-all",
@@ -17,12 +18,15 @@ const linkVariant = tv({
 })
 
 
-interface LinkProps extends React.ComponentProps<"a">, VariantProps<typeof linkVariant>{}
+interface CustomLinkProps extends LinkProps, VariantProps<typeof linkVariant> {
+    children: React.ReactNode,
+    className?: string 
+}
 
-export async function Link({href, sizes, className, children}: LinkProps) {
+export async function LinkComponent({href, sizes, className, children}: CustomLinkProps) {
     return (
-        <a className={linkVariant({sizes, className})} href={href}>
+        <Link className={linkVariant({sizes, className})} href={href}>
             {children}
-        </a>
+        </Link>
     )
 }
