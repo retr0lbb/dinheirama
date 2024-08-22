@@ -4,6 +4,7 @@ import { FaGoogle, FaApple } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Link, { LinkProps} from "next/link";
 
+
 export default function Login(){
     return(
         <main className="h-screen bg-black flex items-center justify-center antialiased">
