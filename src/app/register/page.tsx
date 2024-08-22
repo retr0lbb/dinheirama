@@ -70,7 +70,7 @@ export default function Register(){
                             <Button type="submit" sizes="md" className="">
                                 Registar
                             </Button>
-                            <span className="text-snow-600 text-lg w-full px-5 text-center">Já tem uma conta? <LinkComponent href={"/login"}>Login</LinkComponent></span>
+                            <span className="text-snow-600 text-lg w-full px-5 text-center">Já tem uma conta? <Link className="underline text-apple_green hover:text-apple_green/80 transition-all" href={"/login"}>Login</Link></span>
                         </div>
 
                         {/* divider with button */}

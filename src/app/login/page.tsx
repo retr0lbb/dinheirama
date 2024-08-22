@@ -1,9 +1,8 @@
 import { Button } from "@/components/button";
 import { Input } from "@/components/input";
-import { Link } from "@/components/link";
 import { FaGoogle, FaApple } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { IoLogoAndroid } from "react-icons/io";
+import Link, { LinkProps} from "next/link";
 
 export default function Login(){
     return(
@@ -36,7 +35,7 @@ export default function Login(){
                                   placeholder="Sua senha"
                                 />
                             </Input>
-                            <p className="text-sm text-apple_green w-full text-right pr-4"><Link>Esqueci minha senha.</Link></p>
+                            <p className="text-sm text-apple_green w-full text-right pr-4"><Link className="underline hover:text-apple_green/80 transition-all" href={"#"}>Esqueci minha senha.</Link></p>
 
                        </div>
 
@@ -45,6 +44,7 @@ export default function Login(){
                             <Button type="submit" sizes="md" className="">
                                 Entrar
                             </Button>
+                            <span className="text-snow-600 mt-2">Não tem uma conta? <Link className="underline text-apple_green hover:text-apple_green/80 transition-all" href={"/register"}>cadastre-se</Link></span>
                         </div>
 
                         {/* divider with button */}

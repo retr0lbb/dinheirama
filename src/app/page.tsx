@@ -1,6 +1,6 @@
 import { Button } from "@/components/button";
-import { LinkComponent } from "@/components/link";
 import { FreeFallingBanknotes } from "@/components/money-falling";
+
 
 export default function Home() {
   return (
@@ -14,8 +14,7 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col items-center justify-center gap-2 px-4">
-        <Button sizes="md">Acessar</Button>
-        <p className="text-snow-400">não tem conta? <LinkComponent href={"/login"}>cadastre-se</LinkComponent></p>
+        <Button sizes="lg" className="px-12">Acessar</Button>
       </div>
     </main>
   );
