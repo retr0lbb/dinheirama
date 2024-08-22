@@ -38,16 +38,6 @@ export default function Login(){
                             </Input>
                             <p className="text-sm text-apple_green w-full text-right pr-4"><Link>Esqueci minha senha.</Link></p>
 
-
-                            <Input Title="Teste tamanho icones">
-                                <IoLogoAndroid />
-                                <Input.Field 
-                                  type="password"
-                                  name="password"
-                                  id="password"
-                                  placeholder="Sua senha"
-                                />
-                            </Input>
                        </div>
 
 
