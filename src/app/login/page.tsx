@@ -2,7 +2,8 @@ import { Button } from "@/components/button";
 import { Input } from "@/components/input";
 import { FaGoogle, FaApple } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import Link, { LinkProps} from "next/link";
+import Link from "next/link";
+import { Spinner } from "@/components/spinner";
 
 
 export default function Login(){
@@ -41,10 +42,11 @@ export default function Login(){
                        </div>
 
 
-                        <div className="grid place-items-center px-4">
+                        <div className="grid place-items-center gap-2 px-4">
                             <Button type="submit" sizes="md" className="">
                                 Entrar
                             </Button>
+                            <Spinner sizes="md" colour="green" />
                             <span className="text-snow-600 mt-2">Não tem uma conta? <Link className="underline text-apple_green hover:text-apple_green/80 transition-all" href={"/register"}>cadastre-se</Link></span>
                         </div>
 
