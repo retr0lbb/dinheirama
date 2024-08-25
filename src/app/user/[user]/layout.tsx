@@ -1,6 +1,12 @@
 import React from "react";
 import { NavigationBar } from "@/components/navigation-bar";
 import { Avatar } from "@/components/avatar";
+import { FaPiggyBank, FaCar, FaScroll, FaCog, FaUser, FaMoneyBillWaveAlt, FaSun } from "react-icons/fa";
+import { TbMoonFilled } from "react-icons/tb";
+import { CiLogout } from "react-icons/ci";
+import { FiLogOut } from "react-icons/fi";
+import { Button } from "@/components/button";
+
 
 interface UserLayoutProps {
     children: React.ReactNode,
@@ -26,7 +32,21 @@ export default function UserLayout({children, params}: UserLayoutProps){
                     </div>
                 </div>
 
-                <NavigationBar />
+                <NavigationBar>
+                    <NavigationBar.NavLink Icon={FaPiggyBank} title="Saldo" />
+                    <NavigationBar.NavLink Icon={FaCar} title="Objetivos" />
+                    <NavigationBar.NavLink isActive Icon={FaScroll} title="Missões" />
+                    <NavigationBar.NavLink Icon={FaUser} title="Perfil" />
+                    <NavigationBar.NavLink Icon={FaMoneyBillWaveAlt} title="Investimentos" />
+                    <NavigationBar.NavLink Icon={FaCog} title="Configurações" />
+                </NavigationBar>
+
+                <div className="w-full flex items-center justify-start px-5">
+                    <div className="p-3 rounded-xl text-snow-400 
+                    text-3xl cursor-pointer hover:text-snow-600">
+                        <FiLogOut />
+                    </div>
+                </div>
             </div>
 
             {children}
