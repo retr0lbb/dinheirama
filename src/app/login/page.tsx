@@ -6,15 +6,13 @@ import Link from "next/link";
 import { Spinner } from "@/components/spinner";
 
 
-
 export default function Login() {
-
 
   return (
     <main className="h-screen bg-black flex items-center justify-center antialiased">
       <div className="space-y-8">
         <header className="flex items-center justify-center flex-col gap-2">
-          <h1 className="text-5xl text-snow-400 font-bold">Seja bem-vindo de volta!</h1>
+          <h1 className="text-5xl text-snow-400 font-bold">Bem-vindo de volta!</h1>
           <p className="text-xl text-snow-600">É sempre um prazer ter você de volta</p>
         </header>
 
@@ -23,7 +21,7 @@ export default function Login() {
             className="px-4 space-y-5"
           >
             <div className="space-y-4">
-              <Input Title="Email">
+              <Input Title="Email"> 
                 <Input.Field
                   type="email"
                   name="email"

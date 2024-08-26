@@ -22,7 +22,7 @@ const navlinkVariant = tv({
 
     variants: { 
         isActive: {
-            true: "rounded-xl bg-apple_green",
+            true: "rounded-xl bg-apple_green mx-1",
             false: "hover:bg-apple_green/10 transition-all"
         }
     },

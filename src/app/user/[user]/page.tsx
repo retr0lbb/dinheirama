@@ -1,3 +1,4 @@
+import { Modal } from "@/components/modal";
 import { notFound } from "next/navigation";
 
 interface UserPageProps{
@@ -14,6 +15,8 @@ export default function UserPage({params}: UserPageProps){
     }
 
      return(
-        <h1>Hello {params.user}</h1>
+        <Modal>
+            <p className="text-red-50">{user}</p>
+        </Modal>
     )
 }
