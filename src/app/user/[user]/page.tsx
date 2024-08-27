@@ -24,11 +24,11 @@ export default function UserPage({params}: UserPageProps){
                     <FaPlay />
                 </div>
                 <div className="flex items-center justify-center gap-2 mt-5">
-                    <Button sizes="sm">
+                    <Button sizes="md" variant="danger">
                         Não, Obrigado.
                     </Button>
 
-                    <Button sizes="sm">
+                    <Button sizes="md">
                         Quero conhecer!
                     </Button>
                 </div>

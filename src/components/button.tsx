@@ -4,16 +4,16 @@ import { tv, VariantProps } from "tailwind-variants"
 
 
 const button = tv({
-    base: "flex flex-col items-center w-full justify-center rounded-lg ",
+    base: "flex flex-col items-center w-full justify-center rounded-lg",
     variants: {
         variant: {
-            primary: "bg-apple_green text-snow-200 hover:bg-ofice_green transition-all border border-zinc-950/10",
-            secondary: "bg-zinc-900 text-snow-400",
-            danger: "bg-danger_red text-snow-200"
+            primary: "bg-apple_green text-snow-200 shadow-md transition-all border border-snow-800 hover:bg-ofice_green",
+            secondary: "bg-zinc-900 text-snow-400 border border-snow-600/40 shadow-md ",
+            danger: "bg-danger_red text-snow-200 border border-snow-600/20"
         },
         sizes: {
             sm: "text-sm py-2 px-3",
-            md: "text-lg py-2 px-3.5",
+            md: "text-md py-2.5 px-3.5",
             lg: "text-xl py-3 px-5"
         }
     },
@@ -24,7 +24,7 @@ const button = tv({
 })
 
 
-const classname = "bg-danger_red"
+const classname = "border-snow-600/40"
 interface ButtonProps extends ComponentProps<"button">, VariantProps<typeof button> {}
 
 export function Button({children, className, variant, sizes, ...rest}: ButtonProps){
