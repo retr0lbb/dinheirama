@@ -22,7 +22,8 @@ const config: Config = {
           800: "#232323"
         },
         apple_green: "#72B01D",
-        ofice_green: "#3F7D20"
+        ofice_green: "#3F7D20",
+        danger_red: "#D7263D",
       }
     },
   },

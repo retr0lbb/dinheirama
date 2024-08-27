@@ -8,7 +8,8 @@ const button = tv({
     variants: {
         variant: {
             primary: "bg-apple_green text-snow-200 hover:bg-ofice_green transition-all border border-zinc-950/10",
-            secondary: "bg-zinc-900 text-snow-400"
+            secondary: "bg-zinc-900 text-snow-400",
+            danger: "bg-danger_red text-snow-200"
         },
         sizes: {
             sm: "text-sm py-2 px-3",
@@ -23,7 +24,7 @@ const button = tv({
 })
 
 
-const classname = "transition-all"
+const classname = "bg-danger_red"
 interface ButtonProps extends ComponentProps<"button">, VariantProps<typeof button> {}
 
 export function Button({children, className, variant, sizes, ...rest}: ButtonProps){
