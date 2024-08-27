@@ -16,7 +16,7 @@ export default function UserPage({params}: UserPageProps){
 
      return(
         <Modal>
-            <p className="text-red-50">{user}</p>
+            <Modal.Title title="Ja conhece nossa plataforma?" desc="Veja esse pequeno tour de como ultilzar a plataforma."/>
         </Modal>
     )
 }
