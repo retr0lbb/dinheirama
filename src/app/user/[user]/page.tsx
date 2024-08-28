@@ -1,10 +1,9 @@
 "use client";
-
 import { Button } from "@/components/button";
 import { Modal } from "@/components/modal";
 import { notFound } from "next/navigation";
-import { FaPlay } from "react-icons/fa";
-import { useState } from "react";
+import { IoMdArrowDropdown } from "react-icons/io";
+
 
 interface UserPageProps{
     params: {
@@ -12,13 +11,12 @@ interface UserPageProps{
       };
 }
 
-enum SHOW_MODAL{
-    NONE = 0,
-    HELP = 1
+enum MODAL_CONTROL{
+    NONE = 0
 }
 
+
 export default function UserPage({params}: UserPageProps){
-    const [showModal, setShowModal] = useState(SHOW_MODAL.HELP)
     
     const {user} = params
 
@@ -27,22 +25,43 @@ export default function UserPage({params}: UserPageProps){
     }
 
      return(
-        <Modal visible={showModal === SHOW_MODAL.HELP}>
-            <Modal.Title onCloseButtonClick={() => setShowModal(SHOW_MODAL.NONE)} title="Ja conhece nossa plataforma?" desc="Veja esse pequeno tour de como ultilzar a plataforma."/>
-            <Modal.Body>
-                <div className="flex items-center justify-center text-snow-400 aspect-video w-80 h-auto bg-black">
-                    <FaPlay />
-                </div>
-                <div className="flex items-center justify-center gap-2 mt-5">
-                    <Button sizes="md" variant="danger">
-                        Não, Obrigado.
-                    </Button>
+        <section className="w-full h-full p-5">
+            <div className="w-full">
+                <h1 className="text-4xl text-snow-400 text-center font-semibold">Saldo e Extrato</h1>
+            </div>
 
-                    <Button sizes="md">
-                        Quero conhecer!
-                    </Button>
+            <div className="overflow-y-auto grid grid-cols-3 gap-2 px-10">
+
+                <div className="flex flex-col gap-3 w-full h-auto aspect-video bg-snow-800 border border-snow-200/10 rounded-lg p-2">
+                    <div className="flex flex-col text-snow-400">
+                        <p className="text-xs text-snow-600">Saldo Anterior</p>
+                        <h1 className="text-3xl font-bold">$428.95</h1>
+                    </div>
+
+                    <div className="bg-red-500 flex items-center justify-center flex-1">
+                        <p>Aqui vai um grafico muito bonito e cheiroso</p>
+                    </div>
                 </div>
-            </Modal.Body>
-        </Modal>
+
+
+                <div className="flex flex-col gap-3 w-full h-auto aspect-video bg-snow-800 border border-snow-200/10 rounded-lg p-2">
+                    <div className="flex items-center">
+                        <div>
+                            <p className="text-xs text-snow-600">Total de saldo gasto</p>
+                            <h1 className="text-4xl text-danger_red font-bold">-$58.72</h1>
+                        </div>
+                        <div className="flex flex-col">
+                            <div className="text-apple_green flex items-center justify-center">
+                                <p className="text-sm">25.02%</p>
+                                <IoMdArrowDropdown className="text-3xl" />
+                            </div>
+                            <p>Gastou menos que o mes passado</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
     )
 }
