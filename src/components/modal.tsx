@@ -1,15 +1,18 @@
-import React from "react";
+"use client";
+
+import React, {useState} from "react";
 import { IoMdClose } from "react-icons/io";
 
 
 interface ModalProps {
-    children?: React.ReactNode
+    children?: React.ReactNode,
+    visible: boolean
 }
 
 
-function Modal({children}: ModalProps){
+function Modal({children, visible}: ModalProps){
     return(
-        <div className="absolute inset-0 w-full h-full bg-black/60 filter flex items-center justify-center">
+        <div className={`absolute inset-0 w-full h-full bg-black/60 filter flex items-center justify-center ${!visible && "hidden" }`}>
             <div className="flex flex-col items-center justify-center px-4 py-2 bg-snow-800 rounded-lg">
                 {children}
             </div>
@@ -20,9 +23,10 @@ function Modal({children}: ModalProps){
 
 interface TitleProps{
     title: string,
-    desc?: string
+    desc?: string,
+    onCloseButtonClick: () => void
 }
-function Title({desc, title}: TitleProps){
+function Title({desc, title, onCloseButtonClick}: TitleProps){
     return(
         <div className="flex items-baseline gap-3">
             <div className="flex flex-col flex-1">
@@ -30,7 +34,7 @@ function Title({desc, title}: TitleProps){
                 {desc && <p className="text-snow-600 text-sm">{desc}</p>}
             </div>
 
-            <div className="flex text-snow-400 text-2xl cursor-pointer hover:text-snow-600 transition-all p-1">
+            <div onClick={onCloseButtonClick} className="flex text-snow-400 text-2xl cursor-pointer hover:text-snow-600 transition-all p-1">
                 <IoMdClose />
             </div>
         </div>

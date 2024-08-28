@@ -1,7 +1,10 @@
+"use client";
+
 import { Button } from "@/components/button";
 import { Modal } from "@/components/modal";
 import { notFound } from "next/navigation";
 import { FaPlay } from "react-icons/fa";
+import { useState } from "react";
 
 interface UserPageProps{
     params: {
@@ -9,7 +12,14 @@ interface UserPageProps{
       };
 }
 
+enum SHOW_MODAL{
+    NONE = 0,
+    HELP = 1
+}
+
 export default function UserPage({params}: UserPageProps){
+    const [showModal, setShowModal] = useState(SHOW_MODAL.HELP)
+    
     const {user} = params
 
     if(!user){
@@ -17,8 +27,8 @@ export default function UserPage({params}: UserPageProps){
     }
 
      return(
-        <Modal>
-            <Modal.Title title="Ja conhece nossa plataforma?" desc="Veja esse pequeno tour de como ultilzar a plataforma."/>
+        <Modal visible={showModal === SHOW_MODAL.HELP}>
+            <Modal.Title onCloseButtonClick={() => setShowModal(SHOW_MODAL.NONE)} title="Ja conhece nossa plataforma?" desc="Veja esse pequeno tour de como ultilzar a plataforma."/>
             <Modal.Body>
                 <div className="flex items-center justify-center text-snow-400 aspect-video w-80 h-auto bg-black">
                     <FaPlay />
