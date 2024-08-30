@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@/components/button";
+import MontainGraph from "@/components/graph-component/graph";
 import { Modal } from "@/components/modal";
 import { notFound } from "next/navigation";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -38,8 +39,8 @@ export default function UserPage({params}: UserPageProps){
                         <h1 className="text-3xl font-bold">$428.95</h1>
                     </div>
 
-                    <div className="bg-red-500 flex items-center justify-center flex-1">
-                        <p>Aqui vai um grafico muito bonito e cheiroso</p>
+                    <div className="flex items-center justify-center flex-1">
+                        <MontainGraph />
                     </div>
                 </div>
 

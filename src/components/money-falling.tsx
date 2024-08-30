@@ -1,5 +1,5 @@
 "use client";
-import { Banknote } from "lucide-react";
+import { LuBanknote } from "react-icons/lu";
 import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
@@ -70,7 +70,7 @@ export function FreeFallingBanknotes({isPlaying}: freeFalingBankNotesProps) {
                         console.log(position)
                     }}
                 >
-                    <Banknote
+                    <LuBanknote
                         rotate={position.rotation}
                         key={index} 
                         size={bankNoteSizes} 
