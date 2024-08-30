@@ -3,6 +3,7 @@ import { Button } from "@/components/button";
 import MontainGraph from "@/components/graph-component/graph";
 import { Modal } from "@/components/modal";
 import { notFound } from "next/navigation";
+import { FaCarSide } from "react-icons/fa6";
 import { FaScroll } from "react-icons/fa";
 import { IoMdArrowDropdown } from "react-icons/io";
 
@@ -27,20 +28,23 @@ export default function UserPage({params}: UserPageProps){
     }
 
      return(
-        <section className="w-full h-full p-5">
+        <section className="w-full h-full p-5 space-y-8">
             <div className="w-full">
-                <h1 className="text-4xl text-snow-400 text-center font-semibold">Saldo e Extrato</h1>
+                <h1 className="text-4xl text-snow-400 text-left font-semibold">Saldo e Extrato</h1>
             </div>
 
-            <div className="overflow-y-auto grid grid-cols-3 px-10">
-                <div className="flex flex-col gap-4 w-full h-auto aspect-video bg-snow-800 border border-snow-200/10 rounded-lg p-5 col-span-1">
-                    <div className="flex flex-col text-snow-400">
-                        <p className="text-lg text-snow-600">Saldo Anterior</p>
-                        <h1 className="text-5xl font-bold">$428.95</h1>
+            <div>
+                <div className="w-full h-full  gap-10 p-4">
+                    <div>
+                        <p className="text-lg text-snow-600">Saldo Atual</p>
+                        <h1 className="text-left text-snow-400 font-bold text-6xl">R$1,941.29</h1>
+                    </div>
+
+
+                    <div className="flex flex-1">
+                        <MontainGraph />
                     </div>
                 </div>
-
-
             </div>
         </section>
     )
