@@ -14,6 +14,10 @@ const inputVariant = tv({
             greenColored: "focus-within:border-apple_green",
             grayColored: "focus-within:border-snow-600",
             ghost: "border-none"
+        },
+
+        types: {
+            digit: "max-w-12"
         }
 
     },
