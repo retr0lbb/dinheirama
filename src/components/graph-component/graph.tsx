@@ -2,17 +2,15 @@ import React from 'react';
 import FakeData from "./fake-data.json"
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
-
 interface FakeDataType{
   isodate: number,
   expenses: number
   gains: number
 }
 
-
 const transformData = (data: FakeDataType[]) => {
   return data.map(item => ({
-    date: new Date(item["isodate"] * 1000).toLocaleDateString(), // Converte o timestamp para uma data legível
+    date: new Date(item["isodate"] * 1000).toLocaleDateString(),
     expenses: item.expenses,
     gains: item.gains
   }));
@@ -25,7 +23,7 @@ export default function MontainGraph() {
 
   return (
     <ResponsiveContainer width="100%" className="bg-red-500">
-       <AreaChart data={data} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
+       <AreaChart data={data}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="date" />
         <YAxis />

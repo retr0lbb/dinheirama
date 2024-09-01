@@ -39,11 +39,6 @@ export default function UserPage({params}: UserPageProps){
                         <p className="text-lg text-snow-600">Saldo Atual</p>
                         <h1 className="text-left text-snow-400 font-bold text-6xl">R$1,941.29</h1>
                     </div>
-
-
-                    <div className="flex flex-1">
-                        <MontainGraph />
-                    </div>
                 </div>
             </div>
         </section>

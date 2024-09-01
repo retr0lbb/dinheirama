@@ -19,7 +19,8 @@ const config: Config = {
           200: "#FFFAFB",
           400: "#DADADA",
           600: "#676767",
-          800: "#232323"
+          800: "#232323",
+          900: "#0A0A0A"
         },
         apple_green: "#72B01D",
         ofice_green: "#3F7D20",

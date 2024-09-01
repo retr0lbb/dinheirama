@@ -1,3 +1,4 @@
+import { error } from "console"
 import React, { ComponentProps } from "react"
 import { tv, VariantProps } from "tailwind-variants"
 
@@ -29,19 +30,25 @@ const inputVariant = tv({
 
 
 interface InputProps extends ComponentProps<"div">, VariantProps<typeof inputVariant> {
-    Title: string
+    Title: string,
+    hasError?: {
+        message: string
+    }
 }
 
 interface InputFieldProps extends ComponentProps<"input"> {}
 
 
-function Input({Title, sizes, border ,...rest}: InputProps){
+function Input({Title, sizes, border, hasError, ...rest}: InputProps){
     return(
         <div className="flex flex-col px-4">
             <label className="text-snow-600" htmlFor="name">{Title}</label>
             <div className={inputVariant({ border, sizes, className: rest.className})}>
                 {rest.children}
             </div>
+            {hasError? (
+                <p className="text-danger_red">{hasError.message}</p>
+            ) : ""}
         </div>
     )
 }

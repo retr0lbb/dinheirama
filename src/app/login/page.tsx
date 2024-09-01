@@ -21,7 +21,7 @@ export default function Login() {
             className="px-4 space-y-5"
           >
             <div className="space-y-4">
-              <Input Title="Email"> 
+              <Input hasError={{message: "email should countain @"}} Title="Email"> 
                 <Input.Field
                   type="email"
                   name="email"

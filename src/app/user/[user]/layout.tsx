@@ -17,7 +17,7 @@ export default function UserLayout({children, params}: UserLayoutProps){
     const { user } = params;
     
     return(
-        <section className="h-screen flex bg-black">
+        <section className="h-screen flex bg-snow-900">
             <div className="h-full flex flex-col border-r bg-snow-800/50 border-snow-600/10 shadow shadow-snow-600 py-5 space-y-4 min-w-60 max-w-80">
 
                 <div className="flex items-center w-full py-1 px-4 justify-center gap-4">
