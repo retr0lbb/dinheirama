@@ -1,11 +1,11 @@
 "use client";
 import { Button } from "@/components/button";
-import MontainGraph from "@/components/graph-component/graph";
 import { Modal } from "@/components/modal";
 import { notFound } from "next/navigation";
 import { FaCarSide } from "react-icons/fa6";
 import { FaScroll } from "react-icons/fa";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { Chart } from "@/components/graph-component/graph";
 
 
 interface UserPageProps{
@@ -28,17 +28,22 @@ export default function UserPage({params}: UserPageProps){
     }
 
      return(
-        <section className="w-full h-full p-5 space-y-8">
+        <section className="w-full h-full p-5 space-y-10">
             <div className="w-full">
-                <h1 className="text-4xl text-snow-400 text-left font-semibold">Saldo e Extrato</h1>
+                <h1 className="text-snow-400 font-bold text-6xl">Saldo e despesas</h1>
+                <p className="text-lg text-snow-800">não ha nenhum problema em gastar dinheiro des de que esse gasto seja consiente.</p>
             </div>
-
-            <div>
-                <div className="w-full h-full  gap-10 p-4">
+            
+            <div className="w-full flex">
+                <div className="w-1/2 flex flex-col space-y-5">
                     <div>
-                        <p className="text-lg text-snow-600">Saldo Atual</p>
-                        <h1 className="text-left text-snow-400 font-bold text-6xl">R$1,941.29</h1>
+                        <p className="text-snow-600">Saldo total</p>
+                        <h1 className="text-5xl font-bold text-snow-400">R$350.29</h1>
                     </div>
+                    <Chart />
+                </div>
+                <div className="w-1/2 bg-red-600">
+
                 </div>
             </div>
         </section>

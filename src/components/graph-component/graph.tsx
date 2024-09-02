@@ -1,48 +1,27 @@
-import React from 'react';
-import FakeData from "./fake-data.json"
-import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { Line, LineChart, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Legend, Tooltip, AreaChart, Area } from "recharts";
 
-interface FakeDataType{
-  isodate: number,
-  expenses: number
-  gains: number
-}
+// Aqui está a data definida no seu componente. Certifique-se de que os dados que deseja usar no gráfico estejam corretos.
+const data = [
+  { day: 1, gained: 103.81, expended: 29.12 },
+  { day: 2, gained: 115.34, expended: 10.12 },
+  { day: 3, gained: 153.81, expended: 89.12 },
+  { day: 4, gained: 13.81, expended: 209.12 },
+];
 
-const transformData = (data: FakeDataType[]) => {
-  return data.map(item => ({
-    date: new Date(item["isodate"] * 1000).toLocaleDateString(),
-    expenses: item.expenses,
-    gains: item.gains
-  }));
-};
-  
-
-
-export default function MontainGraph() {
-  const data = transformData(FakeData)
-
+export function Chart() {
   return (
-    <ResponsiveContainer width="100%" className="bg-red-500">
-       <AreaChart data={data}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="date" />
+      <ResponsiveContainer width="100%" height={300}>
+      <AreaChart
+        
+        data={data}
+      >
+        <CartesianGrid strokeDasharray="0 0" strokeOpacity={0.06} />
+        <XAxis dataKey="day" />
         <YAxis />
         <Tooltip />
         <Legend />
-        <Area 
-          type="monotone"
-          dataKey="expenses"
-          stroke="#ff7300"
-          fill="#ff7300"
-          fillOpacity={0.4}
-        />
-        <Area 
-          type="monotone"
-          dataKey="gains"
-          stroke="#387908"
-          fill="#387908"
-          fillOpacity={0.4}
-        />
+        <Area activeDot={false} type="linear" dataKey="gained" fill="#72B01D" stroke="#72B01D" />
+        <Area activeDot={false} type="linear" dataKey="expended" fill="#D7263D" stroke="#D7263D" />
       </AreaChart>
     </ResponsiveContainer>
   );
