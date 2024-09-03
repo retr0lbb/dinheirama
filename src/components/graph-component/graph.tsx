@@ -20,11 +20,6 @@ export function Chart() {
             <Area activeDot={false} type="linear" dataKey="expended" fill="#D7263D" stroke="#D7263D" />
           </AreaChart>
         </ResponsiveContainer>
-        <div className="flex w-full items-center gap-2">
-          <RadioButton Label="10 dias" name="daysby" id="10button" value={10}/>
-          <RadioButton Label="15 dias" name="daysby" id="15button" value={15}/>
-          <RadioButton Label="30 dias" name="daysby" id="30button" value={30}/>
-        </div>
       </>
   );
 }

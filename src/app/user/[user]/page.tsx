@@ -6,6 +6,7 @@ import { FaCarSide } from "react-icons/fa6";
 import { FaScroll } from "react-icons/fa";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { Chart } from "@/components/graph-component/graph";
+import { RadioButton } from "@/components/radio-button";
 
 
 interface UserPageProps{
@@ -35,10 +36,19 @@ export default function UserPage({params}: UserPageProps){
             </div>
             
             <div className="w-full flex">
-                <div className="w-1/2 flex flex-col space-y-5">
-                    <div>
-                        <p className="text-snow-600">Saldo total</p>
-                        <h1 className="text-5xl font-bold text-snow-400">R$350.29</h1>
+                <div className="w-1/2 flex flex-col space-y-8">
+                    <div className="flex w-full items-end justify-between pl-10 pr-2">
+                        <div>
+                            <p className="text-snow-600">Saldo total</p>
+                            <h1 className="text-5xl font-bold text-snow-400">R$350.29</h1>
+                        </div>
+
+
+                        <div className="flex items-center gap-2">
+                            <RadioButton Label="10 dias" name="daysby" id="10button" value={10}/>
+                            <RadioButton Label="15 dias" name="daysby" id="15button" value={15}/>
+                            <RadioButton Label="30 dias" name="daysby" id="30button" value={30}/>
+                        </div>
                     </div>
                     <Chart />
                 </div>
