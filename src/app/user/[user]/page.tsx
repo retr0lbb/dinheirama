@@ -1,12 +1,9 @@
 "use client";
-import { Button } from "@/components/button";
-import { Modal } from "@/components/modal";
+
 import { notFound } from "next/navigation";
-import { FaCarSide } from "react-icons/fa6";
-import { FaScroll } from "react-icons/fa";
-import { IoMdArrowDropdown } from "react-icons/io";
 import { Chart } from "@/components/graph-component/graph";
 import { RadioButton } from "@/components/radio-button";
+import { useState } from "react";
 
 
 interface UserPageProps{
@@ -21,7 +18,12 @@ enum MODAL_CONTROL{
 
 
 export default function UserPage({params}: UserPageProps){
-    
+    const [numberOfRegisters, setNumberOfRegisters] = useState(10);
+
+
+    const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setNumberOfRegisters(Number(event.target.value)); // Atualiza o estado com o valor selecionado
+    };
     const {user} = params
 
     if(!user){
@@ -45,15 +47,20 @@ export default function UserPage({params}: UserPageProps){
 
 
                         <div className="flex items-center gap-2">
-                            <RadioButton Label="10 dias" name="daysby" id="10button" value={10}/>
-                            <RadioButton Label="15 dias" name="daysby" id="15button" value={15}/>
-                            <RadioButton Label="30 dias" name="daysby" id="30button" value={30}/>
+                            <RadioButton onChange={handleRadioChange} sizes="md" Label="10 dias" name="daysby" id="10button" value={10}/>
+                            <RadioButton onChange={handleRadioChange} sizes="md" Label="15 dias" name="daysby" id="15button" value={15}/>
+                            <RadioButton onChange={handleRadioChange} sizes="md" Label="30 dias" name="daysby" id="30button" value={30}/>
                         </div>
                     </div>
-                    <Chart />
+                    <Chart numberOfRegister={numberOfRegisters}/>
                 </div>
-                <div className="w-1/2 bg-red-600">
-
+                <div className="w-1/2">
+                    <div className="bg-snow-800 rounded-md p-4">
+                        <div>
+                            <h1 className="text-3xl text-snow-400 font-bold">Classificar Gastos</h1>
+                            <p className="text-sm text-snow-600">Classifique os seus gastos que teve no dia</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

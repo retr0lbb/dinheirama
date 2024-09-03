@@ -2,14 +2,19 @@ import { Line, LineChart, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Lege
 import {FinData, generateSmothFakeDataBasedOnValued} from "./utils"
 import { RadioButton } from "../radio-button";
 // Aqui está a data definida no seu componente. Certifique-se de que os dados que deseja usar no gráfico estejam corretos.
-const data: FinData[] = generateSmothFakeDataBasedOnValued(10)
 
-export function Chart() {
+interface ChartProps{
+  numberOfRegister?: number
+}
+export function Chart({numberOfRegister = 10}: ChartProps) {
+  const data: FinData[] = generateSmothFakeDataBasedOnValued(30)
+
+  const slicedData = data.slice(0, numberOfRegister)
   return (
       <>
         <ResponsiveContainer width="100%" height={300}>
           <AreaChart   
-            data={data}
+            data={slicedData}
           >
             <CartesianGrid strokeDasharray="0 0" strokeOpacity={0.06} />
             <XAxis dataKey="day" />
