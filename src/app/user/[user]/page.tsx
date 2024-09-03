@@ -1,10 +1,10 @@
 "use client";
-
 import { notFound } from "next/navigation";
 import { Chart } from "@/components/graph-component/graph";
 import { RadioButton } from "@/components/radio-button";
 import { useState } from "react";
-
+import { Button } from "@/components/button";
+import { FaPlus } from "react-icons/fa";
 
 interface UserPageProps{
     params: {
@@ -22,7 +22,7 @@ export default function UserPage({params}: UserPageProps){
 
 
     const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setNumberOfRegisters(Number(event.target.value)); // Atualiza o estado com o valor selecionado
+        setNumberOfRegisters(Number(event.target.value));
     };
     const {user} = params
 
@@ -55,10 +55,19 @@ export default function UserPage({params}: UserPageProps){
                     <Chart numberOfRegister={numberOfRegisters}/>
                 </div>
                 <div className="w-1/2">
-                    <div className="bg-snow-800 rounded-md p-4">
+                    <div className="bg-snow-800 rounded-md p-4 flex flex-col items-center justify-center">
                         <div>
                             <h1 className="text-3xl text-snow-400 font-bold">Classificar Gastos</h1>
                             <p className="text-sm text-snow-600">Classifique os seus gastos que teve no dia</p>
+                        </div>
+
+
+                        <div>
+                            <Button>
+                                <FaPlus />
+                                Cadastrar despesas
+                            </Button>
+
                         </div>
                     </div>
                 </div>

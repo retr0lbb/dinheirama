@@ -4,7 +4,7 @@ import { tv, VariantProps } from "tailwind-variants"
 
 
 const button = tv({
-    base: "flex flex-col items-center w-full justify-center rounded-lg",
+    base: "flex gap-2 items-center w-full justify-center rounded-lg",
     variants: {
         variant: {
             primary: "bg-apple_green text-snow-200 shadow-md transition-all border border-snow-800 hover:bg-ofice_green",
