@@ -15,7 +15,7 @@ interface UserPageProps{
 enum MODAL_CONTROL{
     NONE = 0
 }
-
+    
 
 export default function UserPage({params}: UserPageProps){
     const [numberOfRegisters, setNumberOfRegisters] = useState(10);
@@ -76,7 +76,7 @@ export default function UserPage({params}: UserPageProps){
 
 
             {/* Modal section area */}
-            
+
         </section>
     )
 }
