@@ -5,6 +5,7 @@ import { RadioButton } from "@/components/radio-button";
 import { useState } from "react";
 import { Button } from "@/components/button";
 import { FaPlus } from "react-icons/fa";
+import { IoFastFoodOutline, IoTrashOutline } from "react-icons/io5";
 
 interface UserPageProps{
     params: {
@@ -37,8 +38,8 @@ export default function UserPage({params}: UserPageProps){
                 <p className="text-lg text-snow-800">não ha nenhum problema em gastar dinheiro des de que esse gasto seja consiente.</p>
             </div>
             
-            <div className="w-full flex">
-                <div className="w-1/2 flex flex-col space-y-8">
+            <div className="w-full flex items-baseline justify-between gap-12">
+                <div className="flex flex-col space-y-8 flex-1">
                     <div className="flex w-full items-end justify-between pl-10 pr-2">
                         <div>
                             <p className="text-snow-600">Saldo total</p>
@@ -54,18 +55,28 @@ export default function UserPage({params}: UserPageProps){
                     </div>
                     <Chart numberOfRegister={numberOfRegisters}/>
                 </div>
-                <div>
-                    <div className="bg-snow-800 rounded-md px-5 py-4 flex flex-col items-center justify-center">
+                <div className="flex items-center justify-center w-1/3">
+                    <div className="bg-snow-800 rounded-md px-5 py-4 flex flex-col items-center justify-center w-full">
                         <div>
                             <h1 className="text-3xl text-snow-400 font-bold">Classificar Gastos</h1>
                             <p className="text-sm text-snow-600">Classifique os seus gastos que teve no dia</p>
+                        </div>
+
+                        <div>
+
+                            <div className="flex items-center justify-between">
+                                <IoFastFoodOutline />
+                                <p className="text-danger_red font-bold text-xl">-10.92</p>
+                                <IoTrashOutline />
+                            </div>
+
                         </div>
 
 
                         <div>
                             <Button>
                                 <FaPlus />
-                                Cadastrar despesas
+                                <p>Cadastrar despesas</p>
                             </Button>
 
                         </div>
