@@ -54,8 +54,8 @@ export default function UserPage({params}: UserPageProps){
                     </div>
                     <Chart numberOfRegister={numberOfRegisters}/>
                 </div>
-                <div className="w-1/2">
-                    <div className="bg-snow-800 rounded-md p-4 flex flex-col items-center justify-center">
+                <div>
+                    <div className="bg-snow-800 rounded-md px-5 py-4 flex flex-col items-center justify-center">
                         <div>
                             <h1 className="text-3xl text-snow-400 font-bold">Classificar Gastos</h1>
                             <p className="text-sm text-snow-600">Classifique os seus gastos que teve no dia</p>
@@ -72,6 +72,11 @@ export default function UserPage({params}: UserPageProps){
                     </div>
                 </div>
             </div>
+
+
+
+            {/* Modal section area */}
+            
         </section>
     )
 }
