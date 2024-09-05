@@ -116,9 +116,20 @@ export default function UserPage({params}: UserPageProps){
                     </div>
                 </div>
 
-                <div className="border border-apple_green rounded-xl col-span-5 flex items-center justify-center">
+                <div className="border border-apple_green rounded-xl col-span-5 flex flex-col items-center justify-center">
                     <div>
-                        <h1 className="text-snow-400 text-3xl font-bold">Progresso para Meta diaria</h1>
+                        <h1 className="text-snow-400 text-2xl font-bold">Progresso diario</h1>
+                    </div>
+                    <div className="flex items-center w-full text-snow-400">
+                        <p>R$0</p>
+                        <input
+                          className="w-full"
+                          type="range"
+                          value={7.12}
+                          max={10}
+                          disabled={true} 
+                        />
+                        <p>R$10,00</p>
                     </div>
                 </div>
             </div>
