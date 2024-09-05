@@ -38,12 +38,13 @@ export default function UserPage({params}: UserPageProps){
     }
 
      return(
-        <section className="w-full h-full p-4 overflow-hidden space-y-6">
-            <div className="w-full">
+        <section className="w-full h-full p-5 overflow-y-auto flex flex-col space-y-10">
+            <div className="w-full p-4 space-y-1">
                 <h1 className="text-snow-400 font-bold text-6xl">Saldo e despesas</h1>
+                <p className="text-snow-600 text-lg">Lembre-se gaste concientemente e mude o seu estilo de vida, esse é o primeiro passo para ficar rico</p>
             </div>
             
-            <div className="w-full grid grid-cols-5 grid-rows-3 gap-2">
+            <div className="w-full grid grid-cols-5 grid-rows-4 gap-2">
                     
                 <div className="flex flex-col justify-between col-span-2 border border-snow-800 shadow shadow-snow-400/10 p-4 rounded-lg space-y-4">
                     <div>
@@ -73,16 +74,16 @@ export default function UserPage({params}: UserPageProps){
                 
                 
                 <div className="flex w-full col-span-2 items-center gap-2">
-                    <div className="bg-snow-800 rounded-xl p-5 text-snow-400 border border-snow-600/20">
+                    <div className="bg-snow-800 w-full rounded-xl p-5 text-snow-400 border border-snow-600/20">
                         <p className="text-snow-600 text-sm">Montly Income</p>
-                        <div className="flex items-center justify-between gap-2">
+                        <div className="flex items-center justify-end gap-2">
                             <TiArrowSortedUp className="text-ofice_green size-5" />
                             <p className="font-bold text-2xl">R$1.200,00</p>
                         </div>
                     </div>
-                    <div className="bg-snow-800 rounded-xl p-5 text-snow-400 border border-snow-600/20">
+                    <div className="bg-snow-800 w-full rounded-xl p-5 text-snow-400 border border-snow-600/20">
                         <p className="text-snow-600 text-sm">Montly Expenses</p>
-                        <div className="flex items-center justify-between gap-2">
+                        <div className="flex items-center justify-end gap-2">
                             <TiArrowSortedUp className="text-danger_red rotate-180 size-5" />
                             <p className="font-bold text-2xl">R$947,00</p>
                         </div>
@@ -115,24 +116,12 @@ export default function UserPage({params}: UserPageProps){
                     </div>
                 </div>
 
+                <div className="border border-apple_green rounded-xl col-span-5 flex items-center justify-center">
+                    <div>
+                        <h1 className="text-snow-400 text-3xl font-bold">Progresso para Meta diaria</h1>
+                    </div>
+                </div>
             </div>
-
         </section>
     )
 }
-
-
-/**
- * 
- * 
- * <div className="flex flex-col items-center gap-2">
-                            
-                            <RadioButton onChange={handleRadioChange} sizes="md" Label="10 dias" name="daysby" id="10button" value={10}/>
-                            <RadioButton onChange={handleRadioChange} sizes="md" Label="15 dias" name="daysby" id="15button" value={15}/>
-                            <RadioButton onChange={handleRadioChange} sizes="md" Label="30 dias" name="daysby" id="30button" value={30}/>
-
-                            <div>
-                                <Chart numberOfRegister={numberOfRegisters}/>
-                            </div>
-                        </div>
- */

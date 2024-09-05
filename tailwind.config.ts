@@ -25,7 +25,8 @@ const config: Config = {
         apple_green: "#72B01D",
         ofice_green: "#3F7D20",
         danger_red: "#D7263D",
-        dang_blue: "#4056F4"
+        dang_blue: "#4056F4",
+        strong_violet: "#7209b7"
       }
     },
   },
