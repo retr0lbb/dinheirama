@@ -1,7 +1,6 @@
-import { Line, LineChart, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Legend, Tooltip, AreaChart, Area } from "recharts";
+import { ResponsiveContainer, XAxis, YAxis, CartesianGrid, Legend, Tooltip, AreaChart, Area } from "recharts";
 import {FinData, generateSmothFakeDataBasedOnValued} from "./utils"
-import { RadioButton } from "../radio-button";
-// Aqui está a data definida no seu componente. Certifique-se de que os dados que deseja usar no gráfico estejam corretos.
+
 
 interface ChartProps{
   numberOfRegister?: number
