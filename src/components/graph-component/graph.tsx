@@ -11,7 +11,7 @@ export function Chart({numberOfRegister = 10}: ChartProps) {
   const slicedData = data.slice(0, numberOfRegister)
   return (
       <>
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="100%" height="100%">
           <AreaChart   
             data={slicedData}
           >
