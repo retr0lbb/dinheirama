@@ -9,7 +9,8 @@ import { IoFastFoodOutline, IoTrashOutline } from "react-icons/io5";
 import { FaUber, FaPlaystation} from "react-icons/fa";
 import { FaBowlFood } from "react-icons/fa6";
 import { TiArrowSortedUp } from "react-icons/ti";
-import { SiNubank } from "react-icons/si";
+import { SiNubank, SiAudi } from "react-icons/si";
+import { RangeSliderShown } from "@/components/slider-shown";
 
 
 interface UserPageProps{
@@ -118,18 +119,17 @@ export default function UserPage({params}: UserPageProps){
 
                 <div className="border border-apple_green rounded-xl col-span-5 flex flex-col items-center justify-center">
                     <div>
-                        <h1 className="text-snow-400 text-2xl font-bold">Progresso diario</h1>
+                        <h1 className="text-snow-400 text-2xl font-bold">Para o proximo objetivo:</h1>
+
+                        <div>
+                            <SiAudi />
+                            <h1>Comprar um carro novo</h1>
+                        </div>
                     </div>
                     <div className="flex items-center w-full text-snow-400">
-                        <p>R$0</p>
-                        <input
-                          className="w-full"
-                          type="range"
-                          value={7.12}
-                          max={10}
-                          disabled={true} 
-                        />
-                        <p>R$10,00</p>
+                        <p>R$70</p>
+                        <RangeSliderShown minValue={70} maxValue={1000} percentage={478} />
+                        <p>R$1.000,00</p>
                     </div>
                 </div>
             </div>
