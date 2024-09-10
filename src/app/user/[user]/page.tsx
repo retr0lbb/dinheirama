@@ -48,7 +48,7 @@ export default function UserPage({params}: UserPageProps){
             
             <div className="w-full grid grid-cols-5 grid-rows-4 gap-2">
 
-                <div className="rounded-xl p-5 col-span-3 flex flex-col justify-center">
+                <div className="rounded-xl p-5 col-span-5 flex flex-col justify-center">
                     <div className="">
                         <h1 className="text-snow-400 text-2xl font-bold">Para o proximo objetivo:</h1>  
                         <div className="flex items-center">
@@ -67,11 +67,9 @@ export default function UserPage({params}: UserPageProps){
                         <RangeSliderShown minValue={0} maxValue={30000} percentage={10000} />
                     </div>
                 </div>
-                <div className="col-span-2" >
-                    <StackedBankCards />
-                </div>
+                
 
-                <div className="flex flex-col justify-between col-span-2 border border-snow-800 shadow shadow-snow-400/10 p-4 rounded-lg space-y-4">
+                {/* <div className="flex flex-col justify-between col-span-2 border border-snow-800 shadow shadow-snow-400/10 p-4 rounded-lg space-y-4">
                     <div>
                         <p className="text-snow-600">Saldo disponivel</p>
                         <h1 className="text-5xl font-bold text-snow-400">R$350.29</h1>
@@ -79,6 +77,10 @@ export default function UserPage({params}: UserPageProps){
                     <div className="flex items-center text-snow-600 gap-2 justify-between">
                         <p>69**-***-**12</p> <SiNubank className="size-8 text-purple-600"/>
                     </div>
+                </div> */}
+
+                <div className="col-span-2 row-span-2" >
+                    <StackedBankCards />
                 </div>
 
                 
@@ -98,7 +100,7 @@ export default function UserPage({params}: UserPageProps){
                 </div>
                 
                 
-                <div className="flex w-full col-span-2 items-center gap-2">
+                {/* <div className="flex w-full col-span-2 items-center gap-2">
                     <div className="bg-snow-800 w-full rounded-xl p-5 text-snow-400 border border-snow-600/20">
                         <p className="text-snow-600 text-sm">Montly Income</p>
                         <div className="flex items-center justify-end gap-2">
@@ -113,7 +115,7 @@ export default function UserPage({params}: UserPageProps){
                             <p className="font-bold text-2xl">R$947,00</p>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="flex col-span-2 gap-2 flex-col">
                     <div>
