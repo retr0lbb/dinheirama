@@ -11,6 +11,7 @@ import { FaBowlFood } from "react-icons/fa6";
 import { TiArrowSortedUp } from "react-icons/ti";
 import { SiNubank, SiAudi } from "react-icons/si";
 import { RangeSliderShown } from "@/components/slider-shown";
+import { StackedBankCards } from "@/components/stacked-card";
 
 
 interface UserPageProps{
@@ -66,7 +67,9 @@ export default function UserPage({params}: UserPageProps){
                         <RangeSliderShown minValue={0} maxValue={30000} percentage={10000} />
                     </div>
                 </div>
-                <div className="col-span-2" />
+                <div className="col-span-2" >
+                    <StackedBankCards />
+                </div>
 
                 <div className="flex flex-col justify-between col-span-2 border border-snow-800 shadow shadow-snow-400/10 p-4 rounded-lg space-y-4">
                     <div>
