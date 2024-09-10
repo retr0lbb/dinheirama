@@ -39,14 +39,35 @@ export default function UserPage({params}: UserPageProps){
     }
 
      return(
-        <section className="w-full h-full p-5 overflow-y-auto flex flex-col space-y-10">
+        <section className="w-full h-full p-5 overflow-y-auto flex flex-col space-y-5">
             <div className="w-full p-4 space-y-1">
                 <h1 className="text-snow-400 font-bold text-6xl">Saldo e despesas</h1>
                 <p className="text-snow-600 text-lg">Lembre-se gaste concientemente e mude o seu estilo de vida, esse é o primeiro passo para ficar rico</p>
             </div>
             
             <div className="w-full grid grid-cols-5 grid-rows-4 gap-2">
+
+                <div className="rounded-xl p-5 col-span-3 flex flex-col justify-center">
+                    <div className="">
+                        <h1 className="text-snow-400 text-2xl font-bold">Para o proximo objetivo:</h1>  
+                        <div className="flex items-center">
+                            <div className="flex flex-1 items-center gap-2">
+                                <SiAudi className="text-apple_green size-16" />
+                                <h1 className="text-snow-400">Comprar um carro novo</h1>
+                            </div>
+                            <div>
+                                <p className="text-snow-400 text-3xl">R$ 10,000/<span className="text-snow-600">30,000</span></p>
+                            </div>
+                        </div>
+                    </div>
                     
+                    
+                    <div className="flex items-center w-full gap-2 text-snow-400">
+                        <RangeSliderShown minValue={0} maxValue={30000} percentage={10000} />
+                    </div>
+                </div>
+                <div className="col-span-2" />
+
                 <div className="flex flex-col justify-between col-span-2 border border-snow-800 shadow shadow-snow-400/10 p-4 rounded-lg space-y-4">
                     <div>
                         <p className="text-snow-600">Saldo disponivel</p>
@@ -114,27 +135,6 @@ export default function UserPage({params}: UserPageProps){
                             <p className="text-sm font-bold mt-1">R$201,98</p>
                             <FaPlaystation className="absolute size-6 bottom-4 left-4" />
                         </div>
-                    </div>
-                </div>
-
-                <div className="rounded-xl p-5 col-span-2 bg-snow-800 flex flex-col justify-center">
-                    
-                    <div className="">
-                        <h1 className="text-snow-400 text-2xl font-bold">Para o proximo objetivo:</h1>  
-                        <div className="flex items-center">
-                            <div className="flex flex-1 items-center gap-2">
-                                <SiAudi className="text-apple_green size-16" />
-                                <h1 className="text-snow-400">Comprar um carro novo</h1>
-                            </div>
-                            <div>
-                                <p className="text-snow-400 text-3xl">R$400/<span>300</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    
-                    <div className="flex items-center w-full gap-2 text-snow-400">
-                        <RangeSliderShown minValue={100} maxValue={1000} percentage={478} />
                     </div>
                 </div>
             </div>
