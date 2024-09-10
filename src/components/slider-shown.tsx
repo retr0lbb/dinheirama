@@ -23,9 +23,7 @@ export function RangeSliderShown({maxValue, percentage, minValue = 0}: RangeSlid
     
     return(
         <div className="w-full h-3 relative rounded-full border border-snow-600/20 bg-snow-800">
-            <div style={{width: `${returnInPercentHowMuchIsValue(maxValue, percentage, minValue)}%`}} className={`absolute flex items-center justify-end rounded-full inset-0 bg-apple_green`}>
-                <div className="text-snow-200 mt-8 pl-12">R${percentage}</div>
-            </div>
+            <div style={{width: `${returnInPercentHowMuchIsValue(maxValue, percentage, minValue)}%`}} className={`absolute flex items-center justify-end rounded-full inset-0 bg-apple_green`}></div>
         </div>
     )
 }   
