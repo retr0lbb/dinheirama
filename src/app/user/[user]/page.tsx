@@ -117,24 +117,24 @@ export default function UserPage({params}: UserPageProps){
                     </div>
                 </div>
 
-                <div className="rounded-xl p-5 col-span-5 flex flex-col justify-center">
-                    <div className="flex items-center">
-                        <div className="">
-                            <h1 className="text-snow-400 text-2xl font-bold">Para o proximo objetivo:</h1>  
-                            <div className="flex items-center gap-2">
+                <div className="rounded-xl p-5 col-span-2 bg-snow-800 flex flex-col justify-center">
+                    
+                    <div className="">
+                        <h1 className="text-snow-400 text-2xl font-bold">Para o proximo objetivo:</h1>  
+                        <div className="flex items-center">
+                            <div className="flex flex-1 items-center gap-2">
                                 <SiAudi className="text-apple_green size-16" />
                                 <h1 className="text-snow-400">Comprar um carro novo</h1>
                             </div>
-                        </div>
-
-                        <div>
-                            <p className="text-snow-400">R$400/1000</p>
+                            <div>
+                                <p className="text-snow-400 text-3xl">R$400/<span>300</span></p>
+                            </div>
                         </div>
                     </div>
-                    <div className="flex items-center w-96 gap-2 text-snow-400">
-                        <p>R$100</p>
+                    
+                    
+                    <div className="flex items-center w-full gap-2 text-snow-400">
                         <RangeSliderShown minValue={100} maxValue={1000} percentage={478} />
-                        <p>R$1.000,00</p>
                     </div>
                 </div>
             </div>
