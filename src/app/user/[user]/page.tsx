@@ -128,7 +128,7 @@ export default function UserPage({params}: UserPageProps){
                     </div>
                     <div className="flex items-center w-full text-snow-400">
                         <p>R$70</p>
-                        <RangeSliderShown minValue={70} maxValue={1000} percentage={478} />
+                        <RangeSliderShown minValue={7000} maxValue={1000} percentage={478} />
                         <p>R$1.000,00</p>
                     </div>
                 </div>
