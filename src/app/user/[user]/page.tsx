@@ -80,7 +80,7 @@ export default function UserPage({params}: UserPageProps){
                 </div> */}
 
                 <div className="col-span-2 row-span-2" >
-                    <StackedBankCards />
+                    <StackedBankCards accountType="Débito" ammount={1892.90} accountLast4DigitsNumber={1919} expirationDate="12/25"/>
                 </div>
 
                 
