@@ -1,5 +1,6 @@
 import { FcSimCardChip } from "react-icons/fc";
 import { SiMastercard } from "react-icons/si";
+import {moneyFormatter} from "@/utils/money-string-formatter"
 
 
 interface CardProps {
@@ -10,14 +11,9 @@ interface CardProps {
 }
 
 export function StackedBankCards(props: CardProps){
-    const moneyFormatter = new Intl.NumberFormat('pt-br', {
-        style: "currency",
-        currency: "BRL",
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-    })
+
     return(
-        <div className="bg-gradient-to-br from-strong_violet to-dang_blue w-full h-full rounded-3xl aspect-video p-5 flex flex-col justify-evenly">
+        <div className="bg-gradient-to-br from-strong_violet to-dang_blue w-full h-full rounded-3xl aspect-video px-6 py-8 flex flex-col justify-evenly">
             <div className="w-full flex items-center justify-between">
                 <FcSimCardChip className="size-20" />
                 <SiMastercard className="size-20 text-snow-200"/>
