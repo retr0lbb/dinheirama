@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Dinheirama
 
-## Getting Started
 
-First, run the development server:
+### Descrição
 
+Dinheirama é uma plataforma gamificada e interativa focada em ensinar jovens controle financeiro, educação financeira e até investimentos. A plataforma tem o objetivo de ensinar os joves que estão no primeiro emprego a como lidar com o salario e evitar entrar em dividas por coisas irresponsaveis.
+
+## Tecnologias Usadas
+
+- __Next.js__ Framework react fullstack que foi usado para desenvolver o frontend.
+- __React__ Biblioteca para construção de interfaces baseadas em componentes.
+- __TailwindCSS__ Framework CSS com estilização por classes.
+- __Framer Motion__ Biblioteca de animações baseadas em React.
+
+
+## Como execultar o projeto:
+
+1. Clone esse repositório na sua maquina local com o comando:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/retr0lbb/dinheirama.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Entre na pasta do arquivo e instale as dependencias:
+```bash
+cd dinheirama
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Rode o projeto e veja como ele funciona 🙂:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 2 Estrutura basica
+dentro da pasta `src/` exsitem as pastas:
 
-## Learn More
+- `app/` onde estão localizadas as rotas da aplicação com os arquivos `page.tsx` e suas subpastas.
+- `components/` onde estão localizados os componentes re-ultilizaveis, componentes na pattern composition devem ter sua propria pasta.
+- `static/` onde estão os arquivos estaticos como imagens estaticas.
+- `utils/` onde estão funções uteis que podem ser usadas em qualquer lugar da aplicação.
 
-To learn more about Next.js, take a look at the following resources:
+> Em __desenvolvimento__ novas pastas podem ser criadas
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Como contribuir
+Caso queira contribuir para o projeto procure na pasta raiz desse repositorio um arquivo com o nome de `CONTRIBUTING.md` e la tera todas as informações necessarias para contribuir com o repositorio
 
-## Deploy on Vercel
+### Obrigado por ler 💓
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
