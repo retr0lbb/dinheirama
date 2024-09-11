@@ -31,7 +31,7 @@ npm install
 npm run dev
 ```
 
-## 2 Estrutura basica
+## Estrutura basica
 dentro da pasta `src/` exsitem as pastas:
 
 - `app/` onde estão localizadas as rotas da aplicação com os arquivos `page.tsx` e suas subpastas.
