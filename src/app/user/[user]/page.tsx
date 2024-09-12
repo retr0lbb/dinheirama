@@ -81,9 +81,9 @@ export default function UserPage({params}: UserPageProps){
 
                 
                 <StackedCards.Root>
-                    <StackedCards.BankCard isDragAble className="z-50" accountType="Débito" ammount={1892.90} accountLast4DigitsNumber={1919} expirationDate="12/25"/>
-                    <StackedCards.BankCard className="z-40" isDragAble={false} gradientColors="greenToLime" gradientDirection="tr" ofset={2} accountType="Débito" ammount={1892.90} accountLast4DigitsNumber={1919} expirationDate="12/25"/>
-                    <StackedCards.BankCard className="" isDragAble={false} gradientColors="greenToLime" gradientDirection="tr" ofset={4} accountType="Débito" ammount={1892.90} accountLast4DigitsNumber={1919} expirationDate="12/25"/>
+                    <StackedCards.BankCard isDragAble gradientColors="greenToLime" className="z-50" cardData={{accountType: "Crédito", ammount: 60023.39, expirationDate: "12/25", accountLast4DigitsNumber: 1291}}/>
+                    <StackedCards.BankCard isDragAble ofset={2} className="z-40" cardData={{accountType: "Débito", ammount: 712.39, expirationDate: "02/26", accountLast4DigitsNumber: 3728}}/>
+                    <StackedCards.BankCard isDragAble ofset={4}  className="z-30 bg-gradient-smooth-blue" cardData={{accountType: "Outro", ammount: 4992.39, expirationDate: "05/26", accountLast4DigitsNumber: 3321}}/>
                 </StackedCards.Root>
                 
 

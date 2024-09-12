@@ -6,14 +6,19 @@ import { motion, useDragControls } from "framer-motion"
 import { tv, VariantProps } from "tailwind-variants"
 
 
-interface CardProps extends VariantProps<typeof bankCardVariant>{
+interface cardData{
     accountType: "Débito" | "Crédito" | "Poupança" | "Outro",
     ammount: number,
     accountLast4DigitsNumber?: number
     expirationDate: string;
-    isDragAble: boolean,
-    className?: string
 }
+
+interface CardProps extends VariantProps<typeof bankCardVariant>{
+    isDragAble: boolean,
+    className?: string,
+    cardData: cardData
+}
+
 
 
 const bankCardVariant = tv({
@@ -45,13 +50,11 @@ const bankCardVariant = tv({
 })
 
 
-const classname= ""
-
-export function BankCard({className, ofset, gradientDirection, gradientColors ,...props}: CardProps){
+export function BankCard({className, ofset, gradientDirection, gradientColors, isDragAble, cardData}: CardProps){
     const controls = useDragControls()
     return(
         <motion.div
-          drag={props.isDragAble === true? "y": false}
+          drag={isDragAble === true? "y": false}
           dragControls={controls}
           dragConstraints={{top: -100, bottom: -10}}
           dragDirectionLock={true}
@@ -65,19 +68,19 @@ export function BankCard({className, ofset, gradientDirection, gradientColors ,.
             </div>
 
             <div className="flex flex-1 justify-center flex-col">
-                <h1 className="text-snow-400 text-xl">{props.accountType}</h1>
-                <p className="text-snow-200 font-semibold text-6xl">{moneyFormatter.format(props.ammount)}</p>
+                <h1 className="text-snow-400 text-xl">{cardData.accountType}</h1>
+                <p className="text-snow-200 font-semibold text-6xl">{moneyFormatter.format(cardData.ammount)}</p>
             </div>
 
             <div className="flex items-center justify-between">
                 <div>
                     <h1 className="font-light text-snow-400 text-lg">Débito</h1>
-                    <p className="text-snow-200 font-semibold text-2xl"><span>••••</span> <span>••••</span> <span>••••</span> <span>{`${props.accountLast4DigitsNumber ?? "0000"}`}</span></p>
+                    <p className="text-snow-200 font-semibold text-2xl"><span>••••</span> <span>••••</span> <span>••••</span> <span>{`${cardData.accountLast4DigitsNumber ?? "0000"}`}</span></p>
                 </div>
 
                 <div>
                     <h1 className="font-light text-snow-400 text-lg">Data Validade</h1>
-                    <p className="font-semibold text-2xl text-snow-200">{props.expirationDate}</p>
+                    <p className="font-semibold text-2xl text-snow-200">{cardData.expirationDate}</p>
                 </div>
             </div>
         </motion.div>
