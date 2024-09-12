@@ -11,7 +11,7 @@ import { FaBowlFood } from "react-icons/fa6";
 import { TiArrowSortedUp } from "react-icons/ti";
 import { SiNubank, SiAudi } from "react-icons/si";
 import { RangeSliderShown } from "@/components/slider-shown";
-import { StackedBankCards } from "@/components/stacked-card";
+import StackedCards from "@/components/stacked-cards";
 
 
 interface UserPageProps{
@@ -40,7 +40,7 @@ export default function UserPage({params}: UserPageProps){
     }
 
      return(
-        <section className="w-full h-full p-5 overflow-y-auto flex flex-col space-y-5">
+        <section className="w-full h-full p-5 overflow-y-auto flex flex-col space-y-4">
             <div className="w-full p-4 space-y-1">
                 <h1 className="text-snow-400 font-bold text-6xl">Saldo e despesas</h1>
                 <p className="text-snow-600 text-lg">Lembre-se gaste concientemente e mude o seu estilo de vida, esse é o primeiro passo para ficar rico</p>
@@ -79,9 +79,13 @@ export default function UserPage({params}: UserPageProps){
                     </div>
                 </div> */}
 
-                <div className="col-span-2 row-span-2" >
-                    <StackedBankCards accountType="Débito" ammount={1892.90} accountLast4DigitsNumber={1919} expirationDate="12/25"/>
-                </div>
+                
+                <StackedCards.Root>
+                    <StackedCards.BankCard isDragAble className="z-50" accountType="Débito" ammount={1892.90} accountLast4DigitsNumber={1919} expirationDate="12/25"/>
+                    <StackedCards.BankCard className="z-40" isDragAble={false} gradientColors="greenToLime" gradientDirection="tr" ofset={2} accountType="Débito" ammount={1892.90} accountLast4DigitsNumber={1919} expirationDate="12/25"/>
+                    <StackedCards.BankCard className="" isDragAble={false} gradientColors="greenToLime" gradientDirection="tr" ofset={4} accountType="Débito" ammount={1892.90} accountLast4DigitsNumber={1919} expirationDate="12/25"/>
+                </StackedCards.Root>
+                
 
                 
                 <div className="col-span-3 row-span-3 flex flex-col items-center overflow-hidden gap-8">
