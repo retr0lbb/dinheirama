@@ -13,19 +13,12 @@ interface cardData{
     expirationDate: string;
 }
 
-interface CardProps extends VariantProps<typeof bankCardVariant>{
-    isDragAble: boolean,
-    className?: string,
-    cardData: cardData
-}
-
-
 
 const bankCardVariant = tv({
     base: "absolute top-0 left-0 w-full h-full rounded-3xl aspect-video px-6 py-8 flex flex-col justify-evenly border border-snow-800/20",
 
     variants: {
-        ofset: {
+        offset: {
             2: "top-2 left-2",
             4: "top-4 left-4",
             6: "top-6 left-6",
@@ -50,7 +43,15 @@ const bankCardVariant = tv({
 })
 
 
-export function BankCard({className, ofset, gradientDirection, gradientColors, isDragAble, cardData}: CardProps){
+export interface CardProps extends VariantProps<typeof bankCardVariant>{
+    isDragAble: boolean,
+    className?: string,
+    cardData: cardData,
+    offset?: 2 | 4 | 6 | 8
+
+}
+
+export function BankCard({className, offset, gradientDirection, gradientColors, isDragAble, cardData}: CardProps){
     const controls = useDragControls()
     return(
         <motion.div
@@ -60,7 +61,7 @@ export function BankCard({className, ofset, gradientDirection, gradientColors, i
           dragDirectionLock={true}
           dragSnapToOrigin={true}
           dragElastic={0.2}
-          className={bankCardVariant({className, ofset, gradientColors, gradientDirection})} 
+          className={bankCardVariant({className, offset, gradientColors, gradientDirection})} 
         >
             <div className="w-full flex items-center justify-between">
                 <FcSimCardChip className="size-20" />
@@ -86,7 +87,3 @@ export function BankCard({className, ofset, gradientDirection, gradientColors, i
         </motion.div>
     )
 }
-
-
-/*Caso precise do classname original: bg-gradient-to-br from-strong_violet to-dang_blue w-full h-full rounded-3xl 
-          aspect-video px-6 py-8 flex flex-col justify-evenly relative border border-snow-800/20 top- */

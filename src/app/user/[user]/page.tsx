@@ -69,21 +69,11 @@ export default function UserPage({params}: UserPageProps){
                 </div>
                 
 
-                {/* <div className="flex flex-col justify-between col-span-2 border border-snow-800 shadow shadow-snow-400/10 p-4 rounded-lg space-y-4">
-                    <div>
-                        <p className="text-snow-600">Saldo disponivel</p>
-                        <h1 className="text-5xl font-bold text-snow-400">R$350.29</h1>
-                    </div>
-                    <div className="flex items-center text-snow-600 gap-2 justify-between">
-                        <p>69**-***-**12</p> <SiNubank className="size-8 text-purple-600"/>
-                    </div>
-                </div> */}
-
                 
                 <StackedCards.Root>
                     <StackedCards.BankCard isDragAble gradientColors="greenToLime" className="z-50" cardData={{accountType: "Crédito", ammount: 60023.39, expirationDate: "12/25", accountLast4DigitsNumber: 1291}}/>
-                    <StackedCards.BankCard isDragAble ofset={2} className="z-40" cardData={{accountType: "Débito", ammount: 712.39, expirationDate: "02/26", accountLast4DigitsNumber: 3728}}/>
-                    <StackedCards.BankCard isDragAble ofset={4}  className="z-30 " cardData={{accountType: "Outro", ammount: 4992.39, expirationDate: "05/26", accountLast4DigitsNumber: 3321}}/>
+                    <StackedCards.BankCard isDragAble offset={2} className="z-40" cardData={{accountType: "Débito", ammount: 712.39, expirationDate: "02/26", accountLast4DigitsNumber: 3728}}/>
+                    <StackedCards.BankCard isDragAble offset={4}  className="z-30 " cardData={{accountType: "Outro", ammount: 4992.39, expirationDate: "05/26", accountLast4DigitsNumber: 3321}}/>
                 </StackedCards.Root>
                 
 
