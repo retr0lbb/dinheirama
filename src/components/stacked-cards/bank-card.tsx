@@ -15,7 +15,7 @@ interface cardData{
 
 
 const bankCardVariant = tv({
-    base: "absolute top-0 left-0 w-full h-full rounded-3xl aspect-video px-6 py-8 flex flex-col justify-evenly border border-snow-800/20",
+    base: "absolute top-0 left-0 w-full h-full rounded-3xl aspect-video px-2 px-4 lg:px-4 lg:py-6 flex flex-col justify-evenly border border-snow-800/20",
     variants: {
 
         Zindex: {
@@ -37,7 +37,10 @@ const bankCardVariant = tv({
         },
         gradientColors: {
             violetToBlue: "from-strong_violet to-dang_blue",
-            greenToLime: "from-apple_green to-ofice_green"
+            greenToLime: "from-apple_green to-ofice_green",
+            gayToGray: "bg-gradient-gray",
+            toBloe: "bg-gradient-smooth-blue",
+            toRemedyRedToLead: "bg-gradient-red-to-lead"
         }
     },
 
@@ -83,19 +86,19 @@ export function BankCard({className, offset, gradientDirection, gradientColors, 
           className={bankCardVariant({className, offset, gradientColors, gradientDirection, Zindex})} 
         >
             <div className="w-full flex items-center justify-between">
-                <FcSimCardChip className="size-20" />
-                <SiMastercard className="size-20 text-snow-200"/>
+                <FcSimCardChip className="size-16 " />
+                <SiMastercard className="size-16 text-snow-200"/>
             </div>
 
             <div className="flex flex-1 justify-center flex-col">
                 <h1 className="text-snow-400 text-xl">{cardData.accountType}</h1>
-                <p className="text-snow-200 font-semibold text-6xl">{moneyFormatter.format(cardData.ammount)}</p>
+                <p className="text-snow-200 font-semibold text-2xl md:text-4xl lg:text-5xl xl:">{moneyFormatter.format(cardData.ammount)}</p>
             </div>
 
             <div className="flex items-center justify-between">
                 <div>
-                    <h1 className="font-light text-snow-400 text-lg">Débito</h1>
-                    <p className="text-snow-200 font-semibold text-2xl"><span>••••</span> <span>••••</span> <span>••••</span> <span>{`${cardData.accountLast4DigitsNumber ?? "0000"}`}</span></p>
+                    <h1 className="font-light text-snow-400 text-sm">Débito</h1>
+                    <p className="text-snow-200 font-semibold text-lg lg:text-2xl"><span>••••</span> <span>••••</span> <span>••••</span> <span>{`${cardData.accountLast4DigitsNumber ?? "0000"}`}</span></p>
                 </div>
 
                 <div>

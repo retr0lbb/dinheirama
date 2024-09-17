@@ -6,9 +6,9 @@ import { BankCard, CardProps } from "./bank-card";
 
 export function Root() {
     const [cards, setCards] = useState<CardProps[]>([
-        { cardData: { accountType: "Poupança", ammount: 1002032, expirationDate: "09/25", accountLast4DigitsNumber: 1293 }, isDragAble: false },
+        { cardData: { accountType: "Poupança", ammount: 1002032, expirationDate: "09/25", accountLast4DigitsNumber: 1293 }, isDragAble: false, },
         { cardData: { accountType: "Débito", ammount: 102.12, expirationDate: "12/26", accountLast4DigitsNumber: 7781 }, isDragAble: false, gradientColors: "greenToLime" },
-        { cardData: { accountType: "Crédito", ammount: 991001, expirationDate: "12/25", accountLast4DigitsNumber: 2212 }, isDragAble: false },
+        { cardData: { accountType: "Crédito", ammount: 991001, expirationDate: "12/25", accountLast4DigitsNumber: 2212 }, isDragAble: false, gradientColors: "toRemedyRedToLead"},
     ]);
 
     function reOrganizeCardsArray(){
