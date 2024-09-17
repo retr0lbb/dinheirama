@@ -16,8 +16,14 @@ interface cardData{
 
 const bankCardVariant = tv({
     base: "absolute top-0 left-0 w-full h-full rounded-3xl aspect-video px-6 py-8 flex flex-col justify-evenly border border-snow-800/20",
-
     variants: {
+
+        Zindex: {
+            50: "z-index-50",
+            40: "z-index-40",
+            30: "z-index-30",
+            20: "z-index-20"
+        },
         offset: {
             2: "top-2 left-2",
             4: "top-4 left-4",
@@ -37,7 +43,8 @@ const bankCardVariant = tv({
 
     defaultVariants: {
         gradientColors: "violetToBlue",
-        gradientDirection: "br"
+        gradientDirection: "br",
+        Zindex: 20
     }
 
 })
@@ -47,11 +54,13 @@ export interface CardProps extends VariantProps<typeof bankCardVariant>{
     isDragAble: boolean,
     className?: string,
     cardData: cardData,
-    offset?: 2 | 4 | 6 | 8
+    offset?: 2 | 4 | 6 | 8,
+    handleDragEnd?: () => void
 
 }
 
-export function BankCard({className, offset, gradientDirection, gradientColors, isDragAble, cardData}: CardProps){
+
+export function BankCard({className, offset, gradientDirection, gradientColors, isDragAble, Zindex, cardData, handleDragEnd}: CardProps){
     const controls = useDragControls()
     return(
         <motion.div
@@ -61,7 +70,17 @@ export function BankCard({className, offset, gradientDirection, gradientColors, 
           dragDirectionLock={true}
           dragSnapToOrigin={true}
           dragElastic={0.2}
-          className={bankCardVariant({className, offset, gradientColors, gradientDirection})} 
+          initial={{
+            top: 0,
+            left: 0,
+            zIndex: 0
+          }}
+          animate={{
+            top: offset? offset *4 : 0,
+            left: offset? offset *4: 0
+          }}
+          onDragEnd={handleDragEnd}
+          className={bankCardVariant({className, offset, gradientColors, gradientDirection, Zindex})} 
         >
             <div className="w-full flex items-center justify-between">
                 <FcSimCardChip className="size-20" />
