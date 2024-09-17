@@ -1,10 +1,9 @@
-"use client";
-import React, { useState } from 'react'
+'use client'
+import type React from 'react'
 import { NavigationBar } from '@/components/navigation-bar'
 import { Avatar } from '@/components/avatar'
 import {
   FaPiggyBank,
-  FaCar,
   FaScroll,
   FaCog,
   FaUser,
@@ -12,7 +11,7 @@ import {
 } from 'react-icons/fa'
 import { TbTargetArrow } from 'react-icons/tb'
 import { FiLogOut } from 'react-icons/fi'
-import { usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation'
 import RAL from '@/static/ralsei.jpg'
 
 interface UserLayoutProps {
@@ -52,11 +51,28 @@ export default function UserLayout({ children, params }: UserLayoutProps) {
             title="Saldo"
             isActive={pathName === `/user/${user}`}
           />
-          <NavigationBar.NavLink isActive={pathName === `/user/${user}/objectives`} href={`/user/${user}/objectives`} Icon={TbTargetArrow} title="Objetivos" />
-          <NavigationBar.NavLink href='/tasks' Icon={FaScroll} title="Missões" />
-          <NavigationBar.NavLink href='/profile' Icon={FaUser} title="Perfil" />
-          <NavigationBar.NavLink href='/investments' Icon={FaPiggyBank} title="Investimentos" />
-          <NavigationBar.NavLink href='/configs' Icon={FaCog} title="Configurações" />
+          <NavigationBar.NavLink
+            isActive={pathName === `/user/${user}/objectives`}
+            href={`/user/${user}/objectives`}
+            Icon={TbTargetArrow}
+            title="Objetivos"
+          />
+          <NavigationBar.NavLink
+            href="/tasks"
+            Icon={FaScroll}
+            title="Missões"
+          />
+          <NavigationBar.NavLink href="/profile" Icon={FaUser} title="Perfil" />
+          <NavigationBar.NavLink
+            href="/investments"
+            Icon={FaPiggyBank}
+            title="Investimentos"
+          />
+          <NavigationBar.NavLink
+            href="/configs"
+            Icon={FaCog}
+            title="Configurações"
+          />
         </NavigationBar>
 
         <div className="w-full flex items-center justify-center px-4">
