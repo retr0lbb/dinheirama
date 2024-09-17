@@ -1,7 +1,7 @@
-import { Root } from "./root"
-import { BankCard } from "./bank-card"
+import { Root } from './root'
+import { BankCard } from './bank-card'
 
-export default{
-    Root,
-    BankCard
+export default {
+  Root,
+  BankCard,
 }

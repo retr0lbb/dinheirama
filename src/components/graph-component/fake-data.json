@@ -1,22 +1,22 @@
 [
-    {
-        "isodate": 1725057954,
-        "expenses": 129.91,
-        "gains": 0.00
-    },
-    {
-        "isodate": 1724971554,
-        "expenses": 21.91,
-        "gains": 100.00
-    },
-    {
-        "isodate": 1724798754,
-        "expenses": 19.91,
-        "gains": 0.00
-    },
-    {
-        "isodate": 1724712354,
-        "expenses": 1.91,
-        "gains": 39.20
-    }
+  {
+    "isodate": 1725057954,
+    "expenses": 129.91,
+    "gains": 0.0
+  },
+  {
+    "isodate": 1724971554,
+    "expenses": 21.91,
+    "gains": 100.0
+  },
+  {
+    "isodate": 1724798754,
+    "expenses": 19.91,
+    "gains": 0.0
+  },
+  {
+    "isodate": 1724712354,
+    "expenses": 1.91,
+    "gains": 39.2
+  }
 ]

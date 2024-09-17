@@ -1,6 +1,6 @@
-export const moneyFormatter = new Intl.NumberFormat("pt-br", {
-    style: "currency",
-    currency: "BRL",
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
+export const moneyFormatter = new Intl.NumberFormat('pt-br', {
+  style: 'currency',
+  currency: 'BRL',
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
 })
