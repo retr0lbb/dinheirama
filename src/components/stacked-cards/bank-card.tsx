@@ -40,7 +40,7 @@ const bankCardVariant = tv({
             greenToLime: "from-apple_green to-ofice_green",
             gayToGray: "bg-gradient-gray",
             toBloe: "bg-gradient-smooth-blue",
-            toRemedyRedToLead: "bg-gradient-red-to-lead"
+            toRemedyRedToLead: "bg-gradient-to-br from-red-600 to-red-800"
         }
     },
 
@@ -52,6 +52,7 @@ const bankCardVariant = tv({
 
 })
 
+const className = ""
 
 export interface CardProps extends VariantProps<typeof bankCardVariant>{
     isDragAble: boolean,
