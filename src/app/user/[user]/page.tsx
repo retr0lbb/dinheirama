@@ -3,14 +3,8 @@ import { notFound } from "next/navigation";
 import { Chart } from "@/components/graph-component/graph";
 import { RadioButton } from "@/components/radio-button";
 import { useState } from "react";
-import { Button } from "@/components/button";
-import { FaPlus } from "react-icons/fa";
-import { IoFastFoodOutline, IoTrashOutline } from "react-icons/io5";
-import { FaUber, FaPlaystation} from "react-icons/fa";
+import { FaUber, FaPlaystation } from "react-icons/fa";
 import { FaBowlFood } from "react-icons/fa6";
-import { TiArrowSortedUp } from "react-icons/ti";
-import { SiNubank, SiAudi } from "react-icons/si";
-import { RangeSliderShown } from "@/components/slider-shown";
 import StackedCards from "@/components/stacked-cards";
 
 
@@ -23,7 +17,6 @@ interface UserPageProps{
 enum MODAL_CONTROL{
     NONE = 0
 }
-    
 
 export default function UserPage({params}: UserPageProps){
     const [numberOfRegisters, setNumberOfRegisters] = useState(10);
@@ -46,8 +39,8 @@ export default function UserPage({params}: UserPageProps){
                 <p className="text-snow-600 text-lg">Lembre-se gaste concientemente e mude o seu estilo de vida, esse é o primeiro passo para ficar rico</p>
             </div>
             
-            <div className="w-full grid grid-cols-5 grid-rows-4 gap-2">
-                
+            <div className="w-full grid grid-cols-5 grid-rows-3 gap-2">
+
                 <StackedCards.Root />
                 
 

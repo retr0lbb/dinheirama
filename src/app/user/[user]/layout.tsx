@@ -1,4 +1,5 @@
-import React from 'react'
+"use client";
+import React, { useState } from 'react'
 import { NavigationBar } from '@/components/navigation-bar'
 import { Avatar } from '@/components/avatar'
 import {
@@ -11,6 +12,7 @@ import {
 } from 'react-icons/fa'
 import { TbTargetArrow } from 'react-icons/tb'
 import { FiLogOut } from 'react-icons/fi'
+import { usePathname } from 'next/navigation';
 import RAL from '@/static/ralsei.jpg'
 
 interface UserLayoutProps {
@@ -22,6 +24,7 @@ interface UserLayoutProps {
 
 export default function UserLayout({ children, params }: UserLayoutProps) {
   const { user } = params
+  const pathName = usePathname()
 
   return (
     <section className="h-screen flex bg-snow-900">
@@ -44,15 +47,16 @@ export default function UserLayout({ children, params }: UserLayoutProps) {
 
         <NavigationBar>
           <NavigationBar.NavLink
-            isActive
+            href={`/user/${user}`}
             Icon={FaMoneyBillWaveAlt}
             title="Saldo"
+            isActive={pathName === `/user/${user}`}
           />
-          <NavigationBar.NavLink Icon={TbTargetArrow} title="Objetivos" />
-          <NavigationBar.NavLink Icon={FaScroll} title="Missões" />
-          <NavigationBar.NavLink Icon={FaUser} title="Perfil" />
-          <NavigationBar.NavLink Icon={FaPiggyBank} title="Investimentos" />
-          <NavigationBar.NavLink Icon={FaCog} title="Configurações" />
+          <NavigationBar.NavLink isActive={pathName === `/user/${user}/objectives`} href={`/user/${user}/objectives`} Icon={TbTargetArrow} title="Objetivos" />
+          <NavigationBar.NavLink href='/tasks' Icon={FaScroll} title="Missões" />
+          <NavigationBar.NavLink href='/profile' Icon={FaUser} title="Perfil" />
+          <NavigationBar.NavLink href='/investments' Icon={FaPiggyBank} title="Investimentos" />
+          <NavigationBar.NavLink href='/configs' Icon={FaCog} title="Configurações" />
         </NavigationBar>
 
         <div className="w-full flex items-center justify-center px-4">
