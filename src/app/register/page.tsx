@@ -97,8 +97,7 @@ export default function Register() {
               sizes="sm"
               className="flex flex-row h-10 py-0 flex-grow-0 flex-shrink-0 w-auto gap-2 text-snow-600"
             >
-              <FaGoogle className="text-snow-400"></FaGoogle> Cadastre-se com o
-              Google.
+              <FaGoogle className="text-snow-400" /> Cadastre-se com o Google.
             </Button>
 
             <Button
@@ -106,8 +105,7 @@ export default function Register() {
               sizes="sm"
               className="flex flex-row h-10 py-0 flex-grow-0 flex-shrink-0 w-auto gap-2 text-snow-600"
             >
-              <FaXTwitter className="text-snow-400"></FaXTwitter> Cadastre-se
-              com Twitter.
+              <FaXTwitter className="text-snow-400" /> Cadastre-se com Twitter.
             </Button>
 
             <Button
@@ -115,8 +113,7 @@ export default function Register() {
               sizes="sm"
               className="flex flex-row h-10 py-0 flex-grow-0 flex-shrink-0 w-auto gap-2 text-snow-600"
             >
-              <FaApple className="text-snow-400"></FaApple> Cadastre-se com
-              Apple.
+              <FaApple className="text-snow-400" /> Cadastre-se com Apple.
             </Button>
           </div>
         </div>

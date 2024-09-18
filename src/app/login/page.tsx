@@ -3,7 +3,6 @@ import { Input } from '@/components/input'
 import { FaGoogle, FaApple } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import Link from 'next/link'
-import { Spinner } from '@/components/spinner'
 
 export default function Login() {
   return (

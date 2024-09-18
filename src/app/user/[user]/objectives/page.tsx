@@ -14,10 +14,21 @@ export default function ObjectivesPage({ params, searchParams }: PageProps) {
       <main className="flex-1 flex flex-col">
         <ObjectiveHeader />
 
-        <div>
-          <h2>Outros objetivos cadastrados</h2>
-          <div className="flex flex-col gap-2">
-            <div></div>
+        <div className="bg-cyan-300 flex-1 flex items-center justify-around gap-2">
+          <div className="flex ">for later</div>
+
+          <div className="flex flex-col">
+            <div className="p-2">
+              <h1>Metas ativas</h1>
+            </div>
+
+            <div className="flex flex-col items-center gap-2">
+              <div className="bg-snow-800 border border-snow-600 p-1 flex flex-col">
+                <div>
+                  <h1>Viagem a frança</h1>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </main>
