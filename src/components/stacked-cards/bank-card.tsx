@@ -3,7 +3,8 @@ import { FcSimCardChip } from 'react-icons/fc'
 import { SiMastercard } from 'react-icons/si'
 import { moneyFormatter } from '@/utils/money-string-formatter'
 import { motion, useDragControls } from 'framer-motion'
-import { tv, VariantProps } from 'tailwind-variants'
+import { tv } from 'tailwind-variants'
+import type { VariantProps } from 'tailwind-variants'
 
 interface cardData {
   accountType: 'Débito' | 'Crédito' | 'Poupança' | 'Outro'
@@ -13,7 +14,7 @@ interface cardData {
 }
 
 const bankCardVariant = tv({
-  base: 'absolute top-0 left-0 w-full h-full rounded-3xl aspect-video px-2 px-4 lg:px-4 lg:py-6 flex flex-col justify-evenly border border-snow-800/20',
+  base: 'absolute top-0 left-0 w-full aspect-video rounded-3xl aspect-video px-2 px-4 lg:px-4 lg:py-6 flex flex-col justify-evenly border border-snow-800/20',
   variants: {
     Zindex: {
       50: 'z-index-50',
@@ -95,7 +96,7 @@ export function BankCard({
         Zindex,
       })}
     >
-      <div className="w-full flex items-center justify-between">
+      <div className="w-ful flex items-center justify-between">
         <FcSimCardChip className="size-16 " />
         <SiMastercard className="size-16 text-snow-200" />
       </div>

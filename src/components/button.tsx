@@ -1,5 +1,5 @@
-import { ComponentProps } from 'react'
-import { tv, VariantProps } from 'tailwind-variants'
+import type { ComponentProps } from 'react'
+import { tv, type VariantProps } from 'tailwind-variants'
 
 const button = tv({
   base: 'flex gap-2 items-center w-full justify-center rounded-lg',
