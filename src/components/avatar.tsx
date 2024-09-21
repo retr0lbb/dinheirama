@@ -1,5 +1,5 @@
-import Image, { StaticImageData } from 'next/image'
-import { tv, VariantProps } from 'tailwind-variants'
+import Image, { type StaticImageData } from 'next/image'
+import { tv, type VariantProps } from 'tailwind-variants'
 
 const AvatarVariants = tv({
   base: 'overflow-hidden rounded-full bg-yellow-500 flex items-center justify-center outline outline-offset-1 outline-apple_green',

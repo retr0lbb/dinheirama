@@ -1,7 +1,4 @@
-import type { PageProps } from '../../../../../.next/types/app/layout'
 import { ObjectiveHeader } from '@/components/objectives/objectiveHeader'
-import { RangeSliderShown } from '@/components/slider-shown'
-import { PiIsland } from 'react-icons/pi'
 import { FaHouse } from 'react-icons/fa6'
 import { ObjectiveCard } from '@/components/objectives/objectiveCard'
 import { SiFerrari } from 'react-icons/si'
@@ -12,7 +9,7 @@ import { Button } from '@/components/button'
 import { FaPlus } from 'react-icons/fa6'
 import { FaCar } from 'react-icons/fa'
 
-export default function ObjectivesPage({ params, searchParams }: PageProps) {
+export default function ObjectivesPage() {
   const acutualMoney = 450000
   return (
     <section className="w-full h-full flex flex-col gap-2 p-5">
@@ -27,8 +24,8 @@ export default function ObjectivesPage({ params, searchParams }: PageProps) {
         <ObjectiveHeader />
 
         <div className=" flex flex-1 justify-around">
-          <div className="flex flex-col gap-3 items-center border p-5 rounded-xl border-snow-800">
-            <h1 className="text-snow-400 font-bold text-4xl">
+          <div className="flex flex-col gap-3 items-center border py-5 px-10 rounded-xl border-snow-800">
+            <h1 className="text-snow-400 font-bold text-3xl">
               Objetivos completados
             </h1>
             <div className="flex flex-1 items-center justify-center">
@@ -65,18 +62,21 @@ export default function ObjectivesPage({ params, searchParams }: PageProps) {
                 totalAmmount={500000}
               />
               <ObjectiveCard
+                isCompleted
                 ObjectiveIcon={FaCar}
                 actualAmmount={450000}
                 objectiveTitle="Carro top de linha"
                 totalAmmount={200000}
               />
               <ObjectiveCard
+                isCompleted
                 ObjectiveIcon={SiFuraffinity}
                 actualAmmount={450000}
                 objectiveTitle="Fursuit Full-body"
                 totalAmmount={40000}
               />
               <ObjectiveCard
+                isCompleted
                 ObjectiveIcon={SiFuraffinity}
                 actualAmmount={450000}
                 objectiveTitle="Sair para comer em restaurante"
