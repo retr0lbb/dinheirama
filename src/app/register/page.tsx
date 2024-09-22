@@ -25,7 +25,6 @@ export default function Register() {
     })
 
   async function handleRegisterSubmit(data: RegisterLoginForm) {
-    console.log(data)
     reset()
   }
 
@@ -54,6 +53,11 @@ export default function Register() {
                   placeholder="Fulano da silva"
                   {...register('name')}
                 />
+                {formState.errors.name && (
+                  <p className="text-sm text-danger_red">
+                    {formState.errors.name.message}
+                  </p>
+                )}
               </Input>
 
               <Input Title="Numero de contato">
@@ -61,8 +65,18 @@ export default function Register() {
                   type="number"
                   id="tel"
                   placeholder="(01) 12345-6789"
-                  {...register('phone')}
+                  {...register('phone', {
+                    pattern: {
+                      value: /^\+55\s?\(?\d{2}\)?\s?\d{5}-?\d{4}$/,
+                      message: 'Invalid phone format',
+                    },
+                  })}
                 />
+                {formState.errors.phone && (
+                  <p className="text-sm text-danger_red">
+                    {formState.errors.phone.message}
+                  </p>
+                )}
               </Input>
 
               <Input Title="Email">
@@ -72,6 +86,11 @@ export default function Register() {
                   placeholder="example@mail.com"
                   {...register('email')}
                 />
+                {formState.errors.email && (
+                  <p className="text-sm text-danger_red">
+                    {formState.errors.email.message}
+                  </p>
+                )}
               </Input>
 
               <Input Title="Senha">
@@ -81,6 +100,11 @@ export default function Register() {
                   placeholder="Sua senha"
                   {...register('password')}
                 />
+                {formState.errors.password && (
+                  <p className="text-sm text-danger_red">
+                    {formState.errors.password.message}
+                  </p>
+                )}
               </Input>
 
               <Input Title="Confirmar senha">
@@ -90,6 +114,11 @@ export default function Register() {
                   placeholder="Confirme sua senha"
                   {...register('confirmPassword')}
                 />
+                {formState.errors.confirmPassword && (
+                  <p className="text-sm text-danger_red">
+                    {formState.errors.confirmPassword.message}
+                  </p>
+                )}
               </Input>
             </div>
 
