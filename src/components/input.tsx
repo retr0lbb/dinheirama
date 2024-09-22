@@ -1,4 +1,4 @@
-import React, { type ComponentProps } from 'react'
+import React, { type ComponentProps, forwardRef } from 'react'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 const inputVariant = tv({
@@ -32,8 +32,6 @@ interface InputProps
   Title: string
 }
 
-interface InputFieldProps extends ComponentProps<'input'> {}
-
 function Input({ Title, sizes, border, ...rest }: InputProps) {
   return (
     <div className="flex flex-col px-4">
@@ -49,11 +47,20 @@ function Input({ Title, sizes, border, ...rest }: InputProps) {
   )
 }
 
-function Field({ className, ...rest }: InputFieldProps) {
-  return (
-    <input className="flex-1 bg-transparent outline-none w-full" {...rest} />
-  )
-}
+interface InputFieldProps extends ComponentProps<'input'> {}
+
+const Field = forwardRef<HTMLInputElement, InputFieldProps>(
+  ({ id, ...props }, ref) => {
+    return (
+      <input
+        className="flex-1 bg-transparent outline-none w-full"
+        id={id}
+        ref={ref}
+        {...props}
+      />
+    )
+  }
+)
 
 Input.Field = Field
 

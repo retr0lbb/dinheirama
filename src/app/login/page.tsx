@@ -1,11 +1,46 @@
+'use client'
 import { Button } from '@/components/button'
 import { Input } from '@/components/input'
 import { FaGoogle, FaApple } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import Link from 'next/link'
 import { Spinner } from '@/components/spinner'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
+import { useState } from 'react'
+
+const loginForm = z.object({
+  email: z.string().email(),
+  password: z.string(),
+})
+
+interface LoginForm extends z.infer<typeof loginForm> {}
 
 export default function Login() {
+  const [isLoading, setIsLoading] = useState(false)
+  const { register, handleSubmit, control, reset, formState } =
+    useForm<LoginForm>({
+      resolver: zodResolver(loginForm),
+    })
+
+  async function handleLoginUser(data: LoginForm) {
+    setIsLoading(true)
+
+    setInterval(() => {
+      try {
+        console.log(data.email)
+        console.log(data.password)
+      } catch (error) {
+        console.error(error)
+      } finally {
+        setIsLoading(false)
+      }
+
+      reset()
+    }, 10000)
+  }
+
   return (
     <main className="h-screen bg-black flex items-center justify-center antialiased">
       <div className="space-y-8">
@@ -19,26 +54,31 @@ export default function Login() {
         </header>
 
         <div className="space-y-5">
-          <form className="px-4 space-y-5">
+          <form
+            onSubmit={handleSubmit(handleLoginUser)}
+            className="px-4 space-y-5"
+          >
             <div className="space-y-4">
-              <Input
-                hasError={{ message: 'email should countain @' }}
-                Title="Email"
-              >
+              <Input Title="Email">
                 <Input.Field
                   type="email"
-                  name="email"
                   id="email"
                   placeholder="example@mail.com"
+                  {...register('email')}
                 />
+                {formState.errors.email && (
+                  <p className="text-sm text-danger_red">
+                    {formState.errors.email.message}
+                  </p>
+                )}
               </Input>
 
               <Input Title="Senha">
                 <Input.Field
                   type="password"
-                  name="password"
                   id="password"
                   placeholder="Sua senha"
+                  {...register('password')}
                 />
               </Input>
               <p className="text-sm text-apple_green w-full text-right pr-4">
@@ -52,9 +92,8 @@ export default function Login() {
             </div>
 
             <div className="grid place-items-center gap-2 px-4">
-              <Button type="submit" sizes="md">
-                {/* <Spinner sizes="md" colour="green" /> : "Entrar" */}
-                Entrar
+              <Button type="submit" sizes="md" disabled={isLoading}>
+                {isLoading ? <Spinner colour="green" /> : 'Entrar'}
               </Button>
               <span className="text-snow-600 mt-2">
                 Não tem uma conta?{' '}
