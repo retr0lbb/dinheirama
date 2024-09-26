@@ -1,5 +1,5 @@
-import React from 'react'
-import { tv, VariantProps } from 'tailwind-variants'
+import type React from 'react'
+import { tv, type VariantProps } from 'tailwind-variants'
 
 const spinnervariant = tv({
   base: 'border-transparent border-4 border-t-4 border-t-ofice_green rounded-full animate-spin',
@@ -11,7 +11,7 @@ const spinnervariant = tv({
       xxgl: 'size-56 border-8 border-t-8',
     },
     colour: {
-      green: 'border-t-ofice_green',
+      green: 'border-t-[#081c15]',
       lime: 'border-t-apple_green',
       gray: 'border-t-snow-600',
     },

@@ -31,7 +31,7 @@ export default function UserPage({ params }: UserPageProps) {
   }
 
   return (
-    <section className="w-full h-full p-5 overflow-y-auto flex flex-col gap-5">
+    <section className="w-full h-full p-5 overflow-y-hidden flex flex-col gap-5">
       <div className="w-full space-y-1">
         <h1 className="text-snow-400 font-bold text-6xl">Saldo e despesas</h1>
         <p className="text-snow-600 text-lg">
@@ -40,7 +40,7 @@ export default function UserPage({ params }: UserPageProps) {
         </p>
       </div>
 
-      <div className="w-full grid grid-cols-5 grid-rows-3 gap-2">
+      <div className="w-full h-full grid grid-cols-5 grid-rows-3 gap-2 place-content-center">
         <StackedCards.Root />
 
         <div className="col-span-3 row-span-3 flex flex-col items-center overflow-hidden gap-8">

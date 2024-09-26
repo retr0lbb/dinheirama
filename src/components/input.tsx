@@ -1,6 +1,5 @@
-import { error } from 'console'
-import React, { ComponentProps } from 'react'
-import { tv, VariantProps } from 'tailwind-variants'
+import React, { type ComponentProps, forwardRef } from 'react'
+import { tv, type VariantProps } from 'tailwind-variants'
 
 const inputVariant = tv({
   base: 'text-snow-400 border border-snow-800 rounded-lg transition-all flex items-center justify-center',
@@ -31,14 +30,9 @@ interface InputProps
   extends ComponentProps<'div'>,
     VariantProps<typeof inputVariant> {
   Title: string
-  hasError?: {
-    message: string
-  }
 }
 
-interface InputFieldProps extends ComponentProps<'input'> {}
-
-function Input({ Title, sizes, border, hasError, ...rest }: InputProps) {
+function Input({ Title, sizes, border, ...rest }: InputProps) {
   return (
     <div className="flex flex-col px-4">
       <label className="text-snow-600" htmlFor="name">
@@ -49,16 +43,24 @@ function Input({ Title, sizes, border, hasError, ...rest }: InputProps) {
       >
         {rest.children}
       </div>
-      {hasError ? <p className="text-danger_red">{hasError.message}</p> : ''}
     </div>
   )
 }
 
-function Field({ className, ...rest }: InputFieldProps) {
-  return (
-    <input className="flex-1 bg-transparent outline-none w-full" {...rest} />
-  )
-}
+interface InputFieldProps extends ComponentProps<'input'> {}
+
+const Field = forwardRef<HTMLInputElement, InputFieldProps>(
+  ({ id, ...props }, ref) => {
+    return (
+      <input
+        className="flex-1 bg-transparent outline-none w-full"
+        id={id}
+        ref={ref}
+        {...props}
+      />
+    )
+  }
+)
 
 Input.Field = Field
 

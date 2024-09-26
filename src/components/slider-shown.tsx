@@ -14,14 +14,16 @@ export function RangeSliderShown({
   function returnInPercentHowMuchIsValue(
     maxValue: number,
     currentValue: number,
-    minValue: number = 0
+    minValue = 0
   ): number {
     const inPercent = (currentValue / (maxValue - minValue)) * 100
 
     if (inPercent < 0.5) {
       return 0
     }
-
+    if (inPercent > 100) {
+      return 100
+    }
     return Math.ceil(inPercent) // Retorna o valor arredondado para 2 casas decimais
   }
 
@@ -29,10 +31,10 @@ export function RangeSliderShown({
     <div className="w-full h-3 relative rounded-full border border-snow-600/20 bg-snow-800">
       <div
         style={{
-          width: `${returnInPercentHowMuchIsValue(maxValue, percentage, minValue)}%`,
+          width: `${returnInPercentHowMuchIsValue(maxValue, percentage)}%`,
         }}
-        className={`absolute flex items-center justify-end rounded-full inset-0 bg-apple_green`}
-      ></div>
+        className="absolute flex items-center justify-end rounded-full inset-0 bg-apple_green"
+      />
     </div>
   )
 }
