@@ -4,8 +4,6 @@ import { Input } from '@/components/input'
 import { FaGoogle, FaApple } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import Link from 'next/link'
-<<<<<<< HEAD
-=======
 import { Spinner } from '@/components/spinner'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -18,7 +16,6 @@ const loginForm = z.object({
 })
 
 interface LoginForm extends z.infer<typeof loginForm> {}
->>>>>>> 32297f8f98830be1e68fe0709ef6f1649155fdd2
 
 export default function Login() {
   const [isLoading, setIsLoading] = useState(false)
