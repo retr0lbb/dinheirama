@@ -1,6 +1,5 @@
 'use client'
-
-import React, { useState } from 'react'
+import type React from 'react'
 import { IoMdClose } from 'react-icons/io'
 
 interface ModalProps {
@@ -33,12 +32,13 @@ function Title({ desc, title, onCloseButtonClick }: TitleProps) {
         {desc && <p className="text-snow-600 text-sm">{desc}</p>}
       </div>
 
-      <div
+      <button
+        type="button"
         onClick={onCloseButtonClick}
         className="flex text-snow-400 text-2xl cursor-pointer hover:text-snow-600 transition-all p-1"
       >
         <IoMdClose />
-      </div>
+      </button>
     </div>
   )
 }

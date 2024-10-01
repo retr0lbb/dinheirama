@@ -4,7 +4,7 @@ import { FaRegCircleCheck } from 'react-icons/fa6'
 import type { IconType } from 'react-icons'
 import { BsThreeDotsVertical } from 'react-icons/bs'
 
-interface ObjectiveCardProps {
+export interface ObjectiveCardProps {
   totalAmmount: number
   actualAmmount: number
 

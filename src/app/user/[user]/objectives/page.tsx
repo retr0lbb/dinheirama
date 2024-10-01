@@ -1,6 +1,10 @@
+'use client'
 import { ObjectiveHeader } from '@/components/objectives/objectiveHeader'
 import { FaHouse } from 'react-icons/fa6'
-import { ObjectiveCard } from '@/components/objectives/objectiveCard'
+import {
+  ObjectiveCard,
+  type ObjectiveCardProps,
+} from '@/components/objectives/objectiveCard'
 import { SiFerrari } from 'react-icons/si'
 import { FaShop } from 'react-icons/fa6'
 import { SiFuraffinity } from 'react-icons/si'
@@ -8,9 +12,40 @@ import { CircularProgressWithText } from '@/components/circular-progress-with-te
 import { Button } from '@/components/button'
 import { FaPlus } from 'react-icons/fa6'
 import { FaCar } from 'react-icons/fa'
+import { Modal } from '@/components/modal'
+import { Input } from '@/components/input'
+import { useState } from 'react'
+import { generateRandomId } from '@/utils/generateRandomId'
+import { z } from 'zod'
 
 export default function ObjectivesPage() {
   const acutualMoney = 450000
+  const [isCreateObjectiveModalOpen, setCreateObjectiveModalOpen] =
+    useState(false)
+
+  const [objectives, setObjectives] = useState<ObjectiveCardProps[]>([
+    {
+      objectiveTitle: 'Comprar fursuit',
+      actualAmmount: acutualMoney,
+      totalAmmount: 40000,
+      ObjectiveIcon: SiFuraffinity,
+      isCompleted: true,
+    },
+  ])
+
+  function totalOfCompletedObjectives() {
+    const completedObjectives = objectives.filter(
+      objective => objective.isCompleted
+    )
+
+    return {
+      completedObjectives,
+      numberOfCompletedObjects: completedObjectives.length,
+    }
+  }
+
+  function handleObjectiveSubmit() {}
+
   return (
     <section className="w-full h-full flex flex-col gap-2 p-5">
       <div className="flex flex-col gap-2">
@@ -29,10 +64,15 @@ export default function ObjectivesPage() {
               Objetivos completados
             </h1>
             <div className="flex flex-1 items-center justify-center">
-              <CircularProgressWithText percentage={20} />
+              <CircularProgressWithText
+                numberOfCompletions={
+                  totalOfCompletedObjectives().numberOfCompletedObjects
+                }
+                totalNumber={objectives.length}
+              />
             </div>
 
-            <Button>
+            <Button onClick={() => setCreateObjectiveModalOpen(true)}>
               <FaPlus />
               Novo Objetivo
             </Button>
@@ -41,51 +81,39 @@ export default function ObjectivesPage() {
           <div className="text-snow-400 flex flex-col items-center gap-2 p-4  flex-1">
             <p>Outros objetivos cadastrados</p>
             <div className="flex flex-col gap-2 w-full px-8 py-2 overflow-y-auto max-h-96">
-              <ObjectiveCard
-                ObjectiveIcon={SiFerrari}
-                actualAmmount={450000}
-                objectiveTitle="Ferrari spider 2010"
-                totalAmmount={4500000}
-              />
-
-              <ObjectiveCard
-                ObjectiveIcon={FaHouse}
-                actualAmmount={450000}
-                objectiveTitle="Casa nova"
-                totalAmmount={1000000}
-              />
-
-              <ObjectiveCard
-                ObjectiveIcon={FaShop}
-                actualAmmount={450000}
-                objectiveTitle="Minha loja online"
-                totalAmmount={500000}
-              />
-              <ObjectiveCard
-                isCompleted
-                ObjectiveIcon={FaCar}
-                actualAmmount={450000}
-                objectiveTitle="Carro top de linha"
-                totalAmmount={200000}
-              />
-              <ObjectiveCard
-                isCompleted
-                ObjectiveIcon={SiFuraffinity}
-                actualAmmount={450000}
-                objectiveTitle="Fursuit Full-body"
-                totalAmmount={40000}
-              />
-              <ObjectiveCard
-                isCompleted
-                ObjectiveIcon={SiFuraffinity}
-                actualAmmount={450000}
-                objectiveTitle="Sair para comer em restaurante"
-                totalAmmount={200}
-              />
+              {objectives.map((item, index) => {
+                return <ObjectiveCard key={generateRandomId()} {...item} />
+              })}
             </div>
           </div>
         </div>
       </main>
+
+      <Modal visible={isCreateObjectiveModalOpen}>
+        <Modal.Title
+          title="Criar novo objetivo"
+          desc="Crie um objetivo definindo o nome e seu valor"
+          onCloseButtonClick={() => setCreateObjectiveModalOpen(false)}
+        />
+        <Modal.Body>
+          <div className="flex flex-col items-center">
+            <form className="w-full flex flex-col gap-2" action="">
+              <Input Title="Nome" className="border border-snow-600">
+                <Input.Field type="text" />
+              </Input>
+
+              <Input Title="Valor" className="border border-snow-600">
+                <Input.Field type="text" />
+              </Input>
+
+              <Button type="submit" className="mt-5" sizes="md">
+                <FaPlus />
+                Criar
+              </Button>
+            </form>
+          </div>
+        </Modal.Body>
+      </Modal>
     </section>
   )
 }
