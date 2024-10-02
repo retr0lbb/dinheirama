@@ -2,7 +2,7 @@
 import { notFound } from 'next/navigation'
 import { Chart } from '@/components/graph-component/graph'
 import { RadioButton } from '@/components/radio-button'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { FaUber, FaPlaystation } from 'react-icons/fa'
 import { FaBowlFood } from 'react-icons/fa6'
 import StackedCards from '@/components/stacked-cards'
@@ -20,9 +20,12 @@ enum MODAL_CONTROL {
 export default function UserPage({ params }: UserPageProps) {
   const [numberOfRegisters, setNumberOfRegisters] = useState(10)
 
-  const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setNumberOfRegisters(Number(event.target.value))
-  }
+  const handleRadioChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setNumberOfRegisters(Number(event.target.value))
+    },
+    []
+  )
 
   const { user } = params
 

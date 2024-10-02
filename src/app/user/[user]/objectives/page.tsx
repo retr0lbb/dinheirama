@@ -25,10 +25,10 @@ export default function ObjectivesPage() {
 
   const [objectives, setObjectives] = useState<ObjectiveCardProps[]>([
     {
-      objectiveTitle: 'Comprar fursuit',
+      objectiveTitle: 'Comprar carro novo',
       actualAmmount: acutualMoney,
       totalAmmount: 40000,
-      ObjectiveIcon: SiFuraffinity,
+      ObjectiveIcon: SiFerrari,
       isCompleted: true,
     },
   ])
@@ -37,10 +37,14 @@ export default function ObjectivesPage() {
     const completedObjectives = objectives.filter(
       objective => objective.isCompleted
     )
+    const unCompletedObjectives = objectives.filter(
+      objective => objective.isCompleted === false
+    )
 
     return {
       completedObjectives,
       numberOfCompletedObjects: completedObjectives.length,
+      unCompletedObjectives: unCompletedObjectives,
     }
   }
 
@@ -56,7 +60,11 @@ export default function ObjectivesPage() {
       </div>
 
       <main className="flex-1 flex flex-col">
-        <ObjectiveHeader />
+        <ObjectiveHeader
+          title={objectives[0].objectiveTitle}
+          actualMoney={acutualMoney}
+          totalMoney={objectives[0].totalAmmount}
+        />
 
         <div className=" flex flex-1 justify-around">
           <div className="flex flex-col gap-3 items-center border py-5 px-10 rounded-xl border-snow-800">

@@ -17,7 +17,9 @@ export function RangeSliderShown({
     minValue = 0
   ): number {
     const inPercent = (currentValue / (maxValue - minValue)) * 100
-
+    if (currentValue > maxValue) {
+      return 100
+    }
     if (inPercent < 0.5) {
       return 0
     }

@@ -52,15 +52,16 @@ export default function UserLayout({ children, params }: UserLayoutProps) {
             isActive={pathName === `/user/${user}`}
           />
           <NavigationBar.NavLink
-            isActive={pathName === `/user/${user}/objectives`}
             href={`/user/${user}/objectives`}
             Icon={TbTargetArrow}
             title="Objetivos"
+            isActive={pathName === `/user/${user}/objectives`}
           />
           <NavigationBar.NavLink
-            href="/tasks"
+            href={`/user/${user}/missions`}
             Icon={FaScroll}
             title="Missões"
+            isActive={pathName === `/user/${user}/missions`}
           />
           <NavigationBar.NavLink href="/profile" Icon={FaUser} title="Perfil" />
           <NavigationBar.NavLink
