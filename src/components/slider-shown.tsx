@@ -1,3 +1,5 @@
+import { generateRandomId } from '@/utils/generateRandomId'
+
 interface RangeSlideShownProps {
   minValue?: number
   maxValue: number
@@ -37,6 +39,50 @@ export function RangeSliderShown({
         }}
         className="absolute flex items-center justify-end rounded-full inset-0 bg-apple_green"
       />
+    </div>
+  )
+}
+
+export interface ParticionedSliderProgressProps {
+  numberOfDivisions: number
+  numberOfCompletions: number
+}
+
+export function ParticionedSliderProgress({
+  numberOfCompletions,
+  numberOfDivisions,
+}: ParticionedSliderProgressProps) {
+  function generatePartitionedBars(completions: number, divisions: number) {
+    const partitionedItemsArray = []
+    let numberOfCompletios = completions
+
+    for (let i = 0; i < divisions; i++) {
+      if (numberOfCompletios > 0) {
+        const div = (
+          <div
+            key={generateRandomId()}
+            className="w-full h-full bg-apple_green"
+          />
+        )
+        partitionedItemsArray.push(div)
+        numberOfCompletios -= 1
+      } else {
+        const div = (
+          <div
+            key={generateRandomId()}
+            className="w-full h-full border border-snow-600 bg-snow-800"
+          />
+        )
+        partitionedItemsArray.push(div)
+      }
+    }
+
+    return partitionedItemsArray
+  }
+
+  return (
+    <div className="w-full min-h-3 rounded-full border border-snow-600/20 flex items-center gap-0.5 overflow-hidden">
+      {generatePartitionedBars(numberOfCompletions, numberOfDivisions)}
     </div>
   )
 }
