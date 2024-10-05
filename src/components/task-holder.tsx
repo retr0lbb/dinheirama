@@ -16,7 +16,9 @@ function Tasks(props: TasksProps) {
         <props.Icon className="text-snow-200 text-2xl" />
         <h1 className="font-bold text-3xl text-snow-200">{props.title}</h1>
       </div>
-      <div className="flex flex-1 w-full flex-col gap-3">{props.children}</div>
+      <div className="flex flex-1 w-full max-h-full flex-col gap-3 overflow-y-auto">
+        {props.children}
+      </div>
     </div>
   )
 }
@@ -31,7 +33,7 @@ interface TaskProps {
 
 function Task(props: TaskProps) {
   return (
-    <div className="w-full flex flex-col px-4 py-2 bg-snow-800 border border-snow-600/40 rounded-lg overflow-hidden gap-4">
+    <div className="w-full flex-shrink-0 flex flex-col px-4 py-2 bg-snow-800 border border-snow-600/40 rounded-lg overflow-hidden gap-4">
       <div className="flex items-center justify-between">
         <div>
           <div className="flex items-center gap-2">

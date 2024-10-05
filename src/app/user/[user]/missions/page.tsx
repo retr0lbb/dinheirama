@@ -178,6 +178,42 @@ export default function MissionPages() {
             numberOfCompletions={4}
             key={generateRandomId()}
           />
+
+          <Tasks.Task
+            Icon={FaBook}
+            title="Leitura de Livro Financeiro"
+            description="Leia um livro sobre finanças pessoais ou investimentos. Tome notas sobre o que aprendeu e como pode aplicar."
+            frequency={1}
+            numberOfCompletions={1}
+            key={generateRandomId()}
+          />
+
+          <Tasks.Task
+            Icon={GiGrowth}
+            title="Plante uma Semente de Economia"
+            description="Estabeleça um objetivo de economia mensal e comece a poupar R$ 50,00 esta semana, colocando em uma conta separada."
+            frequency={7}
+            numberOfCompletions={7}
+            key={generateRandomId()}
+          />
+
+          <Tasks.Task
+            Icon={FaHouseChimney}
+            title="Entre no mercado imobiliario"
+            description="Compre algumas cotas de fundos imobiliarios seguros e deixe o dinheiro rendendo"
+            frequency={3}
+            numberOfCompletions={1}
+            key={generateRandomId()}
+          />
+
+          <Tasks.Task
+            Icon={SiCoursera}
+            title="Aprenda mais sobre investimento"
+            description="compre um curso de investimentos e aprenda mais sobre o seu perfil investidor, assista 10 min de aula por dia durante 1 semana"
+            frequency={7}
+            numberOfCompletions={4}
+            key={generateRandomId()}
+          />
         </Tasks>
       </main>
     </section>
