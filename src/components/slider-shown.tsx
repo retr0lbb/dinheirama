@@ -58,19 +58,19 @@ export function ParticionedSliderProgress({
 
     for (let i = 0; i < divisions; i++) {
       if (numberOfCompletios > 0) {
-        const div = (
+        partitionedItemsArray.push(
           <div
             key={generateRandomId()}
-            className="w-full h-full bg-apple_green"
+            className="w-full h-full bg-apple_green first:rounded-s-full last:rounded-e-full"
           />
         )
-        partitionedItemsArray.push(div)
-        numberOfCompletios -= 1
+
+        numberOfCompletios--
       } else {
         const div = (
           <div
             key={generateRandomId()}
-            className="w-full h-full border border-snow-600 bg-snow-800"
+            className="w-full h-full border border-snow-600 bg-snow-800 first:rounded-s-full last:rounded-e-full"
           />
         )
         partitionedItemsArray.push(div)

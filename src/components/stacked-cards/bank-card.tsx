@@ -14,7 +14,7 @@ interface cardData {
 }
 
 const bankCardVariant = tv({
-  base: 'absolute top-0 left-0 w-full aspect-video rounded-3xl aspect-video px-2 px-4 lg:px-4 lg:py-6 flex flex-col justify-evenly border border-snow-800/20',
+  base: 'absolute top-0 left-0 w-full cursor-pointer select-none aspect-video rounded-3xl aspect-video px-2 px-4 lg:px-4 lg:py-6 flex flex-col justify-evenly border border-snow-800/20',
   variants: {
     Zindex: {
       50: 'z-index-50',
@@ -48,8 +48,6 @@ const bankCardVariant = tv({
     Zindex: 20,
   },
 })
-
-const className = ''
 
 export interface CardProps extends VariantProps<typeof bankCardVariant> {
   isDragAble: boolean

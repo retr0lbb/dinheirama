@@ -29,6 +29,8 @@ export default function MissionPages() {
           Cumpra as missões semanais para ganhar experiencia e de quebra ainda
           te ajuda a economizar uns trocados
         </p>
+
+        <div className="w-[1000px] h-px bg-snow-600 mt-5" />
       </header>
 
       <main className="flex flex-1 items-center justify-center overflow-hidden gap-4">
