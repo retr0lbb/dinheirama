@@ -1,3 +1,33 @@
+import { tv } from 'tailwind-variants'
+
+const CircularProgressWithTextVariant = tv({
+  base: 'rounded-full flex items-center justify-center border border-snow-800',
+
+  variants: {
+    sizes: {
+      xl: 'size-64',
+      lg: 'size-52',
+      md: 'size-40',
+      sm: 'size-20',
+      xs: 'size-8',
+    },
+  },
+})
+
+const CircularProgressWithTextVariantInner = tv({
+  base: 'size-60 bg-snow-900 rounded-full flex items-center justify-center border border-snow-800/30',
+
+  variants: {
+    sizes: {
+      xl: 'size-60',
+      lg: 'size-48',
+      md: 'size-36',
+      sm: 'size-16',
+      xs: 'size-6',
+    },
+  },
+})
+
 export interface CircularProgressWithTextProps {
   totalNumber: number
   numberOfCompletions: number
