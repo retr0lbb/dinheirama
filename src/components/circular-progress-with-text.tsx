@@ -1,34 +1,56 @@
-import { tv } from 'tailwind-variants'
+import { tv, type VariantProps } from 'tailwind-variants'
 
 const CircularProgressWithTextVariant = tv({
-  base: 'rounded-full flex items-center justify-center border border-snow-800',
+  slots: {
+    base: 'rounded-full flex items-center justify-center border border-snow-800',
+    innerCircle:
+      'bg-snow-900 rounded-full flex items-center justify-center border border-snow-800/30',
+    text: 'font-bold text-snow-400',
+    percentageText: 'text-snow-600 text-center',
+  },
 
   variants: {
     sizes: {
-      xl: 'size-64',
-      lg: 'size-52',
-      md: 'size-40',
-      sm: 'size-20',
-      xs: 'size-8',
+      xl: {
+        base: 'size-64',
+        innerCircle: 'size-60',
+        text: 'text-5xl',
+      },
+      lg: {
+        base: 'size-52',
+        innerCircle: 'size-48',
+        text: 'text-5xl',
+      },
+      md: {
+        base: 'size-40',
+        innerCircle: 'size-36',
+        text: 'text-4xl font-medium',
+      },
+      sm: {
+        base: 'size-20',
+        innerCircle: 'size-16',
+        text: 'hidden',
+        percentageText: 'text-md',
+      },
+      xs: {
+        base: 'size-10',
+        innerCircle: 'size-8',
+        text: 'hidden',
+        percentageText: 'text-xs font-bold',
+      },
     },
+  },
+
+  defaultVariants: {
+    sizes: 'xl',
   },
 })
 
-const CircularProgressWithTextVariantInner = tv({
-  base: 'size-60 bg-snow-900 rounded-full flex items-center justify-center border border-snow-800/30',
+const { base, innerCircle, percentageText, text } =
+  CircularProgressWithTextVariant()
 
-  variants: {
-    sizes: {
-      xl: 'size-60',
-      lg: 'size-48',
-      md: 'size-36',
-      sm: 'size-16',
-      xs: 'size-6',
-    },
-  },
-})
-
-export interface CircularProgressWithTextProps {
+export interface CircularProgressWithTextProps
+  extends VariantProps<typeof CircularProgressWithTextVariant> {
   totalNumber: number
   numberOfCompletions: number
 }
@@ -36,6 +58,7 @@ export interface CircularProgressWithTextProps {
 export function CircularProgressWithText({
   totalNumber,
   numberOfCompletions,
+  sizes,
 }: CircularProgressWithTextProps) {
   function calculateHowMuchPercentageInBaseOf2Values() {
     if (!totalNumber || !numberOfCompletions) {
@@ -55,16 +78,13 @@ export function CircularProgressWithText({
   }
 
   return (
-    <div
-      className="size-64 rounded-full flex items-center justify-center border border-snow-800"
-      style={gradientStyle}
-    >
-      <div className="size-60 bg-snow-900 rounded-full flex items-center justify-center border border-snow-800/30">
+    <div className={base({ sizes })} style={gradientStyle}>
+      <div className={innerCircle({ sizes })}>
         <div>
-          <p className="text-5xl font-bold text-snow-400">
+          <p className={text({ sizes })}>
             {numberOfCompletions}/{totalNumber}
           </p>
-          <p className="text-snow-600 text-center">
+          <p className={percentageText({ sizes })}>
             {calculateHowMuchPercentageInBaseOf2Values()}%
           </p>
         </div>

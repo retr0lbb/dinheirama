@@ -48,6 +48,7 @@ export function FreeFallingBanknotes({ isPlaying }: freeFalingBankNotesProps) {
     return { id: 0 * 100, x: 0, y: 0, speed: 0, rotation: 0 }
   }
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     const positions = Array.from({ length: numberOfFallingNotes }, () =>
       returnValidSpawnPositionToElement()
@@ -80,16 +81,20 @@ export function FreeFallingBanknotes({ isPlaying }: freeFalingBankNotesProps) {
                   transition: {
                     duration: position.speed,
                     ease: 'linear',
-                    repeat: Infinity,
+                    repeat: Number.POSITIVE_INFINITY,
                     repeatType: 'loop',
                   },
                 }
               : {}
           }
           onAnimationComplete={() => {
-            const newNote = returnValidSpawnPositionToElement()
-            position = newNote
-            console.log(position)
+            setNotePosition(prevNotes =>
+              prevNotes.map(note =>
+                note.id === position.id
+                  ? returnValidSpawnPositionToElement()
+                  : note
+              )
+            )
           }}
         >
           <LuBanknote

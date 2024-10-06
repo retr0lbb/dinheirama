@@ -13,13 +13,17 @@ export interface TasksProps {
 function Tasks(props: TasksProps) {
   return (
     <div className="flex flex-col flex-1 items-center h-full justify-center gap-3">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between w-full">
         <div className="flex items-center justify-center gap-2 text-3xl">
           <props.Icon className="text-snow-200 text-2xl" />
           <h1 className="font-bold text-3xl text-snow-200">{props.title}</h1>
         </div>
 
-        <CircularProgressWithText numberOfCompletions={1} totalNumber={3} />
+        <CircularProgressWithText
+          sizes="xs"
+          numberOfCompletions={1}
+          totalNumber={3}
+        />
       </div>
       <div className="flex flex-1 w-full max-h-full flex-col gap-3 overflow-y-auto">
         {props.children}

@@ -1,5 +1,5 @@
-import { IconType } from 'react-icons'
-import { tv, VariantProps } from 'tailwind-variants'
+import type { IconType } from 'react-icons'
+import { tv, type VariantProps } from 'tailwind-variants'
 import Link from 'next/link'
 
 interface NavigationBarProps {
@@ -38,7 +38,7 @@ interface NavlinkProps extends VariantProps<typeof navlinkVariant> {
   className?: string
 }
 
-function NavLink({ title, Icon, isActive, className, href}: NavlinkProps) {
+function NavLink({ title, Icon, isActive, className, href }: NavlinkProps) {
   return (
     <li className="relative group">
       <Link href={href} className={navlinkVariant({ isActive, className })}>
