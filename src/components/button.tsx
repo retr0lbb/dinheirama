@@ -23,7 +23,6 @@ const button = tv({
   },
 })
 
-const classname = 'border-snow-600/40'
 interface ButtonProps
   extends ComponentProps<'button'>,
     VariantProps<typeof button> {}
