@@ -37,7 +37,7 @@ function Task(props: TaskProps) {
   return (
     <div
       className="w-full flex-shrink-0 flex flex-col px-4 py-2 bg-snow-800 border 
-    cursor-pointer hover:border-ofice_green group hover:shadow-inner shadow-apple_green 
+  hover:border-ofice_green group hover:shadow-inner shadow-apple_green 
     transition-all border-snow-600/40 rounded-lg overflow-hidden gap-4"
     >
       <div className="flex flex-col">
