@@ -55,7 +55,7 @@ function Task(props: TaskProps) {
         </div>
       </div>
 
-      <div className="group-hover:flex flex-1 flex-col h-full flex-grow w-full hidden gap-3">
+      <div className="group-hover:flex transition-all flex-1 flex-col h-full flex-grow w-full hidden gap-3">
         <div>
           <p className="text-snow-600 text-sm">{props.description}</p>
         </div>
@@ -64,9 +64,17 @@ function Task(props: TaskProps) {
             100xp
           </div>
           <div>
-            <Button variant="secondary" sizes="sm">
-              Concluido
-            </Button>
+            {!props.isComplete && (
+              <Button variant="primary" sizes="sm">
+                Adicionar
+              </Button>
+            )}
+
+            {props.isComplete && (
+              <Button variant="secondary" disabled sizes="sm">
+                Concluido
+              </Button>
+            )}
           </div>
         </div>
       </div>
