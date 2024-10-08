@@ -1,9 +1,12 @@
+'use client'
 import Image from 'next/image'
 import PROFILEPIC from '@/static/ralsei.jpg'
 import BGIMAGE from '@/static/bg-image.webp'
 import TabSwitch from '@/components/tabs-switch/index'
+import { useState } from 'react'
 
 export default function ProfilePage() {
+  const [selectedTab, setSelectedTab] = useState('')
   return (
     <section className="w-full h-full flex flex-col gap-2 p-5">
       <div className="flex w-full items-center justify-around relative">
@@ -15,7 +18,7 @@ export default function ProfilePage() {
         <div className="flex w-full items-center justify-center gap-4 z-10 bg-snow-900/60 p-2">
           <Image
             alt="your profile picture"
-            className="rounded-xl size-48"
+            className="rounded-xl size-36"
             src={PROFILEPIC}
           />
           <div className="flex flex-col text-snow-400 w-full">
@@ -28,7 +31,30 @@ export default function ProfilePage() {
         </div>
       </div>
 
-      <TabSwitch.root />
+      <TabSwitch.root>
+        <div className="flex">
+          <TabSwitch.buttons.root>
+            <TabSwitch.buttons.button
+              type="radio"
+              value="page1"
+              isSelected={selectedTab === 'page1'}
+              onChange={event => setSelectedTab(event.target.value)} // Atualiza o estado com o valor do input
+              tabId="information"
+              tabName="Informação"
+            />
+            <TabSwitch.buttons.button
+              type="radio"
+              value="outra"
+              isSelected={selectedTab === 'outra'}
+              onChange={event => setSelectedTab(event.target.value)} // Atualiza o estado com o valor do input
+              tabId="other"
+              tabName="Outra Aba"
+            />
+          </TabSwitch.buttons.root>
+        </div>
+
+        <div className="text-snow-400">{selectedTab}</div>
+      </TabSwitch.root>
     </section>
   )
 }

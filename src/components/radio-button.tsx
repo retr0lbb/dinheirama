@@ -1,5 +1,5 @@
-import React from 'react'
-import { tv, VariantProps } from 'tailwind-variants'
+import type React from 'react'
+import { tv, type VariantProps } from 'tailwind-variants'
 
 const RadioButtonVariants = tv({
   base: 'text-snow-200 relative rounded-full border border-snow-800 focus-within:border-apple_green focus-within:text-apple_green transition-all',
