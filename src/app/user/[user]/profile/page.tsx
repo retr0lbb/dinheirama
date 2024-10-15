@@ -1,7 +1,9 @@
 import Image from 'next/image'
 import PROFILEPIC from '@/static/ralsei.jpg'
 import GAUCHO from '@/static/gaucho.jpg'
-import RALSEI from '@/static/ralsei.jpg'
+import Carman from '@/static/carman.jpg'
+import Throphy from '@/static/minthrophy.webp'
+import BUSSES from '@/static/busses.jpg'
 import BGIMAGE from '@/static/bg-image.webp'
 import { ExpenseCard } from '@/components/expenses/expenses-card'
 import RT from '@/static/rt.jpg'
@@ -40,101 +42,190 @@ export default function ProfilePage() {
       </div>
 
       <div className="w-full h-full grid grid-cols-3 place-items-center">
-        <div className="w-full h-full flex items-center flex-col gap-4 px-4">
+        <div className="w-full h-full flex items-center justify-center flex-col gap-4 px-4">
           <h1 className="text-4xl text-snow-200 font-bold">Estatísticas</h1>
-          <ExpenseCard variants="hollow">
-            <div className="flex flex-1 items-center gap-2">
-              <GiArcheryTarget className="text-4xl text-danger_red" />
-              <div>
-                <h3 className="text-xl font-bold text-snow-400">103</h3>
-                <p className="text-sm text-snow-600">objetivos completos</p>
-              </div>
-            </div>
-          </ExpenseCard>
 
-          <ExpenseCard variants="hollow">
-            <div className="flex flex-1 items-center gap-2">
-              <GiScrollUnfurled className="text-4xl text-dang_blue" />
-              <div>
-                <h3 className="text-xl font-bold text-snow-400">4</h3>
-                <p className="text-sm text-snow-600">Missões semanais</p>
+          <div className="flex flex-col gap-5 w-full h-full">
+            <ExpenseCard variants="hollow">
+              <div className="flex flex-1 items-center gap-2">
+                <GiArcheryTarget className="text-4xl text-danger_red" />
+                <div>
+                  <h3 className="text-xl font-bold text-snow-400">103</h3>
+                  <p className="text-sm text-snow-600">objetivos completos</p>
+                </div>
               </div>
-            </div>
-            <div className="absolute py-1 px-3 text-lg bg-dang_blue rounded-full text-snow-200 font-bold -top-3 right-2">
-              2 dias restantes
-            </div>
-          </ExpenseCard>
+            </ExpenseCard>
 
-          <ExpenseCard variants="hollow">
-            <div className="flex flex-1 items-center gap-2">
-              <FaBoltLightning className="text-4xl text-yellow-400" />
-              <div>
-                <h3 className="text-xl font-bold text-snow-400">1.474.392</h3>
-                <p className="text-sm text-snow-600">Experiência total</p>
+            <ExpenseCard variants="hollow">
+              <div className="flex flex-1 items-center gap-2">
+                <GiScrollUnfurled className="text-4xl text-dang_blue" />
+                <div>
+                  <h3 className="text-xl font-bold text-snow-400">4</h3>
+                  <p className="text-sm text-snow-600">Missões semanais</p>
+                </div>
               </div>
-            </div>
-          </ExpenseCard>
+              <div className="absolute py-1 px-3 text-lg bg-dang_blue rounded-full text-snow-200 font-bold -top-3 right-2">
+                2 dias restantes
+              </div>
+            </ExpenseCard>
 
-          <ExpenseCard variants="hollow">
-            <div className="flex flex-1 items-center gap-2">
-              <HiArrowTrendingUp className="text-4xl text-apple_green" />
-              <div>
-                <h3 className="text-xl font-bold text-snow-400">
-                  {moneyFormatter.format(492.78)}
-                </h3>
-                <p className="text-sm text-snow-600">
-                  Dinheiro ganho no ultimo mês
-                </p>
+            <ExpenseCard variants="hollow">
+              <div className="flex flex-1 items-center gap-2">
+                <FaBoltLightning className="text-4xl text-yellow-400" />
+                <div>
+                  <h3 className="text-xl font-bold text-snow-400">1.474.392</h3>
+                  <p className="text-sm text-snow-600">Experiência total</p>
+                </div>
               </div>
-            </div>
-            <div className="absolute py-1 px-3 text-lg bg-apple_green rounded-full text-snow-200 font-bold -top-3 right-2">
-              Ultimos 30 dias
-            </div>
-          </ExpenseCard>
+            </ExpenseCard>
+
+            <ExpenseCard variants="hollow">
+              <div className="flex flex-1 items-center gap-2">
+                <HiArrowTrendingUp className="text-4xl text-apple_green" />
+                <div>
+                  <h3 className="text-xl font-bold text-snow-400">
+                    {moneyFormatter.format(492.78)}
+                  </h3>
+                  <p className="text-sm text-snow-600">
+                    Dinheiro ganho no ultimo mês
+                  </p>
+                </div>
+              </div>
+              <div className="absolute py-1 px-3 text-lg bg-apple_green rounded-full text-snow-200 font-bold -top-3 right-2">
+                Ultimos 30 dias
+              </div>
+            </ExpenseCard>
+          </div>
         </div>
 
-        <div className="w-full h-full flex items-center flex-col">
+        <div className="w-full h-full flex items-center justify-center flex-col gap-4">
           <h1 className="text-snow-400 text-4xl font-bold ">
             Minhas Conquistas
           </h1>
+
+          <div className="w-full h-full grid grid-cols-3 gap-2">
+            <div className="rounded-lg overflow-hidden p-1 flex flex-col items-center w-auto">
+              <Image
+                className="aspect-square border-4 border-apple_green rounded-lg"
+                alt="conquista"
+                src={Throphy}
+              />
+              <h1 className="w-full mt-1 text-center text-snow-400 text-xl font-bold">
+                Ganho insano
+              </h1>
+              <p className="w-full text-center mt-0.5 text-sm max-w-40 text-snow-600">
+                ganhe mais de R$300 em uma semana
+              </p>
+            </div>
+            <div className="rounded-lg overflow-hidden p-1 flex flex-col items-center w-auto">
+              <Image
+                className="aspect-square border-4 border-apple_green rounded-lg"
+                alt="conquista"
+                src={Carman}
+              />
+              <h1 className="w-full mt-1 text-center text-snow-400 text-xl font-bold">
+                Corridas Malucas
+              </h1>
+              <p className="w-full text-center mt-0.5 text-sm max-w-40 text-snow-600">
+                fez 30 missões de carona remunerada
+              </p>
+            </div>
+
+            <div className="rounded-lg overflow-hidden p-1 flex flex-col items-center w-auto">
+              <Image
+                className="aspect-square border-4 border-bronze rounded-lg"
+                alt="conquista"
+                src={Carman}
+              />
+              <h1 className="w-full mt-1 text-center text-snow-400 text-xl font-bold">
+                Corridas Muito Malucas
+              </h1>
+              <p className="w-full text-center mt-0.5 text-sm max-w-40 text-snow-600">
+                fez 50 missões de carona remunerada
+              </p>
+            </div>
+
+            <div className="rounded-lg overflow-hidden p-1 flex flex-col items-center w-auto">
+              <Image
+                className="aspect-square border-4 border-prata rounded-lg"
+                alt="conquista"
+                src={Carman}
+              />
+              <h1 className="w-full mt-1 text-center text-snow-400 text-xl font-bold">
+                Suprasumo de carona
+              </h1>
+              <p className="w-full text-center mt-0.5 text-sm max-w-40 text-snow-600">
+                fez 100 missões de carona remunerada
+              </p>
+            </div>
+
+            <div className="rounded-lg overflow-hidden p-1 flex flex-col items-center w-auto">
+              <Image
+                className="aspect-square border-4 border-ouro rounded-lg"
+                alt="conquista"
+                src={Carman}
+              />
+              <h1 className="w-full mt-1 text-center text-snow-400 text-xl font-bold">
+                Corrida milhonaria
+              </h1>
+              <p className="w-full text-center mt-0.5 text-sm max-w-40 text-snow-600">
+                fez 500 missões de carona remunerada
+              </p>
+            </div>
+
+            <div className="rounded-lg overflow-hidden p-1 flex flex-col items-center w-auto">
+              <Image
+                className="aspect-square border-4 border-apple_green rounded-lg"
+                alt="conquista"
+                src={BUSSES}
+              />
+              <h1 className="w-full mt-1 text-center text-snow-400 text-xl font-bold">
+                Transporte inteligente
+              </h1>
+              <p className="w-full text-center mt-0.5 text-sm max-w-40 text-snow-600">
+                pegou 1 onibus para o seu destino
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div className="w-full h-full flex flex-col items-center gap-4">
+        <div className="w-full h-full flex flex-col items-center justify-center gap-4">
           <div>
             <h1 className="text-snow-400 text-4xl font-bold ">Amigos</h1>
           </div>
+          <div className="flex flex-col gap-2 w-full h-full">
+            <FriendsCard.miniCard
+              ImageAlt="image"
+              ImageSRC={GAUCHO}
+              level="9"
+              name="Flavio Moura machado"
+              nickname="Flavin corta guela"
+            />
 
-          <FriendsCard.miniCard
-            ImageAlt="image"
-            ImageSRC={GAUCHO}
-            level="9"
-            name="Flavio Moura machado"
-            nickname="Flavin corta guela"
-          />
+            <FriendsCard.miniCard
+              ImageAlt="image"
+              ImageSRC={CLEITON}
+              level="41"
+              name="Claiton Vieira Neto"
+              nickname="Claitonrasta"
+            />
 
-          <FriendsCard.miniCard
-            ImageAlt="image"
-            ImageSRC={CLEITON}
-            level="41"
-            name="Claiton Vieira Neto"
-            nickname="Claitonrasta"
-          />
+            <FriendsCard.miniCard
+              ImageAlt="image"
+              ImageSRC={RT}
+              level="97"
+              name="Guilherme lima limoeiro"
+              nickname="GuiRatão"
+            />
 
-          <FriendsCard.miniCard
-            ImageAlt="image"
-            ImageSRC={RT}
-            level="97"
-            name="Guilherme lima limoeiro"
-            nickname="GuiRatão"
-          />
-
-          <FriendsCard.miniCard
-            ImageAlt="image"
-            ImageSRC={SMA}
-            level="751"
-            name="Lucas Irmões pires"
-            nickname="Lucas Irmões pires"
-          />
+            <FriendsCard.miniCard
+              ImageAlt="image"
+              ImageSRC={SMA}
+              level="751"
+              name="Lucas Irmões pires"
+              nickname="Lucas Irmões pires"
+            />
+          </div>
         </div>
       </div>
     </section>

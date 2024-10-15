@@ -34,6 +34,10 @@ const config: Config = {
         danger_red: '#D7263D',
         dang_blue: '#4056F4',
         strong_violet: '#7209b7',
+
+        bronze: '#CD7F32',
+        prata: '#C0C0C0',
+        ouro: '#FFD700',
       },
     },
   },
