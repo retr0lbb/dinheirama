@@ -45,13 +45,13 @@ export default function ProfilePage() {
         <div className="w-full h-full flex items-center justify-center flex-col gap-4 px-4">
           <h1 className="text-4xl text-snow-200 font-bold">Estatísticas</h1>
 
-          <div className="flex flex-col gap-5 w-full h-full">
+          <div className="flex flex-col gap-5 2xl:gap-8 w-full h-full">
             <ExpenseCard variants="hollow">
               <div className="flex flex-1 items-center gap-2">
-                <GiArcheryTarget className="text-4xl text-danger_red" />
+                <GiArcheryTarget className="text-7xl text-danger_red" />
                 <div>
-                  <h3 className="text-xl font-bold text-snow-400">103</h3>
-                  <p className="text-sm text-snow-600">objetivos completos</p>
+                  <h3 className="text-2xl font-bold text-snow-400">103</h3>
+                  <p className="text-md text-snow-600">objetivos completos</p>
                 </div>
               </div>
             </ExpenseCard>
@@ -103,7 +103,7 @@ export default function ProfilePage() {
             Minhas Conquistas
           </h1>
 
-          <div className="w-full h-full grid grid-cols-3 gap-2">
+          <div className="w-full h-full grid grid-cols-2 gap-4 px-5">
             <div className="rounded-lg overflow-hidden p-1 flex flex-col items-center w-auto">
               <Image
                 className="aspect-square border-4 border-apple_green rounded-lg"
@@ -115,75 +115,6 @@ export default function ProfilePage() {
               </h1>
               <p className="w-full text-center mt-0.5 text-sm max-w-40 text-snow-600">
                 ganhe mais de R$300 em uma semana
-              </p>
-            </div>
-            <div className="rounded-lg overflow-hidden p-1 flex flex-col items-center w-auto">
-              <Image
-                className="aspect-square border-4 border-apple_green rounded-lg"
-                alt="conquista"
-                src={Carman}
-              />
-              <h1 className="w-full mt-1 text-center text-snow-400 text-xl font-bold">
-                Corridas Malucas
-              </h1>
-              <p className="w-full text-center mt-0.5 text-sm max-w-40 text-snow-600">
-                fez 30 missões de carona remunerada
-              </p>
-            </div>
-
-            <div className="rounded-lg overflow-hidden p-1 flex flex-col items-center w-auto">
-              <Image
-                className="aspect-square border-4 border-bronze rounded-lg"
-                alt="conquista"
-                src={Carman}
-              />
-              <h1 className="w-full mt-1 text-center text-snow-400 text-xl font-bold">
-                Corridas Muito Malucas
-              </h1>
-              <p className="w-full text-center mt-0.5 text-sm max-w-40 text-snow-600">
-                fez 50 missões de carona remunerada
-              </p>
-            </div>
-
-            <div className="rounded-lg overflow-hidden p-1 flex flex-col items-center w-auto">
-              <Image
-                className="aspect-square border-4 border-prata rounded-lg"
-                alt="conquista"
-                src={Carman}
-              />
-              <h1 className="w-full mt-1 text-center text-snow-400 text-xl font-bold">
-                Suprasumo de carona
-              </h1>
-              <p className="w-full text-center mt-0.5 text-sm max-w-40 text-snow-600">
-                fez 100 missões de carona remunerada
-              </p>
-            </div>
-
-            <div className="rounded-lg overflow-hidden p-1 flex flex-col items-center w-auto">
-              <Image
-                className="aspect-square border-4 border-ouro rounded-lg"
-                alt="conquista"
-                src={Carman}
-              />
-              <h1 className="w-full mt-1 text-center text-snow-400 text-xl font-bold">
-                Corrida milhonaria
-              </h1>
-              <p className="w-full text-center mt-0.5 text-sm max-w-40 text-snow-600">
-                fez 500 missões de carona remunerada
-              </p>
-            </div>
-
-            <div className="rounded-lg overflow-hidden p-1 flex flex-col items-center w-auto">
-              <Image
-                className="aspect-square border-4 border-apple_green rounded-lg"
-                alt="conquista"
-                src={BUSSES}
-              />
-              <h1 className="w-full mt-1 text-center text-snow-400 text-xl font-bold">
-                Transporte inteligente
-              </h1>
-              <p className="w-full text-center mt-0.5 text-sm max-w-40 text-snow-600">
-                pegou 1 onibus para o seu destino
               </p>
             </div>
           </div>
