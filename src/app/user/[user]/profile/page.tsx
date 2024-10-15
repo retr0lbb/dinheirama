@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import PROFILEPIC from '@/static/ralsei.jpg'
 import GAUCHO from '@/static/gaucho.jpg'
+import RALSEI from '@/static/ralsei.jpg'
 import BGIMAGE from '@/static/bg-image.webp'
 import { ExpenseCard } from '@/components/expenses/expenses-card'
 import RT from '@/static/rt.jpg'
@@ -11,6 +12,7 @@ import { GiArcheryTarget, GiScrollUnfurled } from 'react-icons/gi'
 import { FaBoltLightning } from 'react-icons/fa6'
 import { moneyFormatter } from '@/utils/money-string-formatter'
 import { HiArrowTrendingUp } from 'react-icons/hi2'
+import { Avatar } from '@/components/avatar'
 
 export default function ProfilePage() {
   return (
@@ -38,11 +40,9 @@ export default function ProfilePage() {
       </div>
 
       <div className="w-full h-full grid grid-cols-3 place-items-center">
-        <div className="w-full h-full p-4 flex items-center flex-col gap-4">
-          <h1 className="text-3xl text-snow-200 font-bold pb-2">
-            Estatísticas
-          </h1>
-          <ExpenseCard>
+        <div className="w-full h-full flex items-center flex-col gap-4 px-4">
+          <h1 className="text-4xl text-snow-200 font-bold">Estatísticas</h1>
+          <ExpenseCard variants="hollow">
             <div className="flex flex-1 items-center gap-2">
               <GiArcheryTarget className="text-4xl text-danger_red" />
               <div>
@@ -52,7 +52,7 @@ export default function ProfilePage() {
             </div>
           </ExpenseCard>
 
-          <ExpenseCard>
+          <ExpenseCard variants="hollow">
             <div className="flex flex-1 items-center gap-2">
               <GiScrollUnfurled className="text-4xl text-dang_blue" />
               <div>
@@ -65,7 +65,7 @@ export default function ProfilePage() {
             </div>
           </ExpenseCard>
 
-          <ExpenseCard>
+          <ExpenseCard variants="hollow">
             <div className="flex flex-1 items-center gap-2">
               <FaBoltLightning className="text-4xl text-yellow-400" />
               <div>
@@ -75,7 +75,7 @@ export default function ProfilePage() {
             </div>
           </ExpenseCard>
 
-          <ExpenseCard>
+          <ExpenseCard variants="hollow">
             <div className="flex flex-1 items-center gap-2">
               <HiArrowTrendingUp className="text-4xl text-apple_green" />
               <div>
@@ -93,8 +93,13 @@ export default function ProfilePage() {
           </ExpenseCard>
         </div>
 
-        <div className="w-full h-full bg-cyan-200 grid grid-cols-2 grid-rows-3 items-center" />
-        <div className="w-full h-full flex flex-col items-center gap-2">
+        <div className="w-full h-full flex items-center flex-col">
+          <h1 className="text-snow-400 text-4xl font-bold ">
+            Minhas Conquistas
+          </h1>
+        </div>
+
+        <div className="w-full h-full flex flex-col items-center gap-4">
           <div>
             <h1 className="text-snow-400 text-4xl font-bold ">Amigos</h1>
           </div>
