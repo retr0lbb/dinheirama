@@ -1,6 +1,5 @@
 'use client'
 import { ObjectiveHeader } from '@/components/objectives/objectiveHeader'
-import { FaHouse } from 'react-icons/fa6'
 import {
   ObjectiveCard,
   type ObjectiveCardProps,
@@ -16,7 +15,6 @@ import { Modal } from '@/components/modal'
 import { Input } from '@/components/input'
 import { useState } from 'react'
 import { generateRandomId } from '@/utils/generateRandomId'
-import { z } from 'zod'
 
 export default function ObjectivesPage() {
   const acutualMoney = 450000
@@ -86,7 +84,7 @@ export default function ObjectivesPage() {
             </Button>
           </div>
 
-          <div className="text-snow-400 flex flex-col items-center gap-2 p-4  flex-1">
+          <div className="text-snow-400 flex flex-col items-center gap-2 p-4 flex-1">
             <p>Outros objetivos cadastrados</p>
             <div className="flex flex-col gap-2 w-full px-8 py-2 overflow-y-auto max-h-96">
               {objectives.map((item, index) => {
@@ -97,7 +95,7 @@ export default function ObjectivesPage() {
         </div>
       </main>
 
-      <Modal visible={isCreateObjectiveModalOpen}>
+      <Modal sizes="minimum" visible={isCreateObjectiveModalOpen}>
         <Modal.Title
           title="Criar novo objetivo"
           desc="Crie um objetivo definindo o nome e seu valor"

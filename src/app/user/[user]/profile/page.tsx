@@ -1,22 +1,25 @@
+'use client'
 import Image from 'next/image'
 import PROFILEPIC from '@/static/ralsei.jpg'
 import GAUCHO from '@/static/gaucho.jpg'
-import Carman from '@/static/carman.jpg'
 import Throphy from '@/static/minthrophy.webp'
-import BUSSES from '@/static/busses.jpg'
 import BGIMAGE from '@/static/bg-image.webp'
 import { ExpenseCard } from '@/components/expenses/expenses-card'
 import RT from '@/static/rt.jpg'
 import CLEITON from '@/static/clietip.webp'
 import SMA from '@/static/sma.webp'
-import FriendsCard from '@/components/friends-card'
+import FriendsCard, { type miniCardProps } from '@/components/friends-card'
 import { GiArcheryTarget, GiScrollUnfurled } from 'react-icons/gi'
 import { FaBoltLightning } from 'react-icons/fa6'
 import { moneyFormatter } from '@/utils/money-string-formatter'
 import { HiArrowTrendingUp } from 'react-icons/hi2'
-import { Avatar } from '@/components/avatar'
+import { useScroll } from 'framer-motion'
+import { Modal } from '@/components/modal'
+import { useState } from 'react'
 
 export default function ProfilePage() {
+  const [userModalInfo, setUserModalInfo] = useState<miniCardProps>()
+  const [isModalOpen, setModalOpen] = useState(false)
   return (
     <section className="w-full h-full flex flex-col gap-8 p-5">
       <div className="flex w-full items-center justify-around relative">
@@ -126,6 +129,7 @@ export default function ProfilePage() {
           </div>
           <div className="flex flex-col gap-2 w-full h-full">
             <FriendsCard.miniCard
+              setModalInfo={setUserModalInfo}
               ImageAlt="image"
               ImageSRC={GAUCHO}
               level="9"
@@ -134,6 +138,7 @@ export default function ProfilePage() {
             />
 
             <FriendsCard.miniCard
+              setModalInfo={setUserModalInfo}
               ImageAlt="image"
               ImageSRC={CLEITON}
               level="41"
@@ -142,6 +147,7 @@ export default function ProfilePage() {
             />
 
             <FriendsCard.miniCard
+              setModalInfo={setUserModalInfo}
               ImageAlt="image"
               ImageSRC={RT}
               level="97"
@@ -150,6 +156,7 @@ export default function ProfilePage() {
             />
 
             <FriendsCard.miniCard
+              setModalInfo={setUserModalInfo}
               ImageAlt="image"
               ImageSRC={SMA}
               level="751"
@@ -159,6 +166,11 @@ export default function ProfilePage() {
           </div>
         </div>
       </div>
+
+      <Modal sizes="almostFull" visible={isModalOpen}>
+        <Modal.Title onCloseButtonClick={() => setModalOpen(false)} title="" />
+        <Modal.Body>{userModalInfo?.nickname}</Modal.Body>
+      </Modal>
     </section>
   )
 }
