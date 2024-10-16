@@ -13,13 +13,27 @@ import { GiArcheryTarget, GiScrollUnfurled } from 'react-icons/gi'
 import { FaBoltLightning } from 'react-icons/fa6'
 import { moneyFormatter } from '@/utils/money-string-formatter'
 import { HiArrowTrendingUp } from 'react-icons/hi2'
-import { useScroll } from 'framer-motion'
 import { Modal } from '@/components/modal'
 import { useState } from 'react'
 
+/**
+ * Atenção, trocar para request de pagina usando api depois que todo o design estiver pronto
+ * criar um servidor falso e atualizar as informações do usuario por lá até o servidor estar bom
+ */
+
 export default function ProfilePage() {
-  const [userModalInfo, setUserModalInfo] = useState<miniCardProps>()
+  const [userModalInfo, setUserModalInfo] =
+    useState<Omit<miniCardProps, 'onClick'>>()
   const [isModalOpen, setModalOpen] = useState(false)
+
+  function handleSeeFriendsPage(data: Omit<miniCardProps, 'onClick'>) {
+    try {
+      setUserModalInfo(data)
+      setModalOpen(true)
+    } catch (error) {
+      new Error('Not able to see friends page')
+    }
+  }
   return (
     <section className="w-full h-full flex flex-col gap-8 p-5">
       <div className="flex w-full items-center justify-around relative">
@@ -129,7 +143,15 @@ export default function ProfilePage() {
           </div>
           <div className="flex flex-col gap-2 w-full h-full">
             <FriendsCard.miniCard
-              setModalInfo={setUserModalInfo}
+              onClick={() =>
+                handleSeeFriendsPage({
+                  ImageAlt: 'image',
+                  ImageSRC: GAUCHO,
+                  level: '9',
+                  name: 'Flavio Moura machado',
+                  nickname: 'Flavin corta guela',
+                })
+              }
               ImageAlt="image"
               ImageSRC={GAUCHO}
               level="9"
@@ -138,7 +160,15 @@ export default function ProfilePage() {
             />
 
             <FriendsCard.miniCard
-              setModalInfo={setUserModalInfo}
+              onClick={() =>
+                handleSeeFriendsPage({
+                  ImageAlt: 'image',
+                  ImageSRC: CLEITON,
+                  level: '41',
+                  name: 'Claiton Vieira Neto',
+                  nickname: 'Claitonrasta',
+                })
+              }
               ImageAlt="image"
               ImageSRC={CLEITON}
               level="41"
@@ -147,7 +177,15 @@ export default function ProfilePage() {
             />
 
             <FriendsCard.miniCard
-              setModalInfo={setUserModalInfo}
+              onClick={() =>
+                handleSeeFriendsPage({
+                  ImageAlt: 'image',
+                  ImageSRC: RT,
+                  level: '97',
+                  name: 'Guilherme lima limoeiro',
+                  nickname: 'GuiRatão',
+                })
+              }
               ImageAlt="image"
               ImageSRC={RT}
               level="97"
@@ -156,7 +194,15 @@ export default function ProfilePage() {
             />
 
             <FriendsCard.miniCard
-              setModalInfo={setUserModalInfo}
+              onClick={() =>
+                handleSeeFriendsPage({
+                  ImageAlt: 'image',
+                  ImageSRC: SMA,
+                  level: '751',
+                  name: 'Lucas Irmões pires',
+                  nickname: 'Lucas Irmões pires',
+                })
+              }
               ImageAlt="image"
               ImageSRC={SMA}
               level="751"
@@ -169,7 +215,9 @@ export default function ProfilePage() {
 
       <Modal sizes="almostFull" visible={isModalOpen}>
         <Modal.Title onCloseButtonClick={() => setModalOpen(false)} title="" />
-        <Modal.Body>{userModalInfo?.nickname}</Modal.Body>
+        <Modal.Body>
+          {userModalInfo ? <FriendsCard.FriendPage {...userModalInfo} /> : ''}
+        </Modal.Body>
       </Modal>
     </section>
   )
