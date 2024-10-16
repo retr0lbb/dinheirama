@@ -1,5 +1,9 @@
 import type { StaticImport } from 'next/dist/shared/lib/get-img-props'
+import { IoAlert } from 'react-icons/io5'
+import { MdBlock } from 'react-icons/md'
+import { FaChevronDown } from 'react-icons/fa6'
 import Image from 'next/image'
+import { Button } from './button'
 
 export interface miniCardProps {
   ImageSRC?: StaticImport
@@ -11,7 +15,7 @@ export interface miniCardProps {
 }
 
 function miniCard({
-  ImageAlt = 'Image', // Valor padrão para evitar undefined
+  ImageAlt = 'Image',
   ImageSRC,
   level,
   name,
@@ -26,7 +30,7 @@ function miniCard({
   }
 
   if (!ImageSRC) {
-    return null // Retorne null se não houver imagem para evitar retorno indefinido
+    return null
   }
 
   return (
@@ -55,18 +59,18 @@ function miniCard({
 }
 
 interface FriendsPageRequestPerGroup {
-  ImageSRC?: StaticImport // Deixe como opcional
+  ImageSRC?: StaticImport
   bgImage?: StaticImport
   ImageAlt?: string
-  name: string // Certifique-se de que `name` seja obrigatório
-  nickname: string // Certifique-se de que `nickname` seja obrigatório
-  level: string // Certifique-se de que `level` seja obrigatório
+  name: string
+  nickname: string
+  level: string
 }
 
 function FriendPage({
   ImageSRC,
   bgImage,
-  ImageAlt = 'your profile picture', // Valor padrão para evitar undefined
+  ImageAlt = 'your profile picture',
   name,
   nickname,
   level,
@@ -75,7 +79,7 @@ function FriendPage({
     return null
   }
   return (
-    <section className="w-full h-full flex flex-col gap-8 p-5">
+    <section className="w-full h-full flex flex-col gap-8 p-2 bg-red-500">
       <div className="flex w-full items-center justify-around relative">
         {bgImage && (
           <Image
@@ -84,7 +88,7 @@ function FriendPage({
             className="absolute inset-0 w-full h-full object-cover"
           />
         )}
-        <div className="flex w-full items-center justify-center gap-4 z-10 bg-snow-900/60 p-2">
+        <div className="flex w-full items-center justify-center gap-4 z-10 bg-snow-900/60 p-2 relative">
           <Image alt={ImageAlt} className="rounded-xl size-36" src={ImageSRC} />
           <div className="flex flex-col text-snow-400 w-full">
             <h1 className="text-7xl font-bold leading-none">{nickname}</h1>
@@ -95,6 +99,20 @@ function FriendPage({
                 {level}
               </span>
             </p>
+          </div>
+
+          <div className="absolute top-2 right-2 flex items-center justify-center gap-4">
+            <Button variant="secondary">
+              Seguindo <FaChevronDown />
+            </Button>
+
+            <Button variant="secondary">
+              Bloquear <MdBlock />
+            </Button>
+
+            <Button variant="secondary">
+              <IoAlert />
+            </Button>
           </div>
         </div>
       </div>
