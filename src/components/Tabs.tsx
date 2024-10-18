@@ -1,13 +1,12 @@
 import { tv } from 'tailwind-variants'
 
+// Tabs Root
 interface TabsProps {
   children: React.ReactNode
 }
 function Tabs({ children }: TabsProps) {
   return (
-    <section className="w-full h-full flex flex-col bg-zinc-700">
-      {children}
-    </section>
+    <section className="w-full h-full flex flex-col gap-4">{children}</section>
   )
 }
 
@@ -61,7 +60,7 @@ export interface TabsButtonWrapperProps {
 
 function TabsButtonWrapper({ children }: TabsButtonWrapperProps) {
   return (
-    <div className="flex items-center p-2 border border-snow-600/40 bg-snow-800/40 gap-1 rounded-md">
+    <div className="flex items-center p-1.5 border border-snow-600/40 bg-snow-800/40 gap-1 rounded-md">
       {children}
     </div>
   )
@@ -75,7 +74,7 @@ interface TabProps {
 
 function Tab({ tabName, children }: TabProps) {
   return (
-    <section className="w-full h-full bg-red-500 flex flex-1 overflow-y-auto flex-col">
+    <section className="w-full h-full flex flex-1 overflow-y-auto flex-col">
       {children}
     </section>
   )
