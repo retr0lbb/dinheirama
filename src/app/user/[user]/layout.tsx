@@ -75,9 +75,10 @@ export default function UserLayout({ children, params }: UserLayoutProps) {
             title="Investimentos"
           />
           <NavigationBar.NavLink
-            href="/configs"
+            href={`/user/${user}/config`}
             Icon={FaCog}
             title="Configurações"
+            isActive={pathName === `/user/${user}/config`}
           />
         </NavigationBar>
 

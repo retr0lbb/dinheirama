@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <main className="h-screen flex items-center flex-col justify-center space-y-10 antialiased">
+    <main className="h-screen flex items-center flex-col justify-center gap-10 antialiased">
       <FreeFallingBanknotes isPlaying={true} />
       <div className="flex flex-col items-center justify-center space-y-2 z-10">
         <h1 className="text-8xl font-bold text-snow-200 text-center">

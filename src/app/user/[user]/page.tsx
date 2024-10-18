@@ -35,7 +35,7 @@ export default function UserPage({ params }: UserPageProps) {
 
   return (
     <section className="w-full h-full p-5 overflow-y-hidden flex flex-col gap-5">
-      <div className="w-full space-y-1">
+      <div className="w-full flex flex-col gap-2">
         <h1 className="text-snow-400 font-bold text-6xl">Saldo e despesas</h1>
         <p className="text-snow-600 text-lg">
           Lembre-se gaste concientemente e mude o seu estilo de vida, esse é o
