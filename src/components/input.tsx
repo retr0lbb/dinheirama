@@ -2,7 +2,7 @@ import React, { type ComponentProps, forwardRef } from 'react'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 const inputVariant = tv({
-  base: 'text-snow-400 border border-snow-800 rounded-lg transition-all flex items-center justify-center',
+  base: 'text-snow-400 rounded-lg transition-all flex items-center justify-center',
   variants: {
     sizes: {
       sm: 'text-md py-1.5 px-3 gap-1',
@@ -13,7 +13,12 @@ const inputVariant = tv({
     border: {
       greenColored: 'focus-within:border-apple_green',
       grayColored: 'focus-within:border-snow-600',
+      none: 'focus-within:border',
       ghost: 'border-none',
+    },
+    variant: {
+      undelined: 'border border-transparent border-b-snow-800 rounded-none',
+      bordered: 'border border-snow-800',
     },
 
     types: {
@@ -23,6 +28,7 @@ const inputVariant = tv({
   defaultVariants: {
     border: 'greenColored',
     sizes: 'lg',
+    variant: 'bordered',
   },
 })
 
@@ -32,14 +38,20 @@ interface InputProps
   Title: string
 }
 
-function Input({ Title, sizes, border, ...rest }: InputProps) {
+const className = ''
+function Input({ Title, sizes, border, variant, ...rest }: InputProps) {
   return (
     <div className="flex flex-col px-4">
       <label className="text-snow-600" htmlFor="name">
         {Title}
       </label>
       <div
-        className={inputVariant({ border, sizes, className: rest.className })}
+        className={inputVariant({
+          border,
+          sizes,
+          className: rest.className,
+          variant,
+        })}
       >
         {rest.children}
       </div>
