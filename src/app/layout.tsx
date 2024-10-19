@@ -18,6 +18,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
+    // biome-ignore lint/a11y/useValidLang: cuz pt-br is a valid language
     <html lang="pt-br">
       <body className={lato.className}>{children}</body>
     </html>

@@ -70,9 +70,10 @@ export default function UserLayout({ children, params }: UserLayoutProps) {
             isActive={pathName === `/user/${user}/profile`}
           />
           <NavigationBar.NavLink
-            href="/investments"
+            href={`/user/${user}/investments`}
             Icon={FaPiggyBank}
             title="Investimentos"
+            isActive={pathName === `/user/${user}/investments`}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/config`}
