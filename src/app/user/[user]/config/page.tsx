@@ -4,9 +4,13 @@ import { Input } from '@/components/input'
 import Image from 'next/image'
 import { useState } from 'react'
 import RALSEI from '@/static/ralsei.jpg'
+import BANCOOFBRASIL from '@/static/banco-do-brasil-85782.svg'
 import { moneyFormatter } from '@/utils/money-string-formatter'
 import { SiNubank, SiMastercard } from 'react-icons/si'
 import { BankCard, type CardProps } from '@/components/stacked-cards/bank-card'
+import { Button } from '@/components/button'
+import { RiVisaLine } from 'react-icons/ri'
+import { BankAccountCard } from '@/components/bank-account-card'
 
 export default function ConfigurationPage() {
   const [selectedTab, setSelectedTab] = useState('user')
@@ -102,86 +106,40 @@ export default function ConfigurationPage() {
 
         {selectedTab === 'accounts' && (
           <Tabs.Tab tabName="Usuario">
-            <div className="w-full flex flex-col items-center justify-center flex-shrink-0">
-              <div className="w-full flex flex-col p-2 items-center justify-evenly gap-5">
-                <div className="bg-snow-800 px-8 py-5 rounded-lg border flex justify-between gap-10 border-snow-600/20">
-                  <div className="flex flex-1 flex-grow flex-col h-full gap-1">
-                    <h1 className="font-bold text-3xl text-snow-400">
-                      {moneyFormatter.format(200128)}
-                    </h1>
-                    <p className="text-sm text-snow-600 font-bold">
-                      Henrique Barbosa Sampaio
-                    </p>
-
-                    <div className="text-4xl text-purple-600 flex flex-1 mt-4">
-                      <SiNubank />
+            <div className="w-full h-full flex items-center justify-center flex-shrink-0">
+              <div className="flex flex-col p-2 gap-5 h-full">
+                <div className="flex flex-col gap-4">
+                  <div className="flex w-full items-center gap-2 justify-between">
+                    <h2 className="text-xl flex flex-1 w-full text-snow-600 font-bold">
+                      Contas bancarias
+                    </h2>
+                    <div>
+                      <Button>Adicionar Nova</Button>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-5 place-items-center">
-                    <div className="flex flex-col gap-1">
-                      <h1 className="text-snow-600 text-sm font-bold">
-                        numero de conta
-                      </h1>
-                      <p className="text-2xl text-snow-400">6226-9</p>
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      <h1 className="text-snow-600 text-sm font-bold">
-                        Tipo de conta
-                      </h1>
-                      <p className="text-2xl text-snow-400">Corrente</p>
-                    </div>
-                    <div className="flex flex-col gap-1 col-span-2">
-                      <h1 className="text-snow-600 text-sm font-bold">
-                        Cartões vinculados
-                      </h1>
+                  <div className="flex flex-1 items-center w-full gap-3 flex-col">
+                    <BankAccountCard
+                      accountNumber="1292-0"
+                      accountOwner="Henrique Barbosa Sampaio"
+                      accountType="Poupança"
+                      balance={127891.76}
+                      BankLogo={SiNubank}
+                      ConectedCardLogo={SiMastercard}
+                    />
 
-                      <div className="flex items-center justify-center gap-1">
-                        <SiMastercard className="text-3xl text-snow-400 cursor-pointer" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-snow-800 px-8 py-5 rounded-lg border flex justify-between gap-10 border-snow-600/20">
-                  <div className="flex flex-1 flex-grow flex-col h-full gap-1">
-                    <h1 className="font-bold text-3xl text-snow-400">
-                      {moneyFormatter.format(200128)}
-                    </h1>
-                    <p className="text-sm text-snow-600 font-bold">
-                      Henrique Barbosa Sampaio
-                    </p>
-
-                    <div className="text-4xl text-purple-600 flex flex-1 mt-4">
-                      <SiNubank />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-5 place-items-center">
-                    <div className="flex flex-col gap-1">
-                      <h1 className="text-snow-600 text-sm font-bold">
-                        numero de conta
-                      </h1>
-                      <p className="text-2xl text-snow-400">6226-9</p>
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      <h1 className="text-snow-600 text-sm font-bold">
-                        Tipo de conta
-                      </h1>
-                      <p className="text-2xl text-snow-400">Corrente</p>
-                    </div>
-                    <div className="flex flex-col gap-1 col-span-2">
-                      <h1 className="text-snow-600 text-sm font-bold">
-                        Cartões vinculados
-                      </h1>
-
-                      <div className="flex items-center justify-center gap-1">
-                        <SiMastercard className="text-3xl text-snow-400 cursor-pointer" />
-                      </div>
-                    </div>
+                    <BankAccountCard
+                      accountNumber="4600-X"
+                      accountOwner="Henrique Barbosa Sampaio"
+                      accountType="Corrente"
+                      balance={623.81}
+                      BankLogo={SiNubank}
+                      ConectedCardLogo={RiVisaLine}
+                    />
                   </div>
                 </div>
               </div>
+              <div className="flex flex-1 h-full w-full bg-red-500">a</div>
             </div>
           </Tabs.Tab>
         )}
