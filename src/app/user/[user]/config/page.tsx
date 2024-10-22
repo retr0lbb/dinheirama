@@ -11,9 +11,19 @@ import { RiVisaLine } from 'react-icons/ri'
 import { BankAccountCard } from '@/components/bank-account-card'
 import { RadioButton } from '@/components/radio-button'
 import something from '@/static/bg-image.webp'
+import { Modal } from '@/components/modal'
+
+enum MODALOPEN {
+  NONE = 0,
+  DELET_ACCOUNT = 1,
+  CHANGE_EMAIL = 2,
+  CONNECT_ACCOUNTS = 3,
+}
 
 export default function ConfigurationPage() {
   const [selectedTab, setSelectedTab] = useState('user')
+  const [modalOpen, setModalOpen] = useState(MODALOPEN.NONE)
+
   return (
     <section className="w-full h-full flex flex-col gap-2 p-5">
       <Tabs>
@@ -57,6 +67,7 @@ export default function ConfigurationPage() {
                 </p>
               </div>
               <form
+                onSubmit={e => e.preventDefault()}
                 action=""
                 className="m-auto min-w-[1000px] h-full flex flex-col gap-4"
               >
@@ -156,10 +167,20 @@ export default function ConfigurationPage() {
                   </div>
                   <div className="w-full flex items-center justify-start gap-2">
                     <div>
-                      <Button variant="danger">Excluir conta</Button>
+                      <Button
+                        onClick={() => setModalOpen(MODALOPEN.DELET_ACCOUNT)}
+                        variant="danger"
+                      >
+                        Excluir conta
+                      </Button>
                     </div>
                     <div>
-                      <Button variant="danger">Mudar endereço de email</Button>
+                      <Button
+                        onClick={() => setModalOpen(MODALOPEN.CHANGE_EMAIL)}
+                        variant="danger"
+                      >
+                        Mudar endereço de email
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -186,7 +207,9 @@ export default function ConfigurationPage() {
                       Contas bancarias
                     </h2>
                     <div>
-                      <Button>
+                      <Button
+                        onClick={() => setModalOpen(MODALOPEN.CONNECT_ACCOUNTS)}
+                      >
                         <FaPlus />
                         Adicionar Nova
                       </Button>
@@ -373,6 +396,151 @@ export default function ConfigurationPage() {
           </Tabs.Tab>
         )}
       </Tabs>
+
+      <Modal visible={modalOpen === MODALOPEN.DELET_ACCOUNT}>
+        <Modal.Title
+          title="Deletar Conta"
+          onCloseButtonClick={() => setModalOpen(MODALOPEN.NONE)}
+        />
+        <Modal.Body>
+          <div className="w-full h-full flex flex-col gap-10">
+            <div className="flex flex-col items-center justify-center w-full gap-2">
+              <h1 className="text-3xl font-bold text-snow-400">
+                Tem certeza que deseja{' '}
+                <strong className="text-danger_red">deletar</strong> a sua
+                conta?
+              </h1>
+              <p className="text-snow-600">
+                Irei ficar muito triste sem você aqui!
+              </p>
+            </div>
+            <div className="flex items-center justify-center gap-7">
+              <Button className="" variant="secondary">
+                Cancelar
+              </Button>
+              <Button variant="danger">Excluir</Button>
+            </div>
+          </div>
+        </Modal.Body>
+      </Modal>
+
+      <Modal sizes="minimum" visible={modalOpen === MODALOPEN.CHANGE_EMAIL}>
+        <Modal.Title
+          title="Mudar email"
+          onCloseButtonClick={() => setModalOpen(MODALOPEN.NONE)}
+        />
+        <Modal.Body>
+          <div className="w-full h-full flex flex-col gap-5">
+            <div className="flex flex-col gap-2">
+              <Input
+                variant="bordered"
+                border="grayColored"
+                className="bg-snow-900"
+                Title="Novo email"
+              >
+                <Input.Field type="email" />
+              </Input>
+
+              <Input
+                variant="bordered"
+                border="grayColored"
+                className="bg-snow-900"
+                Title="Repita novo email"
+              >
+                <Input.Field type="email" />
+              </Input>
+            </div>
+            <div className="flex items-center justify-center gap-7">
+              <Button className="" variant="secondary">
+                Cancelar
+              </Button>
+              <Button variant="primary">Confirmar</Button>
+            </div>
+          </div>
+        </Modal.Body>
+      </Modal>
+
+      <Modal sizes="minimum" visible={modalOpen === MODALOPEN.CONNECT_ACCOUNTS}>
+        <Modal.Title
+          title="Conectar conta bancaria"
+          onCloseButtonClick={() => setModalOpen(MODALOPEN.NONE)}
+        />
+        <Modal.Body>
+          <div className="w-full h-full flex flex-col gap-5">
+            <div className="flex flex-col items-center justify-center gap-2">
+              <h1 className="text-3xl text-snow-400 font-bold">
+                Conecte uma conta de banco para o dinheirama
+              </h1>
+              <p className="text-snow-600">
+                conectar sua conta pessoal do banco ajuda a nossa inteligencia
+                artificial classificar melhor suas compras e entender o seu
+                estilo de investidor
+              </p>
+            </div>
+            <form className="flex flex-col gap-2 px-4 py-5 bg-snow-900">
+              <Input
+                variant="bordered"
+                border="grayColored"
+                className="bg-snow-900"
+                Title="Nome completo"
+              >
+                <Input.Field type="text" />
+              </Input>
+
+              <Input
+                variant="bordered"
+                border="grayColored"
+                className="bg-snow-900"
+                Title="Numero de conta"
+              >
+                <Input.Field type="number" />
+              </Input>
+
+              <Input
+                variant="bordered"
+                border="grayColored"
+                className="bg-snow-900"
+                Title="Entidade Bancaria"
+              >
+                <Input.Field type="text" />
+              </Input>
+
+              <Input
+                variant="bordered"
+                border="grayColored"
+                className="bg-snow-900"
+                Title="Numero da agencia"
+              >
+                <Input.Field type="number" />
+              </Input>
+
+              <Input
+                variant="bordered"
+                border="grayColored"
+                className="bg-snow-900"
+                Title="Cpf"
+              >
+                <Input.Field type="number" />
+              </Input>
+
+              <Input
+                variant="bordered"
+                border="grayColored"
+                className="bg-snow-900"
+                Title="Email para confirmação"
+              >
+                <Input.Field type="email" />
+              </Input>
+            </form>
+            <div className="flex items-center justify-center gap-7">
+              <Button className="" variant="secondary">
+                Cancelar
+              </Button>
+              <Button variant="primary">Conectar</Button>
+            </div>
+          </div>
+        </Modal.Body>
+      </Modal>
     </section>
   )
 }
