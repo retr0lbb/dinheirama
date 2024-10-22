@@ -34,21 +34,24 @@ export interface TabsButtonProps extends React.ComponentProps<'input'> {
 }
 
 const { base, text } = tabsButtonVariants()
-function TabButton(props: TabsButtonProps) {
+function TabButton({
+  tabId,
+  tabName,
+  isSelected = false,
+  ...rest
+}: TabsButtonProps) {
   return (
-    <div className={base({ isSelected: props.isSelected })}>
+    <div className={base({ isSelected })}>
       <input
         className="absolute inset-0 w-full h-full z-10 opacity-0 cursor-pointer"
-        id={props.tabId}
+        id={tabId}
         type="radio"
         name="tab"
-        {...props}
+        checked={isSelected}
+        {...rest}
       />
-      <label
-        className={text({ isSelected: props.isSelected })}
-        htmlFor={props.tabId}
-      >
-        {props.tabName}
+      <label className={text({ isSelected })} htmlFor={tabId}>
+        {tabName}
       </label>
     </div>
   )

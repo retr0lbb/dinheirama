@@ -5,8 +5,8 @@ interface BankAccountCardProps {
   accountNumber: string
   accountOwner: string
   accountType: 'Corrente' | 'Poupança' | 'Outro'
-  BankLogo: React.ComponentType<{ className?: string }>
-  ConectedCardLogo: React.ComponentType<{ className?: string }>
+  BankLogo: React.ReactNode
+  ConectedCardLogo: React.ReactNode
 }
 
 export function BankAccountCard(props: BankAccountCardProps) {
@@ -19,11 +19,11 @@ export function BankAccountCard(props: BankAccountCardProps) {
         <p className="text-sm text-snow-600 font-bold">{props.accountOwner}</p>
 
         <div className="text-4xl text-purple-600 flex flex-1 mt-4">
-          <props.BankLogo />
+          {props.BankLogo}
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-5 place-items-center">
+      <div className="grid grid-cols-3 gap-5">
         <div className="flex flex-col gap-1">
           <h1 className="text-snow-600 text-sm font-bold">numero de conta</h1>
           <p className="text-2xl text-snow-400">{props.accountNumber}</p>
@@ -32,16 +32,18 @@ export function BankAccountCard(props: BankAccountCardProps) {
           <h1 className="text-snow-600 text-sm font-bold">Tipo de conta</h1>
           <p className="text-2xl text-snow-400">{props.accountType}</p>
         </div>
-        <div className="flex flex-col gap-1 col-span-2">
+        <div className="flex flex-col gap-1">
           <h1 className="text-snow-600 text-sm font-bold">
             Cartões vinculados
           </h1>
 
           <div className="flex items-center justify-center gap-1">
-            <props.ConectedCardLogo className="text-3xl text-snow-400 cursor-pointer" />
+            {props.ConectedCardLogo}
           </div>
         </div>
       </div>
     </div>
   )
 }
+
+//justi in case

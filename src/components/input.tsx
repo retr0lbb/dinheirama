@@ -38,11 +38,10 @@ interface InputProps
   Title: string
 }
 
-const className = ''
 function Input({ Title, sizes, border, variant, ...rest }: InputProps) {
   return (
     <div className="flex flex-col px-4">
-      <label className="text-snow-600" htmlFor="name">
+      <label className="text-snow-600" htmlFor={rest.id}>
         {Title}
       </label>
       <div

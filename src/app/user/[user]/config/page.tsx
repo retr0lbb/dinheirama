@@ -4,15 +4,14 @@ import { Input } from '@/components/input'
 import Image from 'next/image'
 import { useState } from 'react'
 import RALSEI from '@/static/ralsei.jpg'
-import BANCOOFBRASIL from '@/static/banco-do-brasil-85782.svg'
-import { moneyFormatter } from '@/utils/money-string-formatter'
+import { FaPlus } from 'react-icons/fa6'
 import { SiNubank, SiMastercard } from 'react-icons/si'
-import { BankCard, type CardProps } from '@/components/stacked-cards/bank-card'
 import { Button } from '@/components/button'
 import { RiVisaLine } from 'react-icons/ri'
 import { BankAccountCard } from '@/components/bank-account-card'
 import { RadioButton } from '@/components/radio-button'
 import something from '@/static/bg-image.webp'
+
 export default function ConfigurationPage() {
   const [selectedTab, setSelectedTab] = useState('user')
   return (
@@ -48,13 +47,15 @@ export default function ConfigurationPage() {
         {selectedTab === 'user' && (
           <Tabs.Tab tabName="Usuario">
             <div className="w-full flex flex-col items-center justify-center flex-shrink-0">
-              <form action="" className="w-full h-full flex flex-col gap-4">
+              <form
+                action=""
+                className="m-auto min-w-[1000px] h-full flex flex-col gap-4"
+              >
                 <div className="flex flex-col gap-2">
-                  <label className="text-snow-600 px-4" htmlFor="name">
-                    foto de perfil
-                  </label>
+                  <label className="text-snow-600 px-4">foto de perfil</label>
                   <div className="px-4">
                     <Image
+                      id="profileImage"
                       className="size-40 rounded-lg cursor-pointer"
                       alt="your profile picture"
                       src={RALSEI}
@@ -63,11 +64,12 @@ export default function ConfigurationPage() {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label className="text-snow-600 px-4" htmlFor="name">
+                  <label className="text-snow-600 px-4">
                     Banner de usuario
                   </label>
                   <div className="px-4">
                     <Image
+                      id="bannerImage"
                       className="h-40 w-full rounded-lg cursor-pointer object-cover"
                       alt="your profile picture"
                       src={something}
@@ -76,8 +78,13 @@ export default function ConfigurationPage() {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <Input variant="undelined" border="none" Title="Nickname">
-                    <Input.Field value={'retr0lbb'} />
+                  <Input
+                    variant="undelined"
+                    border="none"
+                    Title="Nickname"
+                    id="nickname"
+                  >
+                    <Input.Field id="nickname" defaultValue={'retr0lbb'} />
                   </Input>
                 </div>
 
@@ -86,10 +93,12 @@ export default function ConfigurationPage() {
                     variant="undelined"
                     border="none"
                     Title="Nome completo"
+                    id="fullname"
                   >
                     <Input.Field
                       type="text"
-                      value={'Henrique Barbosa Sampaio'}
+                      id="fullname"
+                      defaultValue={'Henrique Barbosa Sampaio'}
                     />
                   </Input>
                 </div>
@@ -98,27 +107,52 @@ export default function ConfigurationPage() {
                   <Input
                     variant="undelined"
                     border="none"
+                    id="birthdate"
                     Title="Data de nascimento"
                   >
-                    <Input.Field type="date" />
+                    <Input.Field id="birthdate" type="date" />
                   </Input>
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <Input variant="undelined" border="none" Title="CPF">
-                    <Input.Field type="text" value={'173.269.297-18'} />
-                  </Input>
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <Input variant="undelined" border="none" Title="Biografia">
+                  <Input variant="undelined" border="none" id="cpf" Title="CPF">
                     <Input.Field
                       type="text"
-                      value={
+                      id="cpf"
+                      defaultValue={'173.269.297-18'}
+                    />
+                  </Input>
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <Input
+                    variant="undelined"
+                    id="bio"
+                    border="none"
+                    Title="Biografia"
+                  >
+                    <Input.Field
+                      id="bio"
+                      type="text"
+                      defaultValue={
                         'Sou o Lucas, tenho 18 anos e moro no Brasil. Amo videogames e sou parte da comunidade furry. Curto criar personagens e explorar mundos virtuais, além de me conectar com outras pessoas que compartilham desses hobbies.'
                       }
                     />
                   </Input>
+                </div>
+
+                <div className="flex flex-col gap-2 border border-danger_red rounded-xl p-2">
+                  <div className="text-danger_red mx-2">
+                    <p>Zona perigosa</p>
+                  </div>
+                  <div className="w-full flex items-center justify-start gap-2">
+                    <div>
+                      <Button variant="danger">Excluir conta</Button>
+                    </div>
+                    <div>
+                      <Button variant="danger">Mudar endereço de email</Button>
+                    </div>
+                  </div>
                 </div>
               </form>
             </div>
@@ -128,14 +162,17 @@ export default function ConfigurationPage() {
         {selectedTab === 'accounts' && (
           <Tabs.Tab tabName="Usuario">
             <div className="w-full h-full flex items-center justify-center flex-shrink-0">
-              <div className="flex flex-col p-2 gap-5 h-full">
+              <div className="flex min-w-[1000px] flex-col p-2 gap-5 h-full">
                 <div className="flex flex-col gap-4">
                   <div className="flex w-full items-center gap-2 justify-between">
                     <h2 className="text-xl flex flex-1 w-full text-snow-600 font-bold">
                       Contas bancarias
                     </h2>
                     <div>
-                      <Button>Adicionar Nova</Button>
+                      <Button>
+                        <FaPlus />
+                        Adicionar Nova
+                      </Button>
                     </div>
                   </div>
 
@@ -145,8 +182,10 @@ export default function ConfigurationPage() {
                       accountOwner="Henrique Barbosa Sampaio"
                       accountType="Poupança"
                       balance={127891.76}
-                      BankLogo={SiNubank}
-                      ConectedCardLogo={SiMastercard}
+                      BankLogo={<SiNubank />}
+                      ConectedCardLogo={
+                        <SiMastercard className="text-3xl text-snow-400 cursor-pointer" />
+                      }
                     />
 
                     <BankAccountCard
@@ -154,14 +193,13 @@ export default function ConfigurationPage() {
                       accountOwner="Henrique Barbosa Sampaio"
                       accountType="Corrente"
                       balance={623.81}
-                      BankLogo={SiNubank}
-                      ConectedCardLogo={RiVisaLine}
+                      BankLogo={<SiNubank />}
+                      ConectedCardLogo={
+                        <RiVisaLine className="text-3xl text-snow-400 cursor-pointer" />
+                      }
                     />
                   </div>
                 </div>
-              </div>
-              <div className="flex flex-col flex-1 h-full w-full bg-red-500">
-                não sei o que colocar aqui men
               </div>
             </div>
           </Tabs.Tab>
@@ -178,7 +216,10 @@ export default function ConfigurationPage() {
                   que gera as missões semanais pra você
                 </p>
               </div>
-              <form action="" className="w-full h-full flex flex-col gap-4">
+              <form
+                action=""
+                className="m-auto min-w-[1000px] h-full flex flex-col gap-4"
+              >
                 <div className="flex flex-col gap-2">
                   <Input
                     variant="undelined"
