@@ -46,7 +46,16 @@ export default function ConfigurationPage() {
 
         {selectedTab === 'user' && (
           <Tabs.Tab tabName="Usuario">
-            <div className="w-full flex flex-col items-center justify-center flex-shrink-0">
+            <div className="w-full flex flex-col gap-8 items-center justify-center flex-shrink-0">
+              <div className="text-center">
+                <h1 className="text-5xl text-snow-400">
+                  Configurações de usuario
+                </h1>
+                <p className="text-lg text-snow-600">
+                  Mude o estilo do seu perfil mudando sua foto, banner e até o
+                  nickname
+                </p>
+              </div>
               <form
                 action=""
                 className="m-auto min-w-[1000px] h-full flex flex-col gap-4"
@@ -141,7 +150,7 @@ export default function ConfigurationPage() {
                   </Input>
                 </div>
 
-                <div className="flex flex-col gap-2 border border-danger_red rounded-xl p-2">
+                <div className="flex flex-col gap-2 border mt-4 border-danger_red rounded-xl p-2">
                   <div className="text-danger_red mx-2">
                     <p>Zona perigosa</p>
                   </div>
@@ -161,7 +170,15 @@ export default function ConfigurationPage() {
 
         {selectedTab === 'accounts' && (
           <Tabs.Tab tabName="Usuario">
-            <div className="w-full h-full flex items-center justify-center flex-shrink-0">
+            <div className="w-full h-full flex-col gap-8 flex items-center justify-center flex-shrink-0">
+              <div className="text-center">
+                <h1 className="text-5xl text-snow-400">Contas conectadas</h1>
+                <p className="text-lg text-snow-600">
+                  Conecte sua conta bancaria para que possamos acessar o
+                  extrato, nenhuma informação como senhas ou outros dados
+                  pessoais serão divulgados
+                </p>
+              </div>
               <div className="flex min-w-[1000px] flex-col p-2 gap-5 h-full">
                 <div className="flex flex-col gap-4">
                   <div className="flex w-full items-center gap-2 justify-between">
