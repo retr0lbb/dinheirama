@@ -20,11 +20,16 @@ const ExpenseCardVariants = tv({
 export interface ExpenseCardProps
   extends VariantProps<typeof ExpenseCardVariants> {
   children: React.ReactNode
+  className?: string
 }
-export function ExpenseCard({ children, variants }: ExpenseCardProps) {
+export function ExpenseCard({
+  children,
+  variants,
+  className,
+}: ExpenseCardProps) {
   return (
     <div className="flex w-full items-center relative">
-      <div className={ExpenseCardVariants({ variants: variants })}>
+      <div className={ExpenseCardVariants({ variants: variants, className })}>
         <div className="flex items-center gap-2">{children}</div>
       </div>
     </div>

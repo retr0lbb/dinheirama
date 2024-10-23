@@ -8,7 +8,7 @@ import {
   AreaChart,
   Area,
 } from 'recharts'
-import { FinData, generateSmothFakeDataBasedOnValued } from './utils'
+import { type FinData, generateSmothFakeDataBasedOnValued } from './utils'
 
 interface ChartProps {
   numberOfRegister?: number
