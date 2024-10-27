@@ -96,6 +96,97 @@ export default function InvestmentsPage() {
             </div>
           </div>
         </div>
+
+        <div className="w-full h-full bg-blue-500 flex flex-col items-center p-2 gap-2 col-span-2">
+          <div className="flex items-center w-full p-2 bg-snow-800 gap-4">
+            <div className="size-20 bg-red-400">this is a little square</div>
+            <div className="flex flex-col flex-1 gap-1">
+              <div className="flex items-center gap-2">
+                <div className="size-3 bg-apple_green rounded-full" />
+                <h1 className="text-xl text-snow-400">Apple Open Capital</h1>
+              </div>
+              <span className="text-snow-600 text-sm">
+                <span className="text-snow-400">
+                  {moneyFormatter.format(12.91)}
+                </span>{' '}
+                Por cota
+              </span>
+            </div>
+
+            <div className="">
+              <p className="text-snow-400 text-xl">
+                total: {moneyFormatter.format(3811.2)}
+              </p>
+              <p className="text-snow-600 text-sm">320 cota(s)</p>
+            </div>
+          </div>
+          <div className="flex items-center w-full p-2 bg-snow-800 gap-4">
+            <div className="size-20 bg-red-400">this is a little square</div>
+            <div className="flex flex-col flex-1 gap-1">
+              <div className="flex items-center gap-2">
+                <div className="size-3 bg-apple_green rounded-full" />
+                <h1 className="text-xl text-snow-400">Nvidia Open Capital</h1>
+              </div>
+              <span className="text-snow-600 text-sm">
+                <span className="text-snow-400">
+                  {moneyFormatter.format(12.91)}
+                </span>{' '}
+                Por cota
+              </span>
+            </div>
+
+            <div className="">
+              <p className="text-snow-400 text-xl">
+                total: {moneyFormatter.format(3811.2)}
+              </p>
+              <p className="text-snow-600 text-sm">320 cota(s)</p>
+            </div>
+          </div>
+          <div className="flex items-center w-full p-2 bg-snow-800 gap-4">
+            <div className="size-20 bg-red-400">this is a little square</div>
+            <div className="flex flex-col flex-1 gap-1">
+              <div className="flex items-center gap-2">
+                <div className="size-3 bg-apple_green rounded-full" />
+                <h1 className="text-xl text-snow-400">Apple Open Capital</h1>
+              </div>
+              <span className="text-snow-600 text-sm">
+                <span className="text-snow-400">
+                  {moneyFormatter.format(12.91)}
+                </span>{' '}
+                Por cota
+              </span>
+            </div>
+
+            <div className="">
+              <p className="text-snow-400 text-xl">
+                total: {moneyFormatter.format(3811.2)}
+              </p>
+              <p className="text-snow-600 text-sm">320 cota(s)</p>
+            </div>
+          </div>
+          <div className="flex items-center w-full p-2 bg-snow-800 gap-4">
+            <div className="size-20 bg-red-400">this is a little square</div>
+            <div className="flex flex-col flex-1 gap-1">
+              <div className="flex items-center gap-2">
+                <div className="size-3 bg-apple_green rounded-full" />
+                <h1 className="text-xl text-snow-400">Apple Open Capital</h1>
+              </div>
+              <span className="text-snow-600 text-sm">
+                <span className="text-snow-400">
+                  {moneyFormatter.format(12.91)}
+                </span>{' '}
+                Por cota
+              </span>
+            </div>
+
+            <div className="">
+              <p className="text-snow-400 text-xl">
+                total: {moneyFormatter.format(3811.2)}
+              </p>
+              <p className="text-snow-600 text-sm">320 cota(s)</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )
