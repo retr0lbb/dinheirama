@@ -1,4 +1,5 @@
 import { moneyFormatter } from '@/utils/money-string-formatter'
+import { Chart } from './line-chart'
 
 interface InvestmentsCardProps {
   isFalling?: boolean
@@ -13,9 +14,57 @@ export function InvestmentsCard({
   actionPerQuoteValue,
   quantityOwned,
 }: InvestmentsCardProps) {
+  const data = [
+    {
+      name: 'sales',
+      value: 12.1,
+    },
+    {
+      name: 'sales',
+      value: 12.9,
+    },
+    {
+      name: 'sales',
+      value: 13.2,
+    },
+    {
+      name: 'sales',
+      value: 14.3,
+    },
+    {
+      name: 'sales',
+      value: 14.3,
+    },
+    {
+      name: 'sales',
+      value: 12.9,
+    },
+    {
+      name: 'sales',
+      value: 12,
+    },
+    {
+      name: 'sales',
+      value: 13.1,
+    },
+  ]
   return (
     <div className="flex items-center w-full p-2 bg-snow-800 border border-snow-600/30 rounded gap-4">
-      <div className="size-20 bg-red-400">this is a little square</div>
+      <div className="size-20 flex items-center justify-center">
+        <Chart
+          width={70}
+          height={70}
+          LineComponentProps={{
+            dataKey: 'value',
+            type: 'monotone',
+            stroke: `${isFalling ? '#ff0000' : '#00ff00'}`,
+            strokeWidth: 2,
+            dot: false,
+            activeDot: undefined,
+          }}
+          data={data}
+        />
+      </div>
       <div className="flex flex-col flex-1 gap-1">
         <div className="flex items-center gap-2">
           <div

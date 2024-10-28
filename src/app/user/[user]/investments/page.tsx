@@ -2,9 +2,62 @@ import {
   ExpenseCard,
   type ExpenseCardProps,
 } from '@/components/expenses/expenses-card'
-
 import { moneyFormatter } from '@/utils/money-string-formatter'
 import { InvestmentsCard } from '@/components/investments-card'
+import { Chart } from '@/components/line-chart'
+
+const sellingData = [
+  {
+    actionName: 'IVVB11',
+    day: '9 days ago',
+    value: 10.8,
+  },
+  {
+    actionName: 'IVVB11',
+    day: '8 days ago',
+    value: 10.8,
+  },
+  {
+    actionName: 'IVVB11',
+    day: '7 days ago',
+    value: 11.9,
+  },
+  {
+    actionName: 'IVVB11',
+    day: '6 days ago',
+    value: 21.91,
+  },
+  {
+    actionName: 'IVVB11',
+    day: '5 days ago',
+    value: 22.1,
+  },
+  {
+    actionName: 'IVVB11',
+    day: '4 days ago',
+    value: 31.8,
+  },
+  {
+    actionName: 'IVVB11',
+    day: '3 days ago',
+    value: 30.2,
+  },
+  {
+    actionName: 'IVVB11',
+    day: '2 days ago',
+    value: 30.19,
+  },
+  {
+    actionName: 'IVVB11',
+    day: '1 days ago',
+    value: 27.89,
+  },
+  {
+    actionName: 'IVVB11',
+    day: 'now',
+    value: 25.49,
+  },
+]
 
 export default function InvestmentsPage() {
   return (
@@ -44,9 +97,23 @@ export default function InvestmentsPage() {
           </div>
 
           <div className="flex flex-col w-full flex-1">
-            <div className="flex-1 w-full bg-blue-300">
-              aqui vai um grafico muito bolado se a minha biblioteca de graficos
-              quiser colaborar
+            <div className="flex-1 w-full border border-snow-800 rounded-lg">
+              <Chart
+                LineComponentProps={{
+                  dataKey: 'value',
+                  dot: false,
+                  type: 'monotone',
+                  stroke: '#00f200',
+                  strokeWidth: 5,
+                }}
+                data={sellingData}
+                margin={{
+                  bottom: 40,
+                  left: 10,
+                  right: 10,
+                  top: 40,
+                }}
+              />
             </div>
 
             <div className="flex items-center justify-between p-2 text-lg">
