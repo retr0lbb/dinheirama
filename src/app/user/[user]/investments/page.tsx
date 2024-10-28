@@ -2,41 +2,9 @@ import {
   ExpenseCard,
   type ExpenseCardProps,
 } from '@/components/expenses/expenses-card'
-import {
-  LineChart,
-  Line,
-  ResponsiveContainer,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Legend,
-} from 'recharts'
-import { Chart } from '@/components/graph-component/graph'
-import { moneyFormatter } from '@/utils/money-string-formatter'
 
-const someFakeData = [
-  { price: 19.23 },
-  { price: 19.65 },
-  { price: 19.8 },
-  { price: 20.05 },
-  { price: 20.33 },
-  { price: 20.45 },
-  { price: 20.7 },
-  { price: 21.05 },
-  { price: 21.5 },
-  { price: 21.87 },
-  { price: 22.1 },
-  { price: 22.3 },
-  { price: 22.15 },
-  { price: 21.9 },
-  { price: 21.65 },
-  { price: 21.5 },
-  { price: 21.3 },
-  { price: 21.05 },
-  { price: 20.9 },
-  { price: 20.65 },
-]
+import { moneyFormatter } from '@/utils/money-string-formatter'
+import { InvestmentsCard } from '@/components/investments-card'
 
 export default function InvestmentsPage() {
   return (
@@ -97,94 +65,39 @@ export default function InvestmentsPage() {
           </div>
         </div>
 
-        <div className="w-full h-full bg-blue-500 flex flex-col items-center p-2 gap-2 col-span-2">
-          <div className="flex items-center w-full p-2 bg-snow-800 gap-4">
-            <div className="size-20 bg-red-400">this is a little square</div>
-            <div className="flex flex-col flex-1 gap-1">
-              <div className="flex items-center gap-2">
-                <div className="size-3 bg-apple_green rounded-full" />
-                <h1 className="text-xl text-snow-400">Apple Open Capital</h1>
-              </div>
-              <span className="text-snow-600 text-sm">
-                <span className="text-snow-400">
-                  {moneyFormatter.format(12.91)}
-                </span>{' '}
-                Por cota
-              </span>
-            </div>
-
-            <div className="">
-              <p className="text-snow-400 text-xl">
-                total: {moneyFormatter.format(3811.2)}
-              </p>
-              <p className="text-snow-600 text-sm">320 cota(s)</p>
-            </div>
+        <div className="w-full h-full flex flex-col items-center gap-5 col-span-2">
+          <div>
+            <h1 className="text-3xl text-snow-400 font-bold">
+              Minhas ações e fundos
+            </h1>
           </div>
-          <div className="flex items-center w-full p-2 bg-snow-800 gap-4">
-            <div className="size-20 bg-red-400">this is a little square</div>
-            <div className="flex flex-col flex-1 gap-1">
-              <div className="flex items-center gap-2">
-                <div className="size-3 bg-apple_green rounded-full" />
-                <h1 className="text-xl text-snow-400">Nvidia Open Capital</h1>
-              </div>
-              <span className="text-snow-600 text-sm">
-                <span className="text-snow-400">
-                  {moneyFormatter.format(12.91)}
-                </span>{' '}
-                Por cota
-              </span>
-            </div>
 
-            <div className="">
-              <p className="text-snow-400 text-xl">
-                total: {moneyFormatter.format(3811.2)}
-              </p>
-              <p className="text-snow-600 text-sm">320 cota(s)</p>
-            </div>
-          </div>
-          <div className="flex items-center w-full p-2 bg-snow-800 gap-4">
-            <div className="size-20 bg-red-400">this is a little square</div>
-            <div className="flex flex-col flex-1 gap-1">
-              <div className="flex items-center gap-2">
-                <div className="size-3 bg-apple_green rounded-full" />
-                <h1 className="text-xl text-snow-400">Apple Open Capital</h1>
-              </div>
-              <span className="text-snow-600 text-sm">
-                <span className="text-snow-400">
-                  {moneyFormatter.format(12.91)}
-                </span>{' '}
-                Por cota
-              </span>
-            </div>
+          <div className="flex flex-col items-center p-2 gap-3">
+            <InvestmentsCard
+              actionName="Nvidia Graphics card LET"
+              actionPerQuoteValue={99.91}
+              quantityOwned={400}
+            />
 
-            <div className="">
-              <p className="text-snow-400 text-xl">
-                total: {moneyFormatter.format(3811.2)}
-              </p>
-              <p className="text-snow-600 text-sm">320 cota(s)</p>
-            </div>
-          </div>
-          <div className="flex items-center w-full p-2 bg-snow-800 gap-4">
-            <div className="size-20 bg-red-400">this is a little square</div>
-            <div className="flex flex-col flex-1 gap-1">
-              <div className="flex items-center gap-2">
-                <div className="size-3 bg-apple_green rounded-full" />
-                <h1 className="text-xl text-snow-400">Apple Open Capital</h1>
-              </div>
-              <span className="text-snow-600 text-sm">
-                <span className="text-snow-400">
-                  {moneyFormatter.format(12.91)}
-                </span>{' '}
-                Por cota
-              </span>
-            </div>
+            <InvestmentsCard
+              actionName="Apple LtA"
+              actionPerQuoteValue={13.12}
+              quantityOwned={120}
+              isFalling
+            />
 
-            <div className="">
-              <p className="text-snow-400 text-xl">
-                total: {moneyFormatter.format(3811.2)}
-              </p>
-              <p className="text-snow-600 text-sm">320 cota(s)</p>
-            </div>
+            <InvestmentsCard
+              actionName="IVVB11"
+              actionPerQuoteValue={54.92}
+              quantityOwned={83}
+              isFalling
+            />
+
+            <InvestmentsCard
+              actionName="XPP918"
+              actionPerQuoteValue={81.91}
+              quantityOwned={400}
+            />
           </div>
         </div>
       </div>
