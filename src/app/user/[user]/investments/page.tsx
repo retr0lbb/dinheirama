@@ -8,52 +8,52 @@ import { Chart } from '@/components/line-chart'
 
 const sellingData = [
   {
-    actionName: 'IVVB11',
+    name: 'IVVB11',
     day: '9 days ago',
     value: 10.8,
   },
   {
-    actionName: 'IVVB11',
+    name: 'IVVB11',
     day: '8 days ago',
     value: 10.8,
   },
   {
-    actionName: 'IVVB11',
+    name: 'IVVB11',
     day: '7 days ago',
     value: 11.9,
   },
   {
-    actionName: 'IVVB11',
+    name: 'IVVB11',
     day: '6 days ago',
     value: 21.91,
   },
   {
-    actionName: 'IVVB11',
+    name: 'IVVB11',
     day: '5 days ago',
     value: 22.1,
   },
   {
-    actionName: 'IVVB11',
+    name: 'IVVB11',
     day: '4 days ago',
     value: 31.8,
   },
   {
-    actionName: 'IVVB11',
+    name: 'IVVB11',
     day: '3 days ago',
     value: 30.2,
   },
   {
-    actionName: 'IVVB11',
+    name: 'IVVB11',
     day: '2 days ago',
     value: 30.19,
   },
   {
-    actionName: 'IVVB11',
+    name: 'IVVB11',
     day: '1 days ago',
     value: 27.89,
   },
   {
-    actionName: 'IVVB11',
+    name: 'IVVB11',
     day: 'now',
     value: 25.49,
   },

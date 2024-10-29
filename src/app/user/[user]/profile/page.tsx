@@ -75,41 +75,32 @@ export default function ProfilePage() {
 
             <ExpenseCard variants="hollow">
               <div className="flex flex-1 items-center gap-2">
-                <GiScrollUnfurled className="text-4xl text-dang_blue" />
+                <FaBoltLightning className="text-7xl text-yellow-400" />
                 <div>
-                  <h3 className="text-xl font-bold text-snow-400">4</h3>
-                  <p className="text-sm text-snow-600">Missões semanais</p>
-                </div>
-              </div>
-              <div className="absolute py-1 px-3 text-lg bg-dang_blue rounded-full text-snow-200 font-bold -top-3 right-2">
-                2 dias restantes
-              </div>
-            </ExpenseCard>
-
-            <ExpenseCard variants="hollow">
-              <div className="flex flex-1 items-center gap-2">
-                <FaBoltLightning className="text-4xl text-yellow-400" />
-                <div>
-                  <h3 className="text-xl font-bold text-snow-400">1.474.392</h3>
-                  <p className="text-sm text-snow-600">Experiência total</p>
-                </div>
-              </div>
-            </ExpenseCard>
-
-            <ExpenseCard variants="hollow">
-              <div className="flex flex-1 items-center gap-2">
-                <HiArrowTrendingUp className="text-4xl text-apple_green" />
-                <div>
-                  <h3 className="text-xl font-bold text-snow-400">
-                    {moneyFormatter.format(492.78)}
+                  <h3 className="text-2xl font-bold text-snow-400">
+                    980.128.677
                   </h3>
-                  <p className="text-sm text-snow-600">
-                    Dinheiro ganho no ultimo mês
+                  <p className="text-md text-snow-600">
+                    Total de experiencia obtida
                   </p>
                 </div>
               </div>
-              <div className="absolute py-1 px-3 text-lg bg-apple_green rounded-full text-snow-200 font-bold -top-3 right-2">
-                Ultimos 30 dias
+            </ExpenseCard>
+
+            <ExpenseCard variants="hollow">
+              <div className="flex flex-1 items-center gap-2">
+                <HiArrowTrendingUp className="text-7xl text-ofice_green" />
+                <div>
+                  <h3 className="text-2xl font-bold text-snow-400">
+                    {moneyFormatter.format(5033)}
+                  </h3>
+                  <p className="text-md text-snow-600">
+                    Total de dinheiro ganho
+                  </p>
+                </div>
+              </div>
+              <div className="absolute py-1 px-3 text-lg bg-ofice_green rounded-full text-snow-200 font-bold -top-3 right-2">
+                Ultimo mês
               </div>
             </ExpenseCard>
           </div>
@@ -120,14 +111,56 @@ export default function ProfilePage() {
             Minhas Conquistas
           </h1>
 
-          <div className="w-full h-full grid grid-cols-2 gap-4 px-5">
-            <div className="rounded-lg overflow-hidden p-1 flex flex-col items-center w-auto">
+          <div className="w-full h-full grid grid-cols-3 place-items-center gap-4 px-5">
+            <div className="rounded-lg overflow-hidden p-1 flex flex-col items-center">
               <Image
                 className="aspect-square border-4 border-apple_green rounded-lg"
                 alt="conquista"
                 src={Throphy}
               />
-              <h1 className="w-full mt-1 text-center text-snow-400 text-xl font-bold">
+              <h1 className="w-full mt-1 text-center text-snow-400 font-bold">
+                Ganho insano
+              </h1>
+              <p className="w-full text-center mt-0.5 text-sm max-w-40 text-snow-600">
+                ganhe mais de R$300 em uma semana
+              </p>
+            </div>
+
+            <div className="rounded-lg overflow-hidden p-1 flex flex-col items-center">
+              <Image
+                className="aspect-square border-4 border-apple_green rounded-lg"
+                alt="conquista"
+                src={Throphy}
+              />
+              <h1 className="w-full mt-1 text-center text-snow-400 font-bold">
+                Ganho insano
+              </h1>
+              <p className="w-full text-center mt-0.5 text-sm max-w-40 text-snow-600">
+                ganhe mais de R$300 em uma semana
+              </p>
+            </div>
+
+            <div className="rounded-lg overflow-hidden p-1 flex flex-col items-center">
+              <Image
+                className="aspect-square border-4 border-apple_green rounded-lg"
+                alt="conquista"
+                src={Throphy}
+              />
+              <h1 className="w-full mt-1 text-center text-snow-400 font-bold">
+                Ganho insano
+              </h1>
+              <p className="w-full text-center mt-0.5 text-sm max-w-40 text-snow-600">
+                ganhe mais de R$300 em uma semana
+              </p>
+            </div>
+
+            <div className="rounded-lg overflow-hidden p-1 flex flex-col items-center">
+              <Image
+                className="aspect-square border-4 border-apple_green rounded-lg"
+                alt="conquista"
+                src={Throphy}
+              />
+              <h1 className="w-full mt-1 text-center text-snow-400 font-bold">
                 Ganho insano
               </h1>
               <p className="w-full text-center mt-0.5 text-sm max-w-40 text-snow-600">
@@ -142,7 +175,7 @@ export default function ProfilePage() {
             <h1 className="text-snow-400 text-4xl font-bold ">Amigos</h1>
           </div>
           <div className="flex flex-col gap-2 w-full h-full">
-            <FriendsCard.miniCard
+            <FriendsCard.MiniCard
               onClick={() =>
                 handleSeeFriendsPage({
                   ImageAlt: 'image',
@@ -159,7 +192,7 @@ export default function ProfilePage() {
               nickname="Flavin corta guela"
             />
 
-            <FriendsCard.miniCard
+            <FriendsCard.MiniCard
               onClick={() =>
                 handleSeeFriendsPage({
                   ImageAlt: 'image',
@@ -176,7 +209,7 @@ export default function ProfilePage() {
               nickname="Claitonrasta"
             />
 
-            <FriendsCard.miniCard
+            <FriendsCard.MiniCard
               onClick={() =>
                 handleSeeFriendsPage({
                   ImageAlt: 'image',
@@ -193,7 +226,7 @@ export default function ProfilePage() {
               nickname="GuiRatão"
             />
 
-            <FriendsCard.miniCard
+            <FriendsCard.MiniCard
               onClick={() =>
                 handleSeeFriendsPage({
                   ImageAlt: 'image',

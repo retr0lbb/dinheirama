@@ -1,9 +1,16 @@
 'use client'
-import { LineChart, Line, type LineProps, ResponsiveContainer } from 'recharts'
+import {
+  LineChart,
+  Line,
+  type LineProps,
+  ResponsiveContainer,
+  Tooltip,
+} from 'recharts'
 import type { CategoricalChartProps } from 'recharts/types/chart/generateCategoricalChart'
 
 interface ChartProps extends CategoricalChartProps {
   LineComponentProps: Omit<LineProps, 'ref'> // Omitindo o `ref`
+  hasTooltip?: boolean
 }
 
 export function Chart({
@@ -11,6 +18,7 @@ export function Chart({
   data,
   width,
   height,
+  hasTooltip,
   ...rest
 }: ChartProps) {
   // adicionado width e height
@@ -22,6 +30,7 @@ export function Chart({
           {' '}
           {/* Aplicando width e height */}
           <Line {...deconstructedLine} />
+          {hasTooltip && <Tooltip />}
         </LineChart>
       </ResponsiveContainer>
     </div>
