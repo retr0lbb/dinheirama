@@ -3,10 +3,9 @@ import { FaCheck } from 'react-icons/fa6'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 interface ProgressMapProps {
-  numberOfSteps: number
   children: React.ReactNode
 }
-function ProgressMap({ numberOfSteps, children }: ProgressMapProps) {
+function ProgressMap({ children }: ProgressMapProps) {
   return (
     <div className="w-full flex items-center justify-center bg-gradient-radial">
       {children}
@@ -29,12 +28,12 @@ const ProgressNodeVariants = tv({
         bar: 'bg-ofice_green',
       },
       upToCome: {
-        node: 'border-snow-800 text-snow-600',
+        node: 'border-snow-800 text-snow-800',
         bar: 'bg-snow-800',
         text: 'text-snow-800',
       },
       actual: {
-        node: 'border-ofice_green text-transparent',
+        node: 'border-ofice_green text-snow-600',
         text: 'text-ofice_green font-semibold',
         bar: 'bg-ofice_green',
       },

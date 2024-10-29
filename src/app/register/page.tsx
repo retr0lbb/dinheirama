@@ -8,9 +8,14 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { ProgressMap } from '@/components/progress-map'
+import { useState } from 'react'
 
 enum PROGRESS_STEPS_ENUM {
-  personalInfo = 0,
+  NONE = 0,
+  PERSONAL_INFO = 1,
+  BANK_DATA = 2,
+  IA_DATA = 3,
+  PROFILE = 4,
 }
 
 const registerLogin = z.object({
@@ -33,6 +38,16 @@ export default function Register() {
     reset()
   }
 
+  const [progressStep, setProgressStep] = useState(
+    PROGRESS_STEPS_ENUM.PERSONAL_INFO
+  )
+
+  function handleProgressiveProgress() {
+    if (progressStep <= PROGRESS_STEPS_ENUM.PROFILE) {
+      setProgressStep(prev => prev + 1)
+    }
+    console.log(progressStep)
+  }
   return (
     <main className="h-screen bg-black flex items-center justify-center antialiased">
       <div className="flex flex-col gap-8">
@@ -46,19 +61,79 @@ export default function Register() {
         </header>
 
         <div className="w-full px-4">
-          <ProgressMap numberOfSteps={9}>
+          <ProgressMap>
             <ProgressMap.ProgressNode
-              completion="completed"
+              passNumber={1}
+              completion={
+                progressStep === PROGRESS_STEPS_ENUM.PERSONAL_INFO
+                  ? 'actual'
+                  : progressStep > PROGRESS_STEPS_ENUM.PERSONAL_INFO
+                    ? 'completed'
+                    : 'upToCome'
+              }
               nodeName="informações pessoais"
             />
-            <ProgressMap.ProgressLinkBar completion="completed" />
+            <ProgressMap.ProgressLinkBar
+              completion={
+                progressStep === PROGRESS_STEPS_ENUM.BANK_DATA
+                  ? 'actual'
+                  : progressStep > PROGRESS_STEPS_ENUM.BANK_DATA
+                    ? 'completed'
+                    : 'upToCome'
+              }
+            />
             <ProgressMap.ProgressNode
-              completion="actual"
+              completion={
+                progressStep === PROGRESS_STEPS_ENUM.BANK_DATA
+                  ? 'actual'
+                  : progressStep > PROGRESS_STEPS_ENUM.BANK_DATA
+                    ? 'completed'
+                    : 'upToCome'
+              }
               nodeName="dados bancarios"
               passNumber={2}
             />
-            <ProgressMap.ProgressLinkBar />
-            <ProgressMap.ProgressNode nodeName="Preferencias de usuario" />
+            <ProgressMap.ProgressLinkBar
+              completion={
+                progressStep === PROGRESS_STEPS_ENUM.IA_DATA
+                  ? 'actual'
+                  : progressStep > PROGRESS_STEPS_ENUM.IA_DATA
+                    ? 'completed'
+                    : 'upToCome'
+              }
+            />
+            <ProgressMap.ProgressNode
+              completion={
+                progressStep === PROGRESS_STEPS_ENUM.IA_DATA
+                  ? 'actual'
+                  : progressStep > PROGRESS_STEPS_ENUM.IA_DATA
+                    ? 'completed'
+                    : 'upToCome'
+              }
+              passNumber={3}
+              nodeName="Preferencias de IA"
+            />
+
+            <ProgressMap.ProgressLinkBar
+              completion={
+                progressStep === PROGRESS_STEPS_ENUM.PROFILE
+                  ? 'actual'
+                  : progressStep > PROGRESS_STEPS_ENUM.PROFILE
+                    ? 'completed'
+                    : 'upToCome'
+              }
+            />
+            <ProgressMap.ProgressNode
+              completion={
+                progressStep === PROGRESS_STEPS_ENUM.PROFILE
+                  ? 'actual'
+                  : progressStep > PROGRESS_STEPS_ENUM.PROFILE
+                    ? 'completed'
+                    : 'upToCome'
+              }
+              passNumber={4}
+              nodeName="Personalização de perfil"
+            />
           </ProgressMap>
         </div>
         <div className="flex flex-col gap-2">
