@@ -7,6 +7,11 @@ import { FaXTwitter } from 'react-icons/fa6'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
+import { ProgressMap } from '@/components/progress-map'
+
+enum PROGRESS_STEPS_ENUM {
+  personalInfo = 0,
+}
 
 const registerLogin = z.object({
   name: z.string().min(3),
@@ -30,7 +35,7 @@ export default function Register() {
 
   return (
     <main className="h-screen bg-black flex items-center justify-center antialiased">
-      <div className="space-y-8">
+      <div className="flex flex-col gap-8">
         <header className="flex items-center justify-center flex-col gap-2">
           <h1 className="text-5xl text-snow-400 font-bold">
             Quer começar a economizar?
@@ -40,6 +45,22 @@ export default function Register() {
           </p>
         </header>
 
+        <div className="w-full px-4">
+          <ProgressMap numberOfSteps={9}>
+            <ProgressMap.ProgressNode
+              completion="completed"
+              nodeName="informações pessoais"
+            />
+            <ProgressMap.ProgressLinkBar completion="completed" />
+            <ProgressMap.ProgressNode
+              completion="actual"
+              nodeName="dados bancarios"
+              passNumber={2}
+            />
+            <ProgressMap.ProgressLinkBar />
+            <ProgressMap.ProgressNode nodeName="Preferencias de usuario" />
+          </ProgressMap>
+        </div>
         <div className="flex flex-col gap-2">
           <form
             onSubmit={handleSubmit(handleRegisterSubmit)}
