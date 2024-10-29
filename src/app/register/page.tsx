@@ -1,14 +1,18 @@
 'use client'
 import { Button } from '@/components/button'
-import { Input } from '@/components/input'
 import { FaApple, FaGoogle } from 'react-icons/fa'
-import Link from 'next/link'
 import { FaXTwitter } from 'react-icons/fa6'
 import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { z } from 'zod'
 import { ProgressMap } from '@/components/progress-map'
 import { useState } from 'react'
+import {
+  PersonalInfoForm,
+  type RegisterLoginForm,
+} from '@/components/forms/personal-info-form'
+import {
+  BankInfoForm,
+  type BankRegister,
+} from '@/components/forms/bank-info-form'
 
 enum PROGRESS_STEPS_ENUM {
   NONE = 0,
@@ -18,24 +22,18 @@ enum PROGRESS_STEPS_ENUM {
   PROFILE = 4,
 }
 
-const registerLogin = z.object({
-  name: z.string().min(3),
-  email: z.string().email(),
-  phone: z.coerce.number().positive().min(10),
-  password: z.string().min(6).max(64),
-  confirmPassword: z.string().min(6).max(64),
-})
-
-interface RegisterLoginForm extends z.infer<typeof registerLogin> {}
-
 export default function Register() {
-  const { register, formState, handleSubmit, reset } =
-    useForm<RegisterLoginForm>({
-      resolver: zodResolver(registerLogin),
-    })
+  const { reset } = useForm()
 
-  async function handleRegisterSubmit(data: RegisterLoginForm) {
+  async function handleRegisterPersonalSubmit(data: RegisterLoginForm) {
+    console.log(data)
     reset()
+    handleProgressiveProgress()
+  }
+  async function handleRegisterBankInfo(data: BankRegister) {
+    console.log(data)
+    reset()
+    handleProgressiveProgress()
   }
 
   const [progressStep, setProgressStep] = useState(
@@ -60,10 +58,11 @@ export default function Register() {
           </p>
         </header>
 
-        <div className="w-full px-4">
+        <div className="w-full p-4">
           <ProgressMap>
             <ProgressMap.ProgressNode
               passNumber={1}
+              onClick={() => setProgressStep(PROGRESS_STEPS_ENUM.PERSONAL_INFO)}
               completion={
                 progressStep === PROGRESS_STEPS_ENUM.PERSONAL_INFO
                   ? 'actual'
@@ -83,6 +82,7 @@ export default function Register() {
               }
             />
             <ProgressMap.ProgressNode
+              onClick={() => setProgressStep(PROGRESS_STEPS_ENUM.BANK_DATA)}
               completion={
                 progressStep === PROGRESS_STEPS_ENUM.BANK_DATA
                   ? 'actual'
@@ -103,6 +103,7 @@ export default function Register() {
               }
             />
             <ProgressMap.ProgressNode
+              onClick={() => setProgressStep(PROGRESS_STEPS_ENUM.IA_DATA)}
               completion={
                 progressStep === PROGRESS_STEPS_ENUM.IA_DATA
                   ? 'actual'
@@ -124,6 +125,7 @@ export default function Register() {
               }
             />
             <ProgressMap.ProgressNode
+              onClick={() => setProgressStep(PROGRESS_STEPS_ENUM.PROFILE)}
               completion={
                 progressStep === PROGRESS_STEPS_ENUM.PROFILE
                   ? 'actual'
@@ -136,103 +138,14 @@ export default function Register() {
             />
           </ProgressMap>
         </div>
+
         <div className="flex flex-col gap-2">
-          <form
-            onSubmit={handleSubmit(handleRegisterSubmit)}
-            className="px-12 flex flex-col gap-4"
-          >
-            <div className="flex flex-col gap-2">
-              <Input Title="Nome Completo">
-                <Input.Field
-                  type="text"
-                  id="name"
-                  placeholder="Fulano da silva"
-                  {...register('name')}
-                />
-                {formState.errors.name && (
-                  <p className="text-sm text-danger_red">
-                    {formState.errors.name.message}
-                  </p>
-                )}
-              </Input>
-
-              <Input Title="Numero de contato">
-                <Input.Field
-                  type="number"
-                  id="tel"
-                  placeholder="(01) 12345-6789"
-                  {...register('phone', {
-                    pattern: {
-                      value: /^\+55\s?\(?\d{2}\)?\s?\d{5}-?\d{4}$/,
-                      message: 'Invalid phone format',
-                    },
-                  })}
-                />
-                {formState.errors.phone && (
-                  <p className="text-sm text-danger_red">
-                    {formState.errors.phone.message}
-                  </p>
-                )}
-              </Input>
-
-              <Input Title="Email">
-                <Input.Field
-                  type="email"
-                  id="email"
-                  placeholder="example@mail.com"
-                  {...register('email')}
-                />
-                {formState.errors.email && (
-                  <p className="text-sm text-danger_red">
-                    {formState.errors.email.message}
-                  </p>
-                )}
-              </Input>
-
-              <Input Title="Senha">
-                <Input.Field
-                  type="password"
-                  id="password"
-                  placeholder="Sua senha"
-                  {...register('password')}
-                />
-                {formState.errors.password && (
-                  <p className="text-sm text-danger_red">
-                    {formState.errors.password.message}
-                  </p>
-                )}
-              </Input>
-
-              <Input Title="Confirmar senha">
-                <Input.Field
-                  type="password"
-                  id="cpass"
-                  placeholder="Confirme sua senha"
-                  {...register('confirmPassword')}
-                />
-                {formState.errors.confirmPassword && (
-                  <p className="text-sm text-danger_red">
-                    {formState.errors.confirmPassword.message}
-                  </p>
-                )}
-              </Input>
-            </div>
-
-            <div className="grid place-items-center px-4 gap-4">
-              <Button type="submit" sizes="md" className="">
-                Registar
-              </Button>
-              <span className="text-snow-600 text-lg w-full px-5 text-center">
-                Já tem uma conta?{' '}
-                <Link
-                  className="underline text-apple_green hover:text-apple_green/80 transition-all"
-                  href={'/login'}
-                >
-                  Login
-                </Link>
-              </span>
-            </div>
-          </form>
+          {progressStep === PROGRESS_STEPS_ENUM.PERSONAL_INFO && (
+            <PersonalInfoForm handleSubmitForm={handleRegisterPersonalSubmit} />
+          )}
+          {progressStep === PROGRESS_STEPS_ENUM.BANK_DATA && (
+            <BankInfoForm handleSubmitForm={handleRegisterBankInfo} />
+          )}
           <div className="w-full flex items-center justify-center text-snow-600 text-xs px-14">
             <div className="bg-snow-600 w-full h-px rounded" />
             <p className="mx-5">OU</p>

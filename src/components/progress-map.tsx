@@ -49,10 +49,20 @@ const { bar, node, text } = ProgressNodeVariants()
 interface ProgressNodeProps extends VariantProps<typeof ProgressNodeVariants> {
   nodeName: string
   passNumber?: number
+  onClick?: () => void
 }
-function ProgressNode({ nodeName, passNumber, completion }: ProgressNodeProps) {
+function ProgressNode({
+  onClick,
+  nodeName,
+  passNumber,
+  completion,
+}: ProgressNodeProps) {
   return (
-    <div className="flex flex-col items-center justify-center relative py-2">
+    <button
+      type="button"
+      onClick={onClick}
+      className="flex flex-col items-center justify-center relative py-2 cursor-pointer"
+    >
       <div className={node({ completion })}>
         {completion === 'completed' ? (
           <FaCheck className="text-xl text-ofice_green" />
@@ -62,7 +72,7 @@ function ProgressNode({ nodeName, passNumber, completion }: ProgressNodeProps) {
       </div>
 
       <h1 className={text({ completion })}>{nodeName}</h1>
-    </div>
+    </button>
   )
 }
 
