@@ -23,7 +23,7 @@ export function BankInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
   return (
     <form
       onSubmit={handleSubmit(handleSubmitForm)}
-      className="px-12 flex flex-col gap-4"
+      className="px-12 flex flex-col gap-4 overflow-x-auto max-h-[500px]"
     >
       <div className="flex flex-col gap-2">
         <Input Title="CPF">
@@ -47,9 +47,9 @@ export function BankInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
             placeholder="Banco do Brasil"
             {...register('bank')}
           />
-          {formState.errors.cpf && (
+          {formState.errors.bank && (
             <p className="text-sm text-danger_red">
-              {formState.errors.bank?.message}
+              {formState.errors.bank.message}
             </p>
           )}
         </Input>
@@ -61,9 +61,9 @@ export function BankInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
             placeholder="00000-0"
             {...register('bankAccountNumber')}
           />
-          {formState.errors.cpf && (
+          {formState.errors.bankAccountNumber && (
             <p className="text-sm text-danger_red">
-              {formState.errors.bankAccountNumber?.message}
+              {formState.errors.bankAccountNumber.message}
             </p>
           )}
         </Input>
@@ -75,9 +75,9 @@ export function BankInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
             placeholder="00000-000"
             {...register('agencyNumber')}
           />
-          {formState.errors.cpf && (
+          {formState.errors.agencyNumber && (
             <p className="text-sm text-danger_red">
-              {formState.errors.agencyNumber?.message}
+              {formState.errors.agencyNumber.message}
             </p>
           )}
         </Input>

@@ -26,7 +26,7 @@ export function PersonalInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
   return (
     <form
       onSubmit={handleSubmit(handleSubmitForm)}
-      className="px-12 flex flex-col gap-4"
+      className="px-12 flex flex-col gap-4 overflow-x-auto max-h-[500px]"
     >
       <div className="flex flex-col gap-2">
         <Input Title="Nome Completo">

@@ -13,6 +13,14 @@ import {
   BankInfoForm,
   type BankRegister,
 } from '@/components/forms/bank-info-form'
+import {
+  IaPreferencesForm,
+  type IaPreferencesRegisterForm,
+} from '@/components/forms/ia-preferences-form'
+import {
+  ProfileInfoForm,
+  type ProfileInfoFormProps,
+} from '@/components/forms/profile-info-form'
 
 enum PROGRESS_STEPS_ENUM {
   NONE = 0,
@@ -31,6 +39,16 @@ export default function Register() {
     handleProgressiveProgress()
   }
   async function handleRegisterBankInfo(data: BankRegister) {
+    console.log(data)
+    reset()
+    handleProgressiveProgress()
+  }
+  async function handleRegisterIaPreferences(data: IaPreferencesRegisterForm) {
+    console.log(data)
+    reset()
+    handleProgressiveProgress()
+  }
+  async function handleRegisterProfile(data: ProfileInfoFormProps) {
     console.log(data)
     reset()
     handleProgressiveProgress()
@@ -145,6 +163,22 @@ export default function Register() {
           )}
           {progressStep === PROGRESS_STEPS_ENUM.BANK_DATA && (
             <BankInfoForm handleSubmitForm={handleRegisterBankInfo} />
+          )}
+          {progressStep === PROGRESS_STEPS_ENUM.IA_DATA && (
+            <IaPreferencesForm handleSubmitForm={handleRegisterIaPreferences} />
+          )}
+          {progressStep === PROGRESS_STEPS_ENUM.PROFILE && (
+            <ProfileInfoForm handleSubmitForm={handleRegisterProfile} />
+          )}
+          {progressStep > PROGRESS_STEPS_ENUM.PROFILE && (
+            <div className="flex flex-col gap-2 items-center justify-center py-28 px-4">
+              <h1 className="text-snow-400 text-4xl">
+                Cadastro concluido parabens! 😉
+              </h1>
+              <p className="text-lg text-snow-600">
+                Enviamos um link para a confirmação de email
+              </p>
+            </div>
           )}
           <div className="w-full flex items-center justify-center text-snow-600 text-xs px-14">
             <div className="bg-snow-600 w-full h-px rounded" />
