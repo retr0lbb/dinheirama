@@ -45,10 +45,10 @@ export default function Login() {
     <main className="h-screen bg-black flex items-center justify-center antialiased">
       <div className="space-y-8">
         <header className="flex items-center justify-center flex-col gap-2">
-          <h1 className="text-5xl text-snow-400 font-bold">
+          <h1 className="text-3xl lg:text-5xl text-snow-400 font-bold">
             Bem-vindo de volta!
           </h1>
-          <p className="text-xl text-snow-600">
+          <p className="text-md lg:text-xl text-snow-600">
             É sempre um prazer ter você de volta
           </p>
         </header>
@@ -59,7 +59,7 @@ export default function Login() {
             className="px-4 space-y-5"
           >
             <div className="space-y-4">
-              <Input Title="Email">
+              <Input id="email" Title="Email">
                 <Input.Field
                   type="email"
                   id="email"
@@ -73,7 +73,7 @@ export default function Login() {
                 )}
               </Input>
 
-              <Input Title="Senha">
+              <Input id="password" Title="Senha">
                 <Input.Field
                   type="password"
                   id="password"
@@ -117,25 +117,40 @@ export default function Login() {
             <Button
               variant="secondary"
               sizes="sm"
-              className="flex flex-row h-10 py-0 flex-grow-0 flex-shrink-0 w-auto gap-2 text-snow-600"
+              className="flex flex-row h-14 md:h-10 aspect-square md:aspect-auto text-2xl md:text-lg rounded-full md:rounded-lg flex-grow-0 flex-shrink-0 w-auto"
             >
-              <FaGoogle className="text-snow-400" /> Entre com o Google.
+              <div className="flex items-center justify-center gap-2">
+                <FaGoogle className="text-snow-400" />
+                <p className="hidden md:block text-snow-600">
+                  Entre com o Google.
+                </p>
+              </div>
             </Button>
 
             <Button
               variant="secondary"
               sizes="sm"
-              className="flex flex-row h-10 py-0 flex-grow-0 flex-shrink-0 w-auto gap-2 text-snow-600"
+              className="flex flex-row h-14 md:h-10 aspect-square md:aspect-auto text-2xl md:text-lg rounded-full md:rounded-lg flex-grow-0 flex-shrink-0 w-auto"
             >
-              <FaXTwitter className="text-snow-400" /> Entre com Twitter.
+              <div className="flex items-center justify-center gap-2">
+                <FaXTwitter className="text-snow-400" />
+                <p className="text-snow-600 hidden md:block">
+                  Entre com Twitter.
+                </p>
+              </div>
             </Button>
 
             <Button
               variant="secondary"
               sizes="sm"
-              className="flex flex-row h-10 py-0 flex-grow-0 flex-shrink-0 w-auto gap-2 text-snow-600"
+              className="flex flex-row h-14 md:h-10 aspect-square md:aspect-auto text-2xl md:text-lg rounded-full md:rounded-lg flex-grow-0 flex-shrink-0 w-auto"
             >
-              <FaApple className="text-snow-400" /> Entre com Apple.
+              <div className="flex items-center justify-center gap-2">
+                <FaApple className="text-snow-400" />
+                <p className="text-snow-600 hidden md:block">
+                  Entre com Apple.
+                </p>
+              </div>
             </Button>
           </div>
         </div>

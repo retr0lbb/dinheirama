@@ -30,7 +30,7 @@ export function FreeFallingBanknotes({ isPlaying }: freeFalingBankNotesProps) {
 
       const randomPositionX =
         Math.floor(Math.random() * (divWidth - bankNoteSizes * 2)) +
-        bankNoteSizes
+        bankNoteSizes / 2
       const randomPositionY =
         Math.floor(Math.random() * (divHeight * 0.2 - bankNoteSizes * 2)) +
         bankNoteSizes
