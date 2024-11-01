@@ -8,7 +8,7 @@ interface NavigationBarProps {
 
 function NavigationBar({ children }: NavigationBarProps) {
   return (
-    <nav className="flex-1 antialiased">
+    <nav className="flex-1 antialiased ">
       <ul className="flex-1 flex flex-col w-full gap-2 text-snow-600">
         {children}
       </ul>

@@ -6,6 +6,7 @@ import { useCallback, useState } from 'react'
 import { FaUber, FaPlaystation } from 'react-icons/fa'
 import { FaBowlFood } from 'react-icons/fa6'
 import StackedCards from '@/components/stacked-cards'
+import { moneyFormatter } from '@/utils/money-string-formatter'
 
 interface UserPageProps {
   params: {
@@ -36,14 +37,16 @@ export default function UserPage({ params }: UserPageProps) {
   return (
     <section className="w-full h-full p-5 overflow-y-hidden flex flex-col gap-5">
       <div className="w-full flex flex-col gap-2">
-        <h1 className="text-snow-400 font-bold text-6xl">Saldo e despesas</h1>
-        <p className="text-snow-600 text-lg">
+        <h1 className="text-snow-400 font-bold text-4xl lg:text-6xl">
+          Saldo e despesas
+        </h1>
+        <p className="text-snow-600 lg:text-lg">
           Lembre-se gaste concientemente e mude o seu estilo de vida, esse é o
           primeiro passo para ficar rico
         </p>
       </div>
 
-      <div className="w-full h-full grid grid-cols-5 grid-rows-3 gap-2 place-content-center">
+      <div className="w-full h-full grid grid-cols-1 lg:grid-cols-5 grid-rows-3 gap-2 place-content-center overflow-y-auto">
         <StackedCards.Root />
 
         <div className="col-span-3 row-span-3 flex flex-col items-center overflow-hidden gap-8">
@@ -89,23 +92,35 @@ export default function UserPage({ params }: UserPageProps) {
             </h1>
           </div>
 
-          <div className="flex flex-1 items-center gap-3 justify-around">
-            <div className="bg-danger_red text-snow-200 rounded-2xl relative p-2 w-full h-32 flex flex-col">
-              <h1 className="">Alimentação</h1>
-              <p className="text-sm font-bold mt-1">R$121,98</p>
-              <FaBowlFood className="absolute size-6 bottom-4 left-4" />
+          <div className="flex flex-1 items-center gap-3 justify-evenly">
+            <div className="bg-danger_red text-snow-200 rounded-2xl p-2 w-full h-28 lg:h-32 aspect-square flex flex-col justify-between">
+              <div className="flex flex-col">
+                <h1 className="">Alimentação</h1>
+                <p className="text-sm font-bold mt-1">
+                  {moneyFormatter.format(192.19)}
+                </p>
+              </div>
+              <FaBowlFood className="size-6 text-snow-400" />
             </div>
 
-            <div className="bg-dang_blue text-snow-200 rounded-2xl relative p-2 w-full h-32 flex flex-col">
-              <h1 className="">Transporte</h1>
-              <p className="text-sm font-bold mt-1">R$97,38</p>
-              <FaUber className="absolute size-6 bottom-4 left-4" />
+            <div className="bg-slate-900 border border-snow-400/10 text-snow-200 rounded-2xl p-2 w-full h-28 lg:h-32 aspect-square flex flex-col justify-between">
+              <div className="flex flex-col">
+                <h1 className="">Transporte</h1>
+                <p className="text-sm font-bold mt-1">
+                  {moneyFormatter.format(82.32)}
+                </p>
+              </div>
+              <FaUber className="size-6 text-snow-400" />
             </div>
 
-            <div className="bg-[#7209b7] text-snow-200 rounded-2xl relative p-2 w-full h-32 flex flex-col">
-              <h1 className="">Jogos</h1>
-              <p className="text-sm font-bold mt-1">R$201,98</p>
-              <FaPlaystation className="absolute size-6 bottom-4 left-4" />
+            <div className="bg-dang_blue text-snow-200 rounded-2xl p-2 w-full h-28 lg:h-32 aspect-square flex flex-col justify-between">
+              <div className="flex flex-col">
+                <h1 className="">Jogos</h1>
+                <p className="text-sm font-bold mt-1">
+                  {moneyFormatter.format(456.71)}
+                </p>
+              </div>
+              <FaPlaystation className="size-6 text-snow-400" />
             </div>
           </div>
         </div>
