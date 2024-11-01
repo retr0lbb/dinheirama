@@ -26,10 +26,10 @@ export function PersonalInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
   return (
     <form
       onSubmit={handleSubmit(handleSubmitForm)}
-      className="px-12 flex flex-col gap-4 overflow-x-auto max-h-[500px]"
+      className="px-12 flex flex-col gap-4 overflow-x-auto flex-1 w-full max-h-[500px]"
     >
-      <div className="flex flex-col gap-2">
-        <Input Title="Nome Completo">
+      <div className="flex flex-col gap-2 w-full">
+        <Input Title="Nome Completo" id="name" className="w-full">
           <Input.Field
             type="text"
             id="name"
@@ -43,7 +43,7 @@ export function PersonalInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
           )}
         </Input>
 
-        <Input Title="Numero de contato">
+        <Input Title="Numero de contato" id="tel">
           <Input.Field
             type="number"
             id="tel"
@@ -62,7 +62,7 @@ export function PersonalInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
           )}
         </Input>
 
-        <Input Title="Email">
+        <Input Title="Email" id="email">
           <Input.Field
             type="email"
             id="email"
@@ -76,7 +76,7 @@ export function PersonalInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
           )}
         </Input>
 
-        <Input Title="Senha">
+        <Input Title="Senha" id="password">
           <Input.Field
             type="password"
             id="password"
@@ -90,7 +90,7 @@ export function PersonalInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
           )}
         </Input>
 
-        <Input Title="Confirmar senha">
+        <Input Title="Confirmar senha" id="cpass">
           <Input.Field
             type="password"
             id="cpass"

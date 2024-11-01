@@ -23,10 +23,10 @@ export function BankInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
   return (
     <form
       onSubmit={handleSubmit(handleSubmitForm)}
-      className="px-12 flex flex-col gap-4 overflow-x-auto max-h-[500px]"
+      className="px-12 flex flex-col gap-4 overflow-x-auto flex-1 w-full max-h-[500px]"
     >
       <div className="flex flex-col gap-2">
-        <Input Title="CPF">
+        <Input Title="CPF" id="cpf">
           <Input.Field
             type="text"
             id="cpf"
@@ -40,7 +40,7 @@ export function BankInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
           )}
         </Input>
 
-        <Input Title="Entidade Bancaria">
+        <Input Title="Entidade Bancaria" id="bank">
           <Input.Field
             type="text"
             id="bank"
@@ -54,7 +54,7 @@ export function BankInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
           )}
         </Input>
 
-        <Input Title="Numero da conta">
+        <Input Title="Numero da conta" id="accountNumber">
           <Input.Field
             type="text"
             id="accountNumber"
@@ -68,7 +68,7 @@ export function BankInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
           )}
         </Input>
 
-        <Input Title="Numero da agencia">
+        <Input Title="Numero da agencia" id="agencyNumber">
           <Input.Field
             type="text"
             id="agencyNumber"

@@ -7,7 +7,7 @@ interface ProgressMapProps {
 }
 function ProgressMap({ children }: ProgressMapProps) {
   return (
-    <div className="w-full flex items-center justify-center bg-gradient-radial">
+    <div className="w-full flex items-center justify-center px-6 py-2 lg:px-2">
       {children}
     </div>
   )
@@ -15,8 +15,8 @@ function ProgressMap({ children }: ProgressMapProps) {
 
 const ProgressNodeVariants = tv({
   slots: {
-    node: 'size-14 border-4 text-xl flex items-center justify-center rounded-full',
-    text: 'absolute flex items-center justify-center w-full -bottom-6 whitespace-nowrap text-lg',
+    node: 'size-12 lg:size-10 border-4 text-xl flex items-center justify-center rounded-full',
+    text: 'absolute flex items-center justify-center w-full -bottom-7 text-xs',
     bar: 'w-full h-1',
   },
 
@@ -24,7 +24,7 @@ const ProgressNodeVariants = tv({
     completion: {
       completed: {
         node: 'border-ofice_green text-ofice_green',
-        text: 'text-ofice_green font-semibold',
+        text: 'text-ofice_green lg:font-semibold',
         bar: 'bg-ofice_green',
       },
       upToCome: {
@@ -34,7 +34,7 @@ const ProgressNodeVariants = tv({
       },
       actual: {
         node: 'border-ofice_green text-snow-600',
-        text: 'text-ofice_green font-semibold',
+        text: 'text-ofice_green lg:font-semibold',
         bar: 'bg-ofice_green',
       },
     },

@@ -25,10 +25,10 @@ export function ProfileInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
   return (
     <form
       onSubmit={handleSubmit(handleSubmitForm)}
-      className="px-12 flex flex-col gap-4 overflow-x-auto max-h-[500px]"
+      className="px-12 flex flex-col gap-4 overflow-x-auto flex-1 w-full max-h-[500px]"
     >
       <div className="flex flex-col gap-2">
-        <Input Title="Apelido de usuario">
+        <Input Title="Apelido de usuario" id="nickname">
           <Input.Field
             type="text"
             id="nickname"
@@ -42,7 +42,7 @@ export function ProfileInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
           )}
         </Input>
 
-        <Input Title="Biografia">
+        <Input Title="Biografia" id="biography">
           <Input.Field
             type="text"
             id="biography"
@@ -56,7 +56,7 @@ export function ProfileInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
           )}
         </Input>
 
-        <Input Title="Imagem de perfil">
+        <Input Title="Imagem de perfil" id="profilePic">
           <Input.Field
             type="file"
             id="profilePic"
@@ -70,7 +70,7 @@ export function ProfileInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
           )}
         </Input>
 
-        <Input Title="Banner de perfil">
+        <Input Title="Banner de perfil" id="profileBanner">
           <Input.Field
             type="file"
             id="profileBanner"

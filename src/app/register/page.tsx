@@ -65,18 +65,18 @@ export default function Register() {
     console.log(progressStep)
   }
   return (
-    <main className="h-screen bg-black flex items-center justify-center antialiased">
+    <main className="h-screen bg-black flex items-center justify-center antialiased overflow-y-hidden">
       <div className="flex flex-col gap-8">
         <header className="flex items-center justify-center flex-col gap-2">
-          <h1 className="text-5xl text-snow-400 font-bold">
+          <h1 className="text-2xl lg:text-5xl text-snow-400 font-bold">
             Quer começar a economizar?
           </h1>
-          <p className="text-xl text-snow-600">
+          <p className="lg:text-xl text-snow-600">
             Crie sua conta hoje mesmo de forma gratuita
           </p>
         </header>
 
-        <div className="w-full p-4">
+        <div className="w-full p-0 lg:p-4">
           <ProgressMap>
             <ProgressMap.ProgressNode
               passNumber={1}
@@ -172,10 +172,10 @@ export default function Register() {
           )}
           {progressStep > PROGRESS_STEPS_ENUM.PROFILE && (
             <div className="flex flex-col gap-2 items-center justify-center py-28 px-4">
-              <h1 className="text-snow-400 text-4xl">
+              <h1 className="text-snow-400 text-2xl lg:text-4xl">
                 Cadastro concluido parabens! 😉
               </h1>
-              <p className="text-lg text-snow-600">
+              <p className="text-snow-600 lg:text-lg">
                 Enviamos um link para a confirmação de email
               </p>
             </div>
@@ -186,29 +186,44 @@ export default function Register() {
             <div className="bg-snow-600 w-full h-px rounded" />
           </div>
 
-          <div className="flex items-center px-8 justify-around gap-2 text-lg">
+          <div className="flex items-center justify-around gap-2 text-lg">
             <Button
               variant="secondary"
               sizes="sm"
-              className="flex flex-row h-10 py-0 flex-grow-0 flex-shrink-0 w-auto gap-2 text-snow-600"
+              className="flex flex-row h-14 md:h-10 aspect-square md:aspect-auto text-2xl md:text-lg rounded-full md:rounded-lg flex-grow-0 flex-shrink-0 w-auto"
             >
-              <FaGoogle className="text-snow-400" /> Cadastre-se com o Google.
+              <div className="flex items-center justify-center gap-2">
+                <FaGoogle className="text-snow-400" />
+                <p className="hidden md:block text-snow-600">
+                  Entre com o Google.
+                </p>
+              </div>
             </Button>
 
             <Button
               variant="secondary"
               sizes="sm"
-              className="flex flex-row h-10 py-0 flex-grow-0 flex-shrink-0 w-auto gap-2 text-snow-600"
+              className="flex flex-row h-14 md:h-10 aspect-square md:aspect-auto text-2xl md:text-lg rounded-full md:rounded-lg flex-grow-0 flex-shrink-0 w-auto"
             >
-              <FaXTwitter className="text-snow-400" /> Cadastre-se com Twitter.
+              <div className="flex items-center justify-center gap-2">
+                <FaXTwitter className="text-snow-400" />
+                <p className="text-snow-600 hidden md:block">
+                  Entre com Twitter.
+                </p>
+              </div>
             </Button>
 
             <Button
               variant="secondary"
               sizes="sm"
-              className="flex flex-row h-10 py-0 flex-grow-0 flex-shrink-0 w-auto gap-2 text-snow-600"
+              className="flex flex-row h-14 md:h-10 aspect-square md:aspect-auto text-2xl md:text-lg rounded-full md:rounded-lg flex-grow-0 flex-shrink-0 w-auto"
             >
-              <FaApple className="text-snow-400" /> Cadastre-se com Apple.
+              <div className="flex items-center justify-center gap-2">
+                <FaApple className="text-snow-400" />
+                <p className="text-snow-600 hidden md:block">
+                  Entre com Apple.
+                </p>
+              </div>
             </Button>
           </div>
         </div>

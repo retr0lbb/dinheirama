@@ -31,10 +31,13 @@ export function IaPreferencesForm({ handleSubmitForm }: PersonalInfoFormProps) {
   return (
     <form
       onSubmit={handleSubmit(handleSubmitForm)}
-      className="px-12 flex flex-col gap-4 overflow-x-auto max-h-[500px]"
+      className="px-12 flex flex-col gap-4 overflow-x-auto flex-1 w-full max-h-[500px]"
     >
       <div className="flex flex-col gap-2">
-        <Input Title="Em qual area você deseja economizar mais?">
+        <Input
+          Title="Em qual area você deseja economizar mais?"
+          id="economyArea"
+        >
           <Input.Field
             type="text"
             id="economyArea"
@@ -47,7 +50,7 @@ export function IaPreferencesForm({ handleSubmitForm }: PersonalInfoFormProps) {
             </p>
           )}
         </Input>
-        <Input Title="Descreva sua principal fonte de renda">
+        <Input Title="Descreva sua principal fonte de renda" id="mainIncome">
           <Input.Field
             type="text"
             id="mainIncome"
@@ -60,7 +63,10 @@ export function IaPreferencesForm({ handleSubmitForm }: PersonalInfoFormProps) {
             </p>
           )}
         </Input>
-        <Input Title="Descreva o que você acha ser o seu maior gasto">
+        <Input
+          Title="Descreva o que você acha ser o seu maior gasto"
+          id="mostExpenses"
+        >
           <Input.Field
             type="text"
             id="mostExpenses"
@@ -73,7 +79,7 @@ export function IaPreferencesForm({ handleSubmitForm }: PersonalInfoFormProps) {
             </p>
           )}
         </Input>
-        <Input Title="descreva todos os seus gastos mensais">
+        <Input Title="descreva todos os seus gastos mensais" id="allExpenses">
           <Input.Field
             type="text"
             id="allExpenses"
@@ -86,7 +92,7 @@ export function IaPreferencesForm({ handleSubmitForm }: PersonalInfoFormProps) {
             </p>
           )}
         </Input>
-        <Input Title="Objetivo pessoal">
+        <Input Title="Objetivo pessoal" id="personalObjective">
           <Input.Field
             type="text"
             id="personalObjective"
@@ -99,7 +105,10 @@ export function IaPreferencesForm({ handleSubmitForm }: PersonalInfoFormProps) {
             </p>
           )}
         </Input>
-        <Input Title="Quantas horas do seu dia você tem livre para seus hobbies?">
+        <Input
+          Title="Quantas horas do seu dia você tem livre para seus hobbies?"
+          id="hobbieTime"
+        >
           <Input.Field
             type="text"
             id="hobbieTime"
@@ -116,10 +125,11 @@ export function IaPreferencesForm({ handleSubmitForm }: PersonalInfoFormProps) {
         <Input
           border="none"
           Title="De 0 a 5 o quanto flexível você pode ser com os gastos"
+          id="from0to5"
         >
           <Input.Field
             type="number"
-            id=""
+            id="from0to5"
             placeholder="0"
             {...register('from0to5')}
           />
