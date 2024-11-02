@@ -45,9 +45,11 @@ export default function UserPage({ params }: UserPageProps) {
       <div className="w-full h-full grid grid-cols-1 lg:grid-cols-5 grid-rows-1 lg:grid-rows-3 gap-2 place-content-center overflow-y-auto">
         <StackedCards.Root />
 
-        <div className="lg:col-span-3 row-span-3 flex flex-col items-center overflow-hidden gap-8 bg-blue-500">
+        <div className="lg:col-span-3 row-span-3 flex flex-col items-center overflow-hidden gap-5 lg:gap-8">
           <div className="flex items-center justify-between w-full px-2 lg:px-8">
-            <h1 className="lg:text-4xl text-snow-400">Saldo e gasto.</h1>
+            <h1 className="px-4 lg:px-0 lg:text-4xl text-snow-400">
+              Saldo e gasto.
+            </h1>
 
             <div className="flex gap-2">
               <RadioButton
@@ -81,9 +83,9 @@ export default function UserPage({ params }: UserPageProps) {
           </div>
         </div>
 
-        <div className="flex lg:col-span-2 gap-2 flex-col bg-green-500">
+        <div className="flex lg:col-span-2 gap-2 flex-col">
           <div>
-            <h1 className="text-2xl lg:text-3xl text-snow-400 font-bold">
+            <h1 className="text-2xl lg:text-3xl px-4 lg:px-4 text-snow-400 font-bold">
               Principais gastos
             </h1>
           </div>
