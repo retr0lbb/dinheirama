@@ -51,9 +51,11 @@ export function Root() {
   const offsets = [4, 2, 0]
 
   return (
-    <div className="col-span-2 row-span-2 flex flex-col gap-2 p-4 items-center justify-center">
+    <div className="lg:col-span-2 lg:row-span-2 flex flex-col gap-2 p-4 items-center justify-center bg-red-500">
       <div className="flex items-center w-full justify-between">
-        <h1 className="text-snow-200 font-bold text-3xl">Saldo em contas</h1>
+        <h1 className="text-snow-200 font-bold text-2xl lg:text-3xl">
+          Saldo em contas
+        </h1>
         <button
           type="button"
           className="text-snow-600 flex items-center justify-center p-1 border border-snow-800 rounded-lg hover:border-snow-400 hover:text-snow-400 transition-all"
