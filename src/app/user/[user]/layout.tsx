@@ -26,9 +26,9 @@ export default function UserLayout({ children, params }: UserLayoutProps) {
   const pathName = usePathname()
 
   return (
-    <section className="h-screen flex bg-snow-900">
-      <div className="h-full hidden md:flex flex-col border-r bg-snow-800/50 border-snow-600/10 shadow shadow-snow-600 py-5 space-y-4 min-w-60 max-w-80">
-        <div className="flex items-center w-full py-1 px-4 justify-center gap-4">
+    <section className="h-screen overflow-hidden flex bg-snow-900">
+      <div className="absolute bottom-0 left-0 md:relative h-auto md:h-full flex md:flex flex-col border-r bg-snow-800 md:bg-snow-800/50 md:border-snow-600/10 shadow shadow-snow-600 py-5 space-y-4 w-full md:min-w-60 md:max-w-80">
+        <div className="hidden md:flex items-center w-full py-1 px-4 justify-center gap-4">
           <Avatar sizes="lg" href={RAL} fallback="A" />
           <div className="w-28 overflow-hidden truncate">
             <span className="text-snow-400 font-bold text-xl overflow-hidden">
@@ -40,64 +40,63 @@ export default function UserLayout({ children, params }: UserLayoutProps) {
           </div>
         </div>
 
-        <div className="w-full flex items-center justify-center px-4">
+        <div className="w-full hidden md:flex items-center justify-center px-4">
           <div className="w-full h-px border border-snow-800 rounded-full" />
         </div>
 
-        <NavigationBar>
+        <NavigationBar isMobile={true}>
           <NavigationBar.NavLink
             href={`/user/${user}`}
             Icon={FaMoneyBillWaveAlt}
             title="Saldo"
             isActive={pathName === `/user/${user}`}
-            isMobile={false}
+            isMobile={true}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/objectives`}
             Icon={TbTargetArrow}
             title="Objetivos"
             isActive={pathName === `/user/${user}/objectives`}
-            isMobile={false}
+            isMobile={true}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/missions`}
             Icon={FaScroll}
             title="Missões"
             isActive={pathName === `/user/${user}/missions`}
-            isMobile={false}
+            isMobile={true}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/profile`}
             Icon={FaUser}
             title="Perfil"
             isActive={pathName === `/user/${user}/profile`}
-            isMobile={false}
+            isMobile={true}
+            className="hidden absolute"
           />
           <NavigationBar.NavLink
             href={`/user/${user}/investments`}
             Icon={FaPiggyBank}
             title="Investimentos"
             isActive={pathName === `/user/${user}/investments`}
-            isMobile={false}
+            isMobile={true}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/config`}
             Icon={FaCog}
             title="Configurações"
             isActive={pathName === `/user/${user}/config`}
-            isMobile={false}
+            isMobile={true}
+            className="hidden absolute"
           />
         </NavigationBar>
 
-        <div className="w-full flex items-center justify-center px-4">
+        <div className="w-full hidden md:flex items-center justify-center px-4">
           <div className="w-full h-px border border-snow-800 rounded-full" />
         </div>
 
-        <div className="w-full flex items-center justify-start px-5">
-          <div
-            className="p-3 rounded-xl text-snow-400 
-                    text-3xl cursor-pointer hover:text-snow-600"
-          >
+        <div className="w-full hidden md:flex items-center justify-start px-5">
+          <div className="p-3 rounded-xl text-snow-400 text-3xl cursor-pointer hover:text-snow-600">
             <FiLogOut />
           </div>
         </div>

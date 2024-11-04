@@ -2,6 +2,7 @@ import type { IconType } from 'react-icons'
 import { tv, type VariantProps } from 'tailwind-variants'
 import Link from 'next/link'
 
+const classname = 'flex items-center justify-around '
 const NavigationBarVariants = tv({
   slots: {
     bar: 'flex-1 flex flex-col w-full gap-2 text-snow-600',
@@ -12,7 +13,11 @@ const NavigationBarVariants = tv({
 
   variants: {
     isMobile: {
-      true: {},
+      true: {
+        bar: 'flex flex-row items-center justify-evenly gap-0 overflow-y-hidden overflow-x-auto',
+        label: 'hidden',
+        icon: 'text-3xl',
+      },
       false: {},
     },
     isActive: {
@@ -51,16 +56,16 @@ const NavigationBarVariants = tv({
 const { bar, icon, label, link } = NavigationBarVariants()
 
 interface NavigationBarVariantsProps
-  extends VariantProps<typeof NavigationBarVariants> {}
+  extends Omit<VariantProps<typeof NavigationBarVariants>, 'isActive'> {}
 
 interface NavigationBarProps extends NavigationBarVariantsProps {
   children: React.ReactNode
 }
 
-function NavigationBar({ children, isActive, isMobile }: NavigationBarProps) {
+function NavigationBar({ children, isMobile }: NavigationBarProps) {
   return (
     <nav className="flex-1 antialiased ">
-      <ul className={bar({ isActive, isMobile })}>{children}</ul>
+      <ul className={bar({ isActive: false, isMobile })}>{children}</ul>
     </nav>
   )
 }
