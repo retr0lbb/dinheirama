@@ -50,36 +50,42 @@ export default function UserLayout({ children, params }: UserLayoutProps) {
             Icon={FaMoneyBillWaveAlt}
             title="Saldo"
             isActive={pathName === `/user/${user}`}
+            isMobile={false}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/objectives`}
             Icon={TbTargetArrow}
             title="Objetivos"
             isActive={pathName === `/user/${user}/objectives`}
+            isMobile={false}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/missions`}
             Icon={FaScroll}
             title="Missões"
             isActive={pathName === `/user/${user}/missions`}
+            isMobile={false}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/profile`}
             Icon={FaUser}
             title="Perfil"
             isActive={pathName === `/user/${user}/profile`}
+            isMobile={false}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/investments`}
             Icon={FaPiggyBank}
             title="Investimentos"
             isActive={pathName === `/user/${user}/investments`}
+            isMobile={false}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/config`}
             Icon={FaCog}
             title="Configurações"
             isActive={pathName === `/user/${user}/config`}
+            isMobile={false}
           />
         </NavigationBar>
 
