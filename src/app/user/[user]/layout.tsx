@@ -36,47 +36,40 @@ export default function UserLayout({ children, params }: UserLayoutProps) {
   return (
     <section className="h-screen overflow-hidden flex bg-snow-900">
       <div className="absolute bottom-0 left-0 md:relative h-auto md:h-full flex md:flex flex-col justify-between border-r bg-snow-800 md:bg-snow-800/40 md:border-snow-600/10 shadow shadow-snow-600 py-5 gap-4 w-full md:min-w-60 md:max-w-80">
-        <NavigationBar isMobile={false}>
+        <NavigationBar isMobile={true}>
           <NavigationBar.NavLink
             href={`/user/${user}`}
             Icon={HiOutlineCash}
             title="Saldo"
             isActive={pathName === `/user/${user}`}
-            isMobile={false}
+            isMobile={true}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/objectives`}
             Icon={RxTarget}
             title="Objetivos"
             isActive={pathName === `/user/${user}/objectives`}
-            isMobile={false}
+            isMobile={true}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/missions`}
             Icon={LuScroll}
             title="Missões"
             isActive={pathName === `/user/${user}/missions`}
-            isMobile={false}
+            isMobile={true}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/investments`}
             Icon={FaChartLine}
             title="Investimentos"
             isActive={pathName === `/user/${user}/investments`}
-            isMobile={false}
-          />
-          <NavigationBar.NavLink
-            href={`/user/${user}/config`}
-            Icon={HiOutlineWrenchScrewdriver}
-            title="Configurações"
-            isActive={pathName === `/user/${user}/config`}
-            isMobile={false}
+            isMobile={true}
           />
         </NavigationBar>
 
         <Link
           href={`/user/${user}/profile`}
-          className="flex items-center justify-center border border-transparent cursor-pointer hover:border-snow-600 transition-all gap-2 mx-4 px-4 py-2 rounded-lg "
+          className="hidden md:flex items-center justify-center border border-transparent cursor-pointer hover:border-snow-600 transition-all gap-2 mx-4 p-2 rounded-lg "
         >
           <Image
             src={RAL}

@@ -45,6 +45,15 @@ const NavigationBarVariants = tv({
         label: 'text-snow-400 group-hover:text-apple_green transition-all',
       },
     },
+
+    {
+      isMobile: true,
+      isActive: true,
+      class: {
+        link: 'bg-apple_green py-3 px-4 rounded-full',
+        label: 'block',
+      },
+    },
   ],
 
   defaultVariants: {
