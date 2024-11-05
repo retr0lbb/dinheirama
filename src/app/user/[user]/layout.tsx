@@ -2,6 +2,12 @@
 import type React from 'react'
 import { NavigationBar } from '@/components/navigation-bar'
 import { Avatar } from '@/components/avatar'
+import { HiOutlineCash } from 'react-icons/hi'
+import { RxTarget } from 'react-icons/rx'
+import { LuScroll } from 'react-icons/lu'
+import { FaRegUser } from 'react-icons/fa'
+import { FaChartLine } from 'react-icons/fa6'
+import { HiOutlineWrenchScrewdriver } from 'react-icons/hi2'
 import {
   FaPiggyBank,
   FaScroll,
@@ -13,6 +19,8 @@ import { TbTargetArrow } from 'react-icons/tb'
 import { FiLogOut } from 'react-icons/fi'
 import { usePathname } from 'next/navigation'
 import RAL from '@/static/ralsei.jpg'
+import Image from 'next/image'
+import Link from 'next/link'
 
 interface UserLayoutProps {
   children: React.ReactNode
@@ -27,79 +35,64 @@ export default function UserLayout({ children, params }: UserLayoutProps) {
 
   return (
     <section className="h-screen overflow-hidden flex bg-snow-900">
-      <div className="absolute bottom-0 left-0 md:relative h-auto md:h-full flex md:flex flex-col border-r bg-snow-800 md:bg-snow-800/50 md:border-snow-600/10 shadow shadow-snow-600 py-5 space-y-4 w-full md:min-w-60 md:max-w-80">
-        <div className="hidden md:flex items-center w-full py-1 px-4 justify-center gap-4">
-          <Avatar sizes="lg" href={RAL} fallback="A" />
-          <div className="w-28 overflow-hidden truncate">
-            <span className="text-snow-400 font-bold text-xl overflow-hidden">
-              {user}
-            </span>
-            <div>
-              <p className="text-apple_green text-md">Level 48</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="w-full hidden md:flex items-center justify-center px-4">
-          <div className="w-full h-px border border-snow-800 rounded-full" />
-        </div>
-
-        <NavigationBar isMobile={true}>
+      <div className="absolute bottom-0 left-0 md:relative h-auto md:h-full flex md:flex flex-col justify-between border-r bg-snow-800 md:bg-snow-800/40 md:border-snow-600/10 shadow shadow-snow-600 py-5 gap-4 w-full md:min-w-60 md:max-w-80">
+        <NavigationBar isMobile={false}>
           <NavigationBar.NavLink
             href={`/user/${user}`}
-            Icon={FaMoneyBillWaveAlt}
+            Icon={HiOutlineCash}
             title="Saldo"
             isActive={pathName === `/user/${user}`}
-            isMobile={true}
+            isMobile={false}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/objectives`}
-            Icon={TbTargetArrow}
+            Icon={RxTarget}
             title="Objetivos"
             isActive={pathName === `/user/${user}/objectives`}
-            isMobile={true}
+            isMobile={false}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/missions`}
-            Icon={FaScroll}
+            Icon={LuScroll}
             title="Missões"
             isActive={pathName === `/user/${user}/missions`}
-            isMobile={true}
-          />
-          <NavigationBar.NavLink
-            href={`/user/${user}/profile`}
-            Icon={FaUser}
-            title="Perfil"
-            isActive={pathName === `/user/${user}/profile`}
-            isMobile={true}
-            className="hidden absolute"
+            isMobile={false}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/investments`}
-            Icon={FaPiggyBank}
+            Icon={FaChartLine}
             title="Investimentos"
             isActive={pathName === `/user/${user}/investments`}
-            isMobile={true}
+            isMobile={false}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/config`}
-            Icon={FaCog}
+            Icon={HiOutlineWrenchScrewdriver}
             title="Configurações"
             isActive={pathName === `/user/${user}/config`}
-            isMobile={true}
-            className="hidden absolute"
+            isMobile={false}
           />
         </NavigationBar>
 
-        <div className="w-full hidden md:flex items-center justify-center px-4">
-          <div className="w-full h-px border border-snow-800 rounded-full" />
-        </div>
-
-        <div className="w-full hidden md:flex items-center justify-start px-5">
-          <div className="p-3 rounded-xl text-snow-400 text-3xl cursor-pointer hover:text-snow-600">
-            <FiLogOut />
+        <Link
+          href={`/user/${user}/profile`}
+          className="flex items-center justify-center border border-transparent cursor-pointer hover:border-snow-600 transition-all gap-2 mx-4 px-4 py-2 rounded-lg "
+        >
+          <Image
+            src={RAL}
+            alt="my profile picture"
+            className="size-16 aspect-square rounded-full"
+          />
+          <div className="h-full w-full flex flex-col gap-1 py-1 px-0.5">
+            <div className="w-full flex items-center justify-between">
+              <h1 className="text-lg font-bold text-snow-400">{user}</h1>{' '}
+              <p className="text-xs text-apple_green">lv 48</p>
+            </div>
+            <p className="text-xs whitespace-nowrap text-snow-600">
+              Henrique Barbosa Sampaio
+            </p>
           </div>
-        </div>
+        </Link>
       </div>
 
       {children}
