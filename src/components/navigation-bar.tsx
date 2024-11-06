@@ -5,7 +5,7 @@ import Link from 'next/link'
 const classname = 'flex items-center justify-around '
 const NavigationBarVariants = tv({
   slots: {
-    bar: 'flex-1 flex flex-col w-full gap-2 text-snow-600',
+    bar: 'flex flex-col overflow-hidden h-14 w-full gap-2 text-snow-600',
     link: 'flex items-center gap-2 text-lg px-6 py-4',
     icon: 'text-snow-200',
     label: 'text-snow-200',
@@ -73,7 +73,7 @@ interface NavigationBarProps extends NavigationBarVariantsProps {
 
 function NavigationBar({ children, isMobile }: NavigationBarProps) {
   return (
-    <nav className="flex-1 antialiased ">
+    <nav>
       <ul className={bar({ isActive: false, isMobile })}>{children}</ul>
     </nav>
   )

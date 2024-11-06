@@ -21,17 +21,17 @@ export function ObjectiveHeader({
   }
   return (
     <div className="rounded-xl p-5 col-span-5 flex flex-col justify-center">
-      <div className="">
-        <h1 className="text-snow-400 text-2xl font-bold">
+      <div className="flex flex-col gap-2">
+        <h1 className="text-snow-400 text-xl md:text-2xl font-bold">
           Para o proximo objetivo:
         </h1>
         <div className="flex items-center">
-          <div className="flex flex-1 items-center gap-2">
-            <Icon className="text-apple_green size-16 p-2" />
-            <h1 className="text-snow-400">{title}</h1>
+          <div className="flex flex-1 items-center gap-0.5 md:gap-2">
+            <Icon className="text-apple_green size-10 md:size-16 p-1 md:p-2" />
+            <h1 className="text-snow-400 text-xs md:text-sm">{title}</h1>
           </div>
           <div>
-            <p className="text-snow-400 text-3xl">
+            <p className="text-snow-400 md:text-3xl">
               {moneyFormatter.format(actualMoney)}/
               <span className="text-snow-600">
                 {moneyFormatter.format(totalMoney)}

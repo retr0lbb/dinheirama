@@ -34,8 +34,8 @@ export default function UserLayout({ children, params }: UserLayoutProps) {
   const pathName = usePathname()
 
   return (
-    <section className="h-screen overflow-hidden flex bg-snow-900">
-      <div className="absolute bottom-0 left-0 md:relative h-auto md:h-full flex md:flex flex-col justify-between border-r bg-snow-800 md:bg-snow-800/40 md:border-snow-600/10 shadow shadow-snow-600 py-5 gap-4 w-full md:min-w-60 md:max-w-80">
+    <section className="h-screen overflow-hidden pb-24 md:pb-0 flex bg-snow-900">
+      <div className="fixed bottom-0 left-0 md:relative h-auto md:h-full flex md:flex flex-col justify-between border-r bg-snow-800 md:bg-snow-800/40 md:border-snow-600/10 shadow shadow-snow-600 py-5 gap-4 w-full md:min-w-60 md:max-w-80">
         <NavigationBar isMobile={true}>
           <NavigationBar.NavLink
             href={`/user/${user}`}

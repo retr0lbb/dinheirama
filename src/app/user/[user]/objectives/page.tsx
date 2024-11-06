@@ -49,10 +49,12 @@ export default function ObjectivesPage() {
   function handleObjectiveSubmit() {}
 
   return (
-    <section className="w-full h-full flex flex-col gap-2 p-5">
+    <section className="w-full h-full flex flex-col gap-2 p-5 overflow-auto">
       <div className="flex flex-col gap-2">
-        <h1 className="text-6xl font-bold text-snow-400">Meus Objetivos.</h1>
-        <p className="text-snow-600">
+        <h1 className="text-4xl md:text-6xl font-bold text-snow-400">
+          Meus Objetivos.
+        </h1>
+        <p className="text-sm md:text-lg text-snow-600">
           Com objetivos definidos temos mais possibilidade de cumpri-los.
         </p>
       </div>

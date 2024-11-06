@@ -42,7 +42,7 @@ export default function UserPage({ params }: UserPageProps) {
         </p>
       </div>
 
-      <div className="w-full h-full grid grid-cols-1 lg:grid-cols-5 grid-rows-1 lg:grid-rows-3 gap-2 place-content-center overflow-y-auto">
+      <div className="w-full h-full grid grid-cols-1 lg:grid-cols-5 grid-rows-1 lg:grid-rows-3 gap-2 place-content-center overflow-y-scroll">
         <StackedCards.Root />
 
         <div className="lg:col-span-3 row-span-3 flex flex-col items-center overflow-hidden gap-5 lg:gap-8">
@@ -51,7 +51,7 @@ export default function UserPage({ params }: UserPageProps) {
               Saldo e gasto.
             </h1>
 
-            <div className="flex gap-2">
+            <div className="md:flex gap-2 hidden">
               <RadioButton
                 onChange={handleRadioChange}
                 sizes="md"
@@ -78,7 +78,7 @@ export default function UserPage({ params }: UserPageProps) {
               />
             </div>
           </div>
-          <div className="w-full h-full flex-1">
+          <div className="flex bg-red-200 w-full h-full flex-1">
             <Chart numberOfRegister={numberOfRegisters} />
           </div>
         </div>
