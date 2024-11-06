@@ -28,7 +28,7 @@ export function ObjectiveHeader({
         <div className="flex items-center">
           <div className="flex flex-1 items-center gap-0.5 md:gap-2">
             <Icon className="text-apple_green size-10 md:size-16 p-1 md:p-2" />
-            <h1 className="text-snow-400 text-xs md:text-sm">{title}</h1>
+            <h1 className="text-snow-400 text-xs md:text-lg">{title}</h1>
           </div>
           <div>
             <p className="text-snow-400 md:text-3xl">
