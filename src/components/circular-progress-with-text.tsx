@@ -1,50 +1,55 @@
 import { tv, type VariantProps } from 'tailwind-variants'
 
-const CircularProgressWithTextVariant = tv({
-  slots: {
-    base: 'rounded-full flex items-center justify-center border border-snow-800',
-    innerCircle:
-      'bg-snow-900 rounded-full flex items-center justify-center border border-snow-800/30',
-    text: 'font-bold text-snow-400',
-    percentageText: 'text-snow-600 text-center',
-  },
+const CircularProgressWithTextVariant = tv(
+  {
+    slots: {
+      base: 'rounded-full flex items-center justify-center border border-snow-800',
+      innerCircle:
+        'bg-snow-900 rounded-full flex items-center justify-center border border-snow-800/30',
+      text: 'font-bold text-snow-400',
+      percentageText: 'text-snow-600 text-center',
+    },
 
-  variants: {
-    sizes: {
-      xl: {
-        base: 'size-64',
-        innerCircle: 'size-60',
-        text: 'text-5xl',
-      },
-      lg: {
-        base: 'size-52',
-        innerCircle: 'size-48',
-        text: 'text-5xl',
-      },
-      md: {
-        base: 'size-40',
-        innerCircle: 'size-36',
-        text: 'text-4xl font-medium',
-      },
-      sm: {
-        base: 'size-20',
-        innerCircle: 'size-16',
-        text: 'hidden',
-        percentageText: 'text-md',
-      },
-      xs: {
-        base: 'size-10',
-        innerCircle: 'size-8',
-        text: 'hidden',
-        percentageText: 'text-xs font-bold',
+    variants: {
+      size: {
+        extraLarge: {
+          base: 'w-64 h-64',
+          innerCircle: 'w-60 h-60',
+          text: 'text-5xl',
+        },
+        large: {
+          base: 'w-52 h-52',
+          innerCircle: 'w-48 h-48',
+          text: 'text-5xl',
+        },
+        medium: {
+          base: 'w-40 h-40',
+          innerCircle: 'w-36 h-36',
+          text: 'text-4xl font-medium',
+        },
+        small: {
+          base: 'w-20 h-20',
+          innerCircle: 'w-16 h-16',
+          text: 'hidden',
+          percentageText: 'text-md',
+        },
+        extraSmall: {
+          base: 'w-10 h-10',
+          innerCircle: 'w-8 h-8',
+          text: 'hidden',
+          percentageText: 'text-xs font-bold',
+        },
       },
     },
-  },
 
-  defaultVariants: {
-    sizes: 'xl',
+    defaultVariants: {
+      size: 'extraLarge',
+    },
   },
-})
+  {
+    responsiveVariants: ['xl', 'lg', 'md', 'sm'],
+  }
+)
 
 const { base, innerCircle, percentageText, text } =
   CircularProgressWithTextVariant()
@@ -58,7 +63,7 @@ export interface CircularProgressWithTextProps
 export function CircularProgressWithText({
   totalNumber,
   numberOfCompletions,
-  sizes,
+  size,
 }: CircularProgressWithTextProps) {
   function calculateHowMuchPercentageInBaseOf2Values() {
     if (!totalNumber || !numberOfCompletions) {
@@ -78,13 +83,13 @@ export function CircularProgressWithText({
   }
 
   return (
-    <div className={base({ sizes })} style={gradientStyle}>
-      <div className={innerCircle({ sizes })}>
+    <div className={base({ size })} style={gradientStyle}>
+      <div className={innerCircle({ size })}>
         <div>
-          <p className={text({ sizes })}>
+          <p className={text({ size })}>
             {numberOfCompletions}/{totalNumber}
           </p>
-          <p className={percentageText({ sizes })}>
+          <p className={percentageText({ size })}>
             {calculateHowMuchPercentageInBaseOf2Values()}%
           </p>
         </div>

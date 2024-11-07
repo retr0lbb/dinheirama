@@ -4,7 +4,7 @@ import {
   ObjectiveCard,
   type ObjectiveCardProps,
 } from '@/components/objectives/objectiveCard'
-import { SiFerrari } from 'react-icons/si'
+import { SiFerrari, SiHouzz } from 'react-icons/si'
 import { FaShop } from 'react-icons/fa6'
 import { SiFuraffinity } from 'react-icons/si'
 import { CircularProgressWithText } from '@/components/circular-progress-with-text'
@@ -28,6 +28,13 @@ export default function ObjectivesPage() {
       totalAmmount: 40000,
       ObjectiveIcon: SiFerrari,
       isCompleted: true,
+    },
+    {
+      objectiveTitle: 'Se mudar para los angeles',
+      actualAmmount: acutualMoney,
+      totalAmmount: 700000,
+      ObjectiveIcon: SiHouzz,
+      isCompleted: false,
     },
   ])
 
@@ -66,13 +73,14 @@ export default function ObjectivesPage() {
           totalMoney={objectives[0].totalAmmount}
         />
 
-        <div className=" flex flex-1 justify-around">
-          <div className="flex flex-col gap-3 items-center border py-5 px-10 rounded-xl border-snow-800">
-            <h1 className="text-snow-400 font-bold text-3xl">
+        <div className="flex flex-col md:flex-row flex-1 justify-around">
+          <div className="flex flex-col gap-6 md:gap-3 items-center border py-5 px-10 rounded-xl border-snow-800">
+            <h1 className="text-snow-400 font-bold text-xl md:text-3xl">
               Objetivos completados
             </h1>
-            <div className="flex flex-1 items-center justify-center">
+            <div className="flex md:flex-1 items-center justify-center">
               <CircularProgressWithText
+                size={'large'}
                 numberOfCompletions={
                   totalOfCompletedObjectives().numberOfCompletedObjects
                 }
@@ -80,15 +88,18 @@ export default function ObjectivesPage() {
               />
             </div>
 
-            <Button onClick={() => setCreateObjectiveModalOpen(true)}>
+            <Button
+              sizes="sm"
+              onClick={() => setCreateObjectiveModalOpen(true)}
+            >
               <FaPlus />
               Novo Objetivo
             </Button>
           </div>
 
           <div className="text-snow-400 flex flex-col items-center gap-2 p-4 flex-1">
-            <p>Outros objetivos cadastrados</p>
-            <div className="flex flex-col gap-2 w-full px-8 py-2 overflow-y-auto max-h-96">
+            <p className="text-xl">Outros objetivos cadastrados</p>
+            <div className="flex flex-col flex-grow-0 gap-2 w-full bg-blue-500 px-2 md:px-8 py-2 overflow-y-auto md:max-h-96">
               {objectives.map((item, index) => {
                 return <ObjectiveCard key={generateRandomId()} {...item} />
               })}
