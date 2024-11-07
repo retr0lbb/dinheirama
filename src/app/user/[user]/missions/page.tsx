@@ -1,22 +1,7 @@
 'use client'
 import { GiReceiveMoney } from 'react-icons/gi'
-import { FaBusAlt } from 'react-icons/fa'
-import { IoFastFood } from 'react-icons/io5'
-import { MdOutlineLocalGroceryStore } from 'react-icons/md'
 import { FaMoneyBillTrendUp } from 'react-icons/fa6'
 import { TbMoneybag } from 'react-icons/tb'
-import { CiGlobe } from 'react-icons/ci'
-import { FaUber } from 'react-icons/fa'
-import { RiBillFill } from 'react-icons/ri'
-import { MdOutlinePersonalVideo } from 'react-icons/md'
-import { MdLocalCarWash } from 'react-icons/md'
-import { FaBook } from 'react-icons/fa6'
-import { GiGrowth } from 'react-icons/gi'
-import { GiBarbecue } from 'react-icons/gi'
-import { RiNetflixFill } from 'react-icons/ri'
-import { FaHouseChimney } from 'react-icons/fa6'
-import { BiSolidJoystick } from 'react-icons/bi'
-import { SiCoursera } from 'react-icons/si'
 import { generateRandomId } from '@/utils/generateRandomId'
 
 import Tasks from '@/components/task-holder'
@@ -30,11 +15,9 @@ export default function MissionPages() {
           Cumpra as missões semanais para ganhar experiencia e de quebra ainda
           te ajuda a economizar uns trocados
         </p>
-
-        <div className="w-[1000px] h-px bg-snow-600 mt-5" />
       </header>
 
-      <main className="flex flex-1 items-center justify-center overflow-hidden gap-4">
+      <main className="flex flex-col md:flex-row flex-1 items-center md:justify-center overflow-scroll md:overflow-hidden gap-4">
         <Tasks title="Renda Extra" Icon={GiReceiveMoney}>
           <Tasks.Task
             title="Venda de itens não ultilzados"

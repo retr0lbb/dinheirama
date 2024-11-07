@@ -12,7 +12,7 @@ export interface TasksProps {
 
 function Tasks(props: TasksProps) {
   return (
-    <div className="flex flex-col flex-1 items-center h-full justify-center gap-3 mt-16">
+    <div className="flex flex-col w-full md:flex-1 items-center h-full justify-center gap-3">
       <div className="flex items-center justify-center gap-2 text-3xl">
         <props.Icon className="text-snow-600 text-2xl" />
         <h1 className="font-bold text-3xl text-snow-400">{props.title}</h1>
@@ -37,7 +37,7 @@ function Task(props: TaskProps) {
   return (
     <div
       className="w-full flex-shrink-0 flex flex-col px-4 py-2 bg-snow-800 border 
-  hover:border-ofice_green group hover:shadow-inner shadow-apple_green 
+  md:hover:border-ofice_green group md:hover:shadow-inner shadow-apple_green 
     transition-all border-snow-600/40 rounded-lg overflow-hidden gap-4"
     >
       <div className="flex flex-col">
@@ -48,14 +48,14 @@ function Task(props: TaskProps) {
             <FaRegCircle className="text-xl text-snow-600" />
           )}
           <h2
-            className={`text-snow-600 group-hover:text-snow-400 group-hover:text-lg transition-all text-md ${props.isComplete && 'line-through'}`}
+            className={`text-snow-600 md:group-hover:text-snow-400 md:group-hover:text-lg transition-all text-md ${props.isComplete && 'line-through'}`}
           >
             {props.title}
           </h2>
         </div>
       </div>
 
-      <div className="group-hover:flex transition-all flex-1 flex-col h-full flex-grow w-full hidden gap-3">
+      <div className="md:group-hover:flex transition-all flex-1 flex-col h-full flex-grow w-full hidden gap-3">
         <div>
           <p className="text-snow-600 text-sm">{props.description}</p>
         </div>
