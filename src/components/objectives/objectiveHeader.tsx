@@ -23,7 +23,7 @@ export function ObjectiveHeader({
     <div className="rounded-xl p-5 col-span-5 flex flex-col justify-center">
       <div className="flex flex-col gap-2">
         <h1 className="text-snow-400 text-xl md:text-2xl font-bold">
-          Para o proximo objetivo:
+          Para o proximo objetivo
         </h1>
         <div className="flex items-center">
           <div className="flex flex-1 items-center gap-0.5 md:gap-2">

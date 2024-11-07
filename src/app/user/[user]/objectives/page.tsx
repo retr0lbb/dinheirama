@@ -36,6 +36,41 @@ export default function ObjectivesPage() {
       ObjectiveIcon: SiHouzz,
       isCompleted: false,
     },
+    {
+      objectiveTitle: 'Se mudar para los angeles',
+      actualAmmount: acutualMoney,
+      totalAmmount: 700000,
+      ObjectiveIcon: SiHouzz,
+      isCompleted: false,
+    },
+    {
+      objectiveTitle: 'Se mudar para los angeles',
+      actualAmmount: acutualMoney,
+      totalAmmount: 700000,
+      ObjectiveIcon: SiHouzz,
+      isCompleted: false,
+    },
+    {
+      objectiveTitle: 'Se mudar para los angeles',
+      actualAmmount: acutualMoney,
+      totalAmmount: 700000,
+      ObjectiveIcon: SiHouzz,
+      isCompleted: false,
+    },
+    {
+      objectiveTitle: 'Se mudar para los angeles',
+      actualAmmount: acutualMoney,
+      totalAmmount: 700000,
+      ObjectiveIcon: SiHouzz,
+      isCompleted: false,
+    },
+    {
+      objectiveTitle: 'Se mudar para los angeles',
+      actualAmmount: acutualMoney,
+      totalAmmount: 700000,
+      ObjectiveIcon: SiHouzz,
+      isCompleted: false,
+    },
   ])
 
   function totalOfCompletedObjectives() {
@@ -98,8 +133,8 @@ export default function ObjectivesPage() {
           </div>
 
           <div className="text-snow-400 flex flex-col items-center gap-2 p-4 flex-1">
-            <p className="text-xl">Outros objetivos cadastrados</p>
-            <div className="flex flex-col flex-grow-0 gap-2 w-full bg-blue-500 px-2 md:px-8 py-2 overflow-y-auto md:max-h-96">
+            <p className="text-xl font-bold">Outros objetivos cadastrados</p>
+            <div className="flex flex-col flex-grow-0 gap-4 md:gap-2 w-full px-2 md:px-8 py-2 overflow-y-auto md:max-h-96">
               {objectives.map((item, index) => {
                 return <ObjectiveCard key={generateRandomId()} {...item} />
               })}

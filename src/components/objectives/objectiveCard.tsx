@@ -3,7 +3,6 @@ import { moneyFormatter } from '@/utils/money-string-formatter'
 import { FaRegCircleCheck } from 'react-icons/fa6'
 import type { IconType } from 'react-icons'
 import { BsThreeDotsVertical } from 'react-icons/bs'
-import { tv } from 'tailwind-variants'
 
 export interface ObjectiveCardProps {
   totalAmmount: number
@@ -22,15 +21,15 @@ export function ObjectiveCard({
   isCompleted,
 }: ObjectiveCardProps) {
   return (
-    <div className="p-2 bg-snow-800 rounded-md relative flex gap-1 w-full bg-red-400 overflow-hidden">
+    <div className="p-2 bg-snow-800 rounded-md relative flex gap-1 w-full overflow-hidden">
       <div className="flex flex-1 flex-col gap-2">
         <div className="flex items-center justify-between gap-4">
-          <div className="flex items-center justify-center gap-2 text-lg">
+          <div className="flex items-center justify-center gap-2">
             <ObjectiveIcon className="text-apple_green" />
-            <h1>{objectiveTitle}</h1>
+            <h1 className="text-sm">{objectiveTitle}</h1>
           </div>
 
-          <p className="text-sm">
+          <p className="md:text-sm flex flex-col md:flex-row items-center text-xs">
             {moneyFormatter.format(actualAmmount)}/
             <span className="text-snow-600">
               {moneyFormatter.format(totalAmmount)}
