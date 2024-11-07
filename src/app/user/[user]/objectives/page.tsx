@@ -108,14 +108,18 @@ export default function ObjectivesPage() {
           totalMoney={objectives[0].totalAmmount}
         />
 
-        <div className="flex flex-col gap-5 md:gap-0 md:flex-row flex-1 justify-around">
-          <div className="flex flex-col w-full gap-6 md:gap-3 items-center border py-5 px-10 rounded-xl border-snow-800">
+        <div className="flex flex-col gap-5 md:gap-10 md:flex-row flex-1 justify-around">
+          <div className="flex flex-col w-full md:w-auto gap-6 md:gap-3 items-center border py-5 px-10 rounded-xl border-snow-800">
             <h1 className="text-snow-400 font-bold text-xl md:text-3xl">
               Objetivos completados
             </h1>
             <div className="flex md:flex-1 items-center justify-center">
               <CircularProgressWithText
-                size={'large'}
+                size={{
+                  initial: 'extraLarge',
+                  md: 'extraLarge',
+                  sm: 'extraLarge',
+                }}
                 numberOfCompletions={
                   totalOfCompletedObjectives().numberOfCompletedObjects
                 }
@@ -124,7 +128,7 @@ export default function ObjectivesPage() {
             </div>
 
             <Button
-              sizes="sm"
+              sizes="md"
               onClick={() => setCreateObjectiveModalOpen(true)}
             >
               <FaPlus />
@@ -134,7 +138,7 @@ export default function ObjectivesPage() {
 
           <div className="text-snow-400 flex flex-col items-center gap-2 flex-1">
             <p className="text-xl font-bold">Outros objetivos cadastrados</p>
-            <div className="flex flex-col flex-grow-0 gap-4 md:gap-2 w-full md:px-8 py-2 overflow-y-auto md:max-h-96">
+            <div className="flex flex-col flex-grow-0 md:flex-grow gap-4 md:gap-2 w-full md:px-8 py-2 overflow-y-auto md:h-full">
               {objectives.map((item, index) => {
                 return <ObjectiveCard key={generateRandomId()} {...item} />
               })}

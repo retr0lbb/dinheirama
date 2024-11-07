@@ -18,7 +18,9 @@ const NavigationBarVariants = tv({
         label: 'hidden',
         icon: 'text-3xl',
       },
-      false: {},
+      false: {
+        bar: 'h-full flex flex-1 justify-center',
+      },
     },
     isActive: {
       true: {},
@@ -73,7 +75,7 @@ interface NavigationBarProps extends NavigationBarVariantsProps {
 
 function NavigationBar({ children, isMobile }: NavigationBarProps) {
   return (
-    <nav>
+    <nav className="w-full h-full">
       <ul className={bar({ isActive: false, isMobile })}>{children}</ul>
     </nav>
   )

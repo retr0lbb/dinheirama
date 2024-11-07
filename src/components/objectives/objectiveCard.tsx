@@ -21,7 +21,7 @@ export function ObjectiveCard({
   isCompleted,
 }: ObjectiveCardProps) {
   return (
-    <div className="p-2 bg-snow-800 rounded-md relative flex gap-1 w-full overflow-hidden">
+    <div className="p-2 bg-snow-800 flex-shrink-0 rounded-md relative flex gap-1 w-full overflow-hidden">
       <div className="flex flex-1 flex-col gap-2">
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center justify-center gap-2">

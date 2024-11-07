@@ -1,22 +1,10 @@
 'use client'
 import type React from 'react'
 import { NavigationBar } from '@/components/navigation-bar'
-import { Avatar } from '@/components/avatar'
 import { HiOutlineCash } from 'react-icons/hi'
 import { RxTarget } from 'react-icons/rx'
 import { LuScroll } from 'react-icons/lu'
-import { FaRegUser } from 'react-icons/fa'
 import { FaChartLine } from 'react-icons/fa6'
-import { HiOutlineWrenchScrewdriver } from 'react-icons/hi2'
-import {
-  FaPiggyBank,
-  FaScroll,
-  FaCog,
-  FaUser,
-  FaMoneyBillWaveAlt,
-} from 'react-icons/fa'
-import { TbTargetArrow } from 'react-icons/tb'
-import { FiLogOut } from 'react-icons/fi'
 import { usePathname } from 'next/navigation'
 import RAL from '@/static/ralsei.jpg'
 import Image from 'next/image'
@@ -35,35 +23,35 @@ export default function UserLayout({ children, params }: UserLayoutProps) {
 
   return (
     <section className="h-screen overflow-hidden pb-24 md:pb-0 flex bg-snow-900">
-      <div className="fixed bottom-0 left-0 md:relative h-auto md:h-full flex md:flex flex-col justify-between border-t md:border-r bg-snow-800 md:bg-snow-800/40 border-snow-600/10 shadow shadow-snow-600 py-5 gap-4 w-full md:min-w-60 md:max-w-80">
-        <NavigationBar isMobile={true}>
+      <div className="fixed bottom-0 left-0 md:relative h-auto md:h-full flex md:flex flex-col border-t md:border-r bg-snow-800 md:bg-snow-800/40 border-snow-600/10 shadow shadow-snow-600 py-5 gap-4 w-full md:min-w-60 md:max-w-80">
+        <NavigationBar isMobile={false}>
           <NavigationBar.NavLink
             href={`/user/${user}`}
             Icon={HiOutlineCash}
             title="Saldo"
             isActive={pathName === `/user/${user}`}
-            isMobile={true}
+            isMobile={false}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/objectives`}
             Icon={RxTarget}
             title="Objetivos"
             isActive={pathName === `/user/${user}/objectives`}
-            isMobile={true}
+            isMobile={false}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/missions`}
             Icon={LuScroll}
             title="Missões"
             isActive={pathName === `/user/${user}/missions`}
-            isMobile={true}
+            isMobile={false}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/investments`}
             Icon={FaChartLine}
             title="Investimentos"
             isActive={pathName === `/user/${user}/investments`}
-            isMobile={true}
+            isMobile={false}
           />
         </NavigationBar>
 
