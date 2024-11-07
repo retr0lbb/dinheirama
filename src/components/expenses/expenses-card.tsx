@@ -3,7 +3,7 @@ import type React from 'react'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 const ExpenseCardVariants = tv({
-  base: 'w-full rounded-xl p-5 text-snow-400 border border-snow-600/20',
+  base: 'w-full rounded-xl p-2 md:p-5 text-snow-400 border border-snow-600/20',
 
   variants: {
     variants: {

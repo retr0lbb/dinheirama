@@ -65,12 +65,12 @@ export function InvestmentsCard({
           data={data}
         />
       </div>
-      <div className="flex flex-col flex-1 gap-1">
+      <div className="flex flex-col flex-1 gap-1 w-full">
         <div className="flex items-center gap-2">
           <div
-            className={`size-3 ${isFalling ? 'bg-danger_red' : 'bg-apple_green'} rounded-full`}
+            className={`size-3 ${isFalling ? 'bg-danger_red' : 'bg-apple_green'} rounded-full flex-shrink-0`}
           />
-          <h1 className="text-xl text-snow-400">{actionName}</h1>
+          <h1 className="text-sm text-snow-400">{actionName}</h1>
         </div>
         <span className="text-snow-600 text-sm">
           <span className="text-snow-400">
@@ -81,11 +81,11 @@ export function InvestmentsCard({
       </div>
 
       <div>
-        <p className="text-snow-400 text-xl">
+        <p className="text-snow-400 text-sm">
           <span className="text-sm text-snow-600">total</span>{' '}
           {moneyFormatter.format(quantityOwned * actionPerQuoteValue)}
         </p>
-        <p className="text-snow-600 text-sm text-right">
+        <p className="text-snow-600 text-xs text-right">
           {quantityOwned} cota(s)
         </p>
       </div>

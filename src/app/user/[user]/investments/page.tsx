@@ -70,15 +70,15 @@ export default function InvestmentsPage() {
         </p>
       </div>
 
-      <div className="w-full h-full grid grid-cols-6 place-items-center">
-        <div className="w-full h-full col-span-4 flex flex-col items-center p-2 gap-2">
+      <div className="w-full h-full grid grid-cols-1 grid-flow-row md:grid-cols-6 md:place-items-center overflow-auto">
+        <div className="w-full h-full col-span-1 md:col-span-4 flex flex-col items-center p-2 gap-2">
           <div className="flex w-full items-center gap-4">
             <ExpenseCard>
               <div className="flex w-full flex-col gap-4">
                 <h1 className="text-sm text-snow-600">
                   Previsão de ganhos com investimentos
                 </h1>
-                <div className="flex items-center justify-center text-4xl font-bold text-snow-400">
+                <div className="flex items-center justify-center text-2xl md:text-4xl font-bold text-snow-400">
                   <p>{moneyFormatter.format(421.21)}</p>
                 </div>
               </div>
@@ -87,17 +87,17 @@ export default function InvestmentsPage() {
             <ExpenseCard>
               <div className="flex w-full flex-col gap-4">
                 <h1 className="text-sm text-snow-600">
-                  Total investidos no ultimo mês
+                  total investidos no ultimo mês
                 </h1>
-                <div className="flex items-center justify-center text-4xl font-bold text-snow-400">
-                  <p>{moneyFormatter.format(421.21)}</p>
+                <div className="flex items-center justify-center text-2xl md:text-4xl font-bold text-snow-400">
+                  <p>{moneyFormatter.format(1021.21)}</p>
                 </div>
               </div>
             </ExpenseCard>
           </div>
 
           <div className="flex flex-col w-full flex-1">
-            <div className="flex-1 w-full border border-snow-800 rounded-lg">
+            <div className="flex-1 h-40 w-full border border-snow-800 rounded-lg">
               <Chart
                 LineComponentProps={{
                   dataKey: 'value',
@@ -117,12 +117,14 @@ export default function InvestmentsPage() {
             </div>
 
             <div className="flex items-center justify-between p-2 text-lg">
-              <p className="text-snow-600">
+              <p className="text-snow-600 text-sm">
                 Ações{' '}
-                <strong className="font-bold text-snow-400">IVVB11</strong>
+                <strong className="font-bold text-sm text-snow-400">
+                  IVVB11
+                </strong>
               </p>
               <div className="text-snow-600 text-sm font-bold">1 dia</div>
-              <p className="text-snow-600">
+              <p className="text-snow-600 text-sm">
                 Preço médio{' '}
                 <strong className="text-apple_green">
                   {moneyFormatter.format(13.91)}
@@ -132,9 +134,9 @@ export default function InvestmentsPage() {
           </div>
         </div>
 
-        <div className="w-full h-full flex flex-col items-center gap-5 col-span-2">
+        <div className="w-full h-full flex flex-col items-center gap-2 md:gap-5 md:col-span-2">
           <div>
-            <h1 className="text-3xl text-snow-400 font-bold">
+            <h1 className="text-2xl md:text-3xl text-snow-400 font-bold">
               Minhas ações e fundos
             </h1>
           </div>
