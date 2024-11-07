@@ -9,9 +9,9 @@ import Tasks from '@/components/task-holder'
 export default function MissionPages() {
   return (
     <section className="w-full h-full flex flex-col gap-2 p-5">
-      <header className="w-full flex items-center justify-center text-center text-snow-400 flex-col py-5">
-        <h1 className="text-7xl font-bold">Missões</h1>
-        <p className="text-snow-600">
+      <header className="w-full flex items-center justify-center text-center gap-2 text-snow-400 flex-col py-5">
+        <h1 className="text-4xl md:text-6xl font-bold">Missões</h1>
+        <p className="text-snow-600 md:text-xl">
           Cumpra as missões semanais para ganhar experiencia e de quebra ainda
           te ajuda a economizar uns trocados
         </p>

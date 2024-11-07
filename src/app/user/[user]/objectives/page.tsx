@@ -94,9 +94,9 @@ export default function ObjectivesPage() {
     <section className="w-full h-full flex flex-col gap-2 p-5 overflow-auto">
       <div className="flex flex-col gap-2">
         <h1 className="text-4xl md:text-6xl font-bold text-snow-400">
-          Meus Objetivos.
+          Meus Objetivos
         </h1>
-        <p className="text-sm md:text-lg text-snow-600">
+        <p className="md:text-xl text-snow-600">
           Com objetivos definidos temos mais possibilidade de cumpri-los.
         </p>
       </div>
@@ -108,8 +108,8 @@ export default function ObjectivesPage() {
           totalMoney={objectives[0].totalAmmount}
         />
 
-        <div className="flex flex-col md:flex-row flex-1 justify-around">
-          <div className="flex flex-col gap-6 md:gap-3 items-center border py-5 px-10 rounded-xl border-snow-800">
+        <div className="flex flex-col gap-5 md:gap-0 md:flex-row flex-1 justify-around">
+          <div className="flex flex-col w-full gap-6 md:gap-3 items-center border py-5 px-10 rounded-xl border-snow-800">
             <h1 className="text-snow-400 font-bold text-xl md:text-3xl">
               Objetivos completados
             </h1>
@@ -132,9 +132,9 @@ export default function ObjectivesPage() {
             </Button>
           </div>
 
-          <div className="text-snow-400 flex flex-col items-center gap-2 p-4 flex-1">
+          <div className="text-snow-400 flex flex-col items-center gap-2 flex-1">
             <p className="text-xl font-bold">Outros objetivos cadastrados</p>
-            <div className="flex flex-col flex-grow-0 gap-4 md:gap-2 w-full px-2 md:px-8 py-2 overflow-y-auto md:max-h-96">
+            <div className="flex flex-col flex-grow-0 gap-4 md:gap-2 w-full md:px-8 py-2 overflow-y-auto md:max-h-96">
               {objectives.map((item, index) => {
                 return <ObjectiveCard key={generateRandomId()} {...item} />
               })}

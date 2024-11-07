@@ -63,8 +63,10 @@ export default function InvestmentsPage() {
   return (
     <section className="w-full h-full flex flex-col gap-2 p-5">
       <div className="w-full flex flex-col gap-2">
-        <h1 className="text-snow-400 font-bold text-6xl">Investimentos</h1>
-        <p className="text-snow-600 text-lg">
+        <h1 className="text-snow-400 font-bold text-4xl md:text-6xl">
+          Investimentos
+        </h1>
+        <p className="text-snow-600 md:text-xl">
           Ganhe dinheiro enquanto dorme, a partir de uma certa renda aplique em
           investimentos a longo prazo
         </p>
