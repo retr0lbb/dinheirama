@@ -23,7 +23,7 @@ export default function UserLayout({ children, params }: UserLayoutProps) {
 
   return (
     <section className="h-screen overflow-hidden pb-24 md:pb-0 flex bg-snow-900">
-      <div className="fixed bottom-0 left-0 md:relative h-auto md:h-full flex md:flex flex-col border-t md:border-r bg-snow-800 md:bg-snow-800/40 border-snow-600/10 shadow shadow-snow-600 py-5 gap-4 w-full md:min-w-60 md:max-w-80">
+      <div className="fixed bottom-0 left-0 md:relative h-auto md:h-full flex md:flex flex-col border-t md:border-r bg-snow-800 md:bg-snow-800/40 border-snow-600/10 shadow shadow-snow-600 py-5 gap-4 w-auto">
         <NavigationBar isMobile={false}>
           <NavigationBar.NavLink
             href={`/user/${user}`}
@@ -57,7 +57,7 @@ export default function UserLayout({ children, params }: UserLayoutProps) {
 
         <Link
           href={`/user/${user}/profile`}
-          className="hidden md:flex items-center justify-center border border-transparent cursor-pointer hover:border-snow-600 transition-all gap-2 mx-4 p-2 rounded-lg "
+          className="hidden md:flex items-center justify-center border border-transparent cursor-pointer hover:border-snow-600 transition-all gap-2 mx-4 p-2 rounded-lg flex-shrink-0 overflow-hidden"
         >
           <Image
             src={RAL}
