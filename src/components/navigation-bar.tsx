@@ -2,70 +2,66 @@ import type { IconType } from 'react-icons'
 import { tv, type VariantProps } from 'tailwind-variants'
 import Link from 'next/link'
 
-const classname = 'flex items-center justify-around '
-const NavigationBarVariants = tv(
-  {
-    slots: {
-      bar: 'flex flex-col overflow-hidden h-14 w-full gap-2 text-snow-600',
-      link: 'flex items-center gap-2 text-lg px-6 py-4',
-      icon: 'text-snow-200',
-      label: 'text-snow-200',
-    },
+const NavigationBarVariants = tv({
+  slots: {
+    bar: 'flex flex-col overflow-hidden h-14 w-full gap-2 text-snow-600',
+    link: 'flex items-center gap-2 text-lg px-6 py-4',
+    icon: 'text-snow-200',
+    label: 'text-snow-200',
+  },
 
-    variants: {
-      isMobile: {
-        true: {
-          bar: 'flex flex-row items-center justify-evenly gap-0 overflow-y-hidden overflow-x-auto',
-          label: 'hidden',
-          icon: 'text-3xl',
-        },
-        false: {
-          bar: 'h-full flex flex-1 justify-center',
-        },
+  variants: {
+    isMobile: {
+      true: {
+        bar: 'flex flex-row items-center justify-evenly gap-0 overflow-y-hidden overflow-x-auto',
+        label: 'hidden',
+        icon: 'text-3xl',
       },
-      isActive: {
-        true: {},
-        false: {},
+      false: {
+        bar: 'h-full flex flex-1 justify-center',
       },
     },
-
-    compoundVariants: [
-      {
-        isMobile: false,
-        isActive: true,
-        class: {
-          link: 'rounded-xl bg-apple_green mx-1',
-          icon: 'text-snow-200',
-          label: 'text-snow-200',
-        },
-      },
-      {
-        isMobile: false,
-        isActive: false,
-        class: {
-          link: 'hover:bg-apple_green/10 transition-all',
-          icon: 'text-snow-600 group-hover:text-apple_green transition-all',
-          label: 'text-snow-400 group-hover:text-apple_green transition-all',
-        },
-      },
-      {
-        isMobile: true,
-        isActive: true,
-        class: {
-          link: 'bg-apple_green py-3 px-4 rounded-full',
-          label: 'block',
-        },
-      },
-    ],
-
-    defaultVariants: {
-      isActive: false,
+    isActive: {
+      true: {},
+      false: {},
     },
   },
-  {
-    responsiveVariants: ['sm'],
-  }
-)
+
+  compoundVariants: [
+    {
+      isMobile: false,
+      isActive: true,
+      class: {
+        link: 'rounded-xl bg-apple_green mx-1',
+        icon: 'text-snow-200',
+        label: 'text-snow-200',
+      },
+    },
+    {
+      isMobile: false,
+      isActive: false,
+      class: {
+        link: 'hover:bg-apple_green/10 transition-all',
+        icon: 'text-snow-600 group-hover:text-apple_green transition-all',
+        label: 'text-snow-400 group-hover:text-apple_green transition-all',
+      },
+    },
+
+    {
+      isMobile: true,
+      isActive: true,
+      class: {
+        link: 'bg-apple_green py-3 px-4 rounded-full',
+        label: 'block',
+      },
+    },
+  ],
+
+  defaultVariants: {
+    isActive: false,
+    isMobile: false,
+  },
+})
 
 const { bar, icon, label, link } = NavigationBarVariants()
 
