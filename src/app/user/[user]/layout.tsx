@@ -25,34 +25,51 @@ export default function UserLayout({ children, params }: UserLayoutProps) {
   return (
     <section className="h-screen overflow-hidden pb-24 md:pb-0 flex bg-snow-900">
       <div className="fixed bottom-0 left-0 md:relative h-auto md:h-full flex md:flex flex-col border-t md:border-r bg-snow-800 md:bg-snow-800/40 border-snow-600/10 shadow shadow-snow-600 py-5 gap-4 flex-grow flex-shrink-0 w-full md:w-auto">
-        <NavigationBar isMobile={false}>
+        <NavigationBar
+          isMobile={{
+            md: false,
+            initial: true,
+          }}
+        >
           <NavigationBar.NavLink
             href={`/user/${user}`}
             Icon={HiOutlineCash}
             title="Saldo"
-            isActive={pathName === `/user/${user}`}
-            isMobile={false}
+            isActive={{
+              initial: pathName === `/user/${user}`,
+              md: pathName === `/user/${user}`,
+            }}
+            isMobile={{ md: false, initial: true }}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/objectives`}
             Icon={RxTarget}
             title="Objetivos"
-            isActive={pathName === `/user/${user}/objectives`}
-            isMobile={false}
+            isActive={{
+              initial: pathName === `/user/${user}/objectives`,
+              md: pathName === `/user/${user}/objectives`,
+            }}
+            isMobile={{ md: false, initial: true }}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/missions`}
             Icon={LuScroll}
             title="Missões"
-            isActive={pathName === `/user/${user}/missions`}
-            isMobile={false}
+            isActive={{
+              initial: pathName === `/user/${user}/missions`,
+              md: pathName === `/user/${user}/missions`,
+            }}
+            isMobile={{ md: false, initial: true }}
           />
           <NavigationBar.NavLink
             href={`/user/${user}/investments`}
             Icon={FaChartLine}
             title="Investimentos"
-            isActive={pathName === `/user/${user}/investments`}
-            isMobile={false}
+            isActive={{
+              initial: pathName === `/user/${user}/investments`,
+              md: pathName === `/user/${user}/investments`,
+            }}
+            isMobile={{ md: false, initial: true }}
           />
         </NavigationBar>
 
