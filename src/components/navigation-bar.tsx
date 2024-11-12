@@ -20,7 +20,7 @@ const NavigationBarVariants = tv(
         },
         false: {
           bar: 'h-full flex flex-col flex-1 justify-center w-full items-baseline gap-2 flex-shrink-0',
-          link: 'hover:bg-apple_green/10 transition-all w-full flex flex-1 justify-center',
+          link: 'hover:bg-apple_green/10 transition-all w-full flex flex-1 justify-start',
           icon: 'text-snow-600 group-hover:text-apple_green transition-all',
           label:
             'block text-snow-400 group-hover:text-apple_green transition-all',
@@ -34,11 +34,17 @@ const NavigationBarVariants = tv(
         },
         false: {},
       },
+
+      isColapsed: {
+        true: {},
+        false: {},
+      },
     },
 
     defaultVariants: {
       isActive: false,
       isMobile: false,
+      isColapsed: false,
     },
   },
   {
@@ -55,11 +61,12 @@ interface NavigationBarProps extends NavigationBarVariantsProps {
   children: React.ReactNode
 }
 
-function NavigationBar({ children, isMobile }: NavigationBarProps) {
+function NavigationBar({ children, isColapsed }: NavigationBarProps) {
   return (
     <nav className="w-full h-full">
       <ul
         className={bar({
+          isColapsed,
           isActive: false,
           isMobile: { initial: true, md: false },
         })}
@@ -83,7 +90,7 @@ function NavLink({
   isActive,
   className,
   href,
-  isMobile,
+  isColapsed,
 }: NavlinkProps) {
   return (
     <li className="relative group md:w-full flex">
@@ -93,16 +100,22 @@ function NavLink({
           className,
           isActive,
           isMobile: { initial: true, md: false },
+          isColapsed,
         })}
       >
         <Icon
           size={28}
-          className={icon({ isActive, isMobile: { initial: true, md: false } })}
+          className={icon({
+            isActive,
+            isMobile: { initial: true, md: false },
+            isColapsed,
+          })}
         />
         <p
           className={label({
             isActive,
             isMobile: { initial: true, md: false },
+            isColapsed,
           })}
         >
           {title}
