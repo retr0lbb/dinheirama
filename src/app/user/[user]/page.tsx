@@ -91,7 +91,7 @@ export default function UserPage({ params }: UserPageProps) {
           </div>
 
           <div className="flex flex-1 items-center gap-3 justify-evenly">
-            <div className="bg-danger_red text-snow-200 rounded-2xl p-2 w-full h-28 lg:h-32 aspect-square flex flex-col justify-between">
+            <div className="bg-danger_red text-snow-200 rounded-2xl p-2 w-full h-auto lg:h-auto aspect-square flex flex-col justify-between">
               <div className="flex flex-col">
                 <h1 className="">Alimentação</h1>
                 <p className="text-sm font-bold mt-1">
@@ -101,7 +101,7 @@ export default function UserPage({ params }: UserPageProps) {
               <FaBowlFood className="size-6 text-snow-400" />
             </div>
 
-            <div className="bg-slate-900 border border-snow-400/10 text-snow-200 rounded-2xl p-2 w-full h-28 lg:h-32 aspect-square flex flex-col justify-between">
+            <div className="bg-slate-900 border border-snow-400/10 text-snow-200 rounded-2xl p-2 w-full h-auto lg:h-auto aspect-square flex flex-col justify-between">
               <div className="flex flex-col">
                 <h1 className="">Transporte</h1>
                 <p className="text-sm font-bold mt-1">
@@ -111,7 +111,7 @@ export default function UserPage({ params }: UserPageProps) {
               <FaUber className="size-6 text-snow-400" />
             </div>
 
-            <div className="bg-dang_blue text-snow-200 rounded-2xl p-2 w-full h-28 lg:h-32 aspect-square flex flex-col justify-between">
+            <div className="bg-dang_blue text-snow-200 rounded-2xl p-2 w-full h-auto lg:h-auto aspect-square flex flex-col justify-between">
               <div className="flex flex-col">
                 <h1 className="">Jogos</h1>
                 <p className="text-sm font-bold mt-1">
