@@ -1,6 +1,7 @@
 import type { IconType } from 'react-icons'
 import { tv, type VariantProps } from 'tailwind-variants'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 const NavigationBarVariants = tv(
   {
@@ -15,15 +16,15 @@ const NavigationBarVariants = tv(
       isMobile: {
         true: {
           bar: 'flex flex-row items-center justify-evenly gap-0 overflow-y-hidden overflow-x-auto',
-          label: 'hidden',
-          icon: 'text-3xl',
+          label: 'hidden text-lg',
+          icon: 'text-3xl text-snow-600',
         },
         false: {
           bar: 'h-full flex flex-col flex-1 justify-center w-full items-baseline gap-2 flex-shrink-0',
           link: 'hover:bg-apple_green/10 transition-all w-full flex flex-1 justify-start',
           icon: 'text-snow-600 group-hover:text-apple_green transition-all',
           label:
-            'block text-snow-400 group-hover:text-apple_green transition-all',
+            'block text-snow-600 text-xl group-hover:text-apple_green transition-all',
         },
       },
       isActive: {
@@ -36,8 +37,11 @@ const NavigationBarVariants = tv(
       },
 
       isColapsed: {
-        true: {},
-        false: {},
+        true: {
+          label: 'md:hidden',
+          link: 'md:items-center md:justify-center',
+          bar: 'md:items-center md:px-3',
+        },
       },
     },
 
@@ -111,7 +115,7 @@ function NavLink({
             isColapsed,
           })}
         />
-        <p
+        <motion.p
           className={label({
             isActive,
             isMobile: { initial: true, md: false },
@@ -119,7 +123,7 @@ function NavLink({
           })}
         >
           {title}
-        </p>
+        </motion.p>
       </Link>
     </li>
   )

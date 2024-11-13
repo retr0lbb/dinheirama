@@ -6,12 +6,14 @@ interface UserProfileAvatarProps {
   user: string
   imageSrc: StaticImport
   realName?: string
+  isColapsed?: boolean
 }
 
 export function UserProfileAvatar({
   user,
   imageSrc,
   realName,
+  isColapsed,
 }: UserProfileAvatarProps) {
   return (
     <div className="w-full px-4 hidden md:block">
@@ -25,7 +27,9 @@ export function UserProfileAvatar({
           alt="my profile picture"
           className="size-14 p-1 aspect-square rounded-full"
         />
-        <div className="h-full w-full flex flex-col gap-1 py-1 px-0.5">
+        <div
+          className={`h-full w-full flex flex-col gap-1 py-1 px-0.5 ${isColapsed ? 'hidden' : ''}`}
+        >
           <div className="w-full flex items-center justify-between gap-4">
             <h1 className="text-xl font-bold text-snow-400">{user}</h1>{' '}
             <p className="text-xs text-apple_green whitespace-nowrap flex items-center justify-center">
