@@ -78,7 +78,7 @@ export default function UserPage({ params }: UserPageProps) {
               />
             </div>
           </div>
-          <div className="flex bg-red-200 w-full h-full flex-1">
+          <div className="flex w-full h-full flex-1">
             <Chart numberOfRegister={numberOfRegisters} />
           </div>
         </div>
