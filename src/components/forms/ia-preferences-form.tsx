@@ -1,21 +1,21 @@
-import Link from 'next/link'
 import { Button } from '../button'
 import { Input } from '../input'
-import { useForm, Controller } from 'react-hook-form'
-import { RadioButton } from '../radio-button'
+import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 const IaPreferencesSchema = z.object({
-  economyArea: z.string(),
-  mainIncome: z.string(),
-  mostExpenses: z.string(),
-  allExpenses: z.string(),
-  personalObjective: z.string(),
-  hobbieTime: z.string(),
-  from0to5: z.coerce.number().min(0).max(5),
+  economyArea: z.string().min(1, 'Este campo é obrigatório'),
+  mainIncome: z.string().min(1, 'Este campo é obrigatório'),
+  mostExpenses: z.string().min(1, 'Este campo é obrigatório'),
+  allExpenses: z.string().min(1, 'Este campo é obrigatório'),
+  personalObjective: z.string().min(1, 'Este campo é obrigatório'),
+  hobbieTime: z.string().min(1, 'Este campo é obrigatório'),
+  from0to5: z.coerce
+    .number()
+    .min(0, 'O valor deve ser no mínimo 0')
+    .max(5, 'O valor deve ser no máximo 5'),
 })
-
 export interface IaPreferencesRegisterForm
   extends z.infer<typeof IaPreferencesSchema> {}
 interface PersonalInfoFormProps {

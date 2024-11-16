@@ -5,10 +5,16 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 const BankRegister = z.object({
-  cpf: z.string(),
-  bankAccountNumber: z.string(),
-  bank: z.string(),
-  agencyNumber: z.string(),
+  cpf: z
+    .string()
+    .regex(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/, 'Formato de CPF inválido'),
+  bankAccountNumber: z
+    .string()
+    .min(6, 'Número da conta deve ter no mínimo 6 dígitos'),
+  bank: z.string().min(3, 'O nome do banco deve ter no mínimo 3 caracteres'),
+  agencyNumber: z
+    .string()
+    .min(4, 'Número da agência deve ter no mínimo 4 caracteres'),
 })
 
 export interface BankRegister extends z.infer<typeof BankRegister> {}

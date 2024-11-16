@@ -5,13 +5,29 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-const registerLogin = z.object({
-  name: z.string().min(3),
-  email: z.string().email(),
-  phone: z.coerce.number().positive().min(10),
-  password: z.string().min(6).max(64),
-  confirmPassword: z.string().min(6).max(64),
-})
+const registerLogin = z
+  .object({
+    name: z.string().min(4, 'Nome deve conter no mínimo 4 caracteres.'),
+    email: z.string().email('Campo deve ser um email válido.'),
+    phone: z
+      .string()
+      .regex(
+        /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/,
+        'Número de telefone inválido. Deve estar no formato (XX) XXXXX-XXXX ou similar.'
+      ),
+    password: z
+      .string()
+      .min(6, 'A senha deve conter no mínimo 6 caracteres.')
+      .max(64, 'A senha deve conter no máximo 64 caracteres.'),
+    confirmPassword: z
+      .string()
+      .min(6, 'A senha deve conter no mínimo 6 caracteres.')
+      .max(64, 'A senha deve conter no máximo 64 caracteres.'),
+  })
+  .refine(data => data.password === data.confirmPassword, {
+    path: ['confirmPassword'],
+    message: 'As senhas devem ser iguais.',
+  })
 
 export interface RegisterLoginForm extends z.infer<typeof registerLogin> {}
 interface PersonalInfoFormProps {

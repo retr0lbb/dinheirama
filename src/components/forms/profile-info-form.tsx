@@ -5,7 +5,7 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 const ProfileInfoSchema = z.object({
-  nickname: z.string().max(255),
+  nickname: z.string().max(255).min(8),
   biography: z.string().nullable(),
   profilePic: z.unknown().nullable(),
   profileBanner: z.unknown().nullable(),
