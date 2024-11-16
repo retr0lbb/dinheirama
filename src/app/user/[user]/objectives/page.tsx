@@ -138,7 +138,7 @@ export default function ObjectivesPage() {
 
           <div className="text-snow-400 flex flex-col items-center gap-2 flex-1">
             <p className="text-xl font-bold">Outros objetivos cadastrados</p>
-            <div className="flex flex-col flex-grow-0 md:flex-grow gap-4 md:gap-2 w-full md:px-8 py-2 overflow-y-auto md:h-full">
+            <div className="flex flex-col flex-grow-0 md:flex-grow gap-3 w-full md:px-8 py-2 overflow-y-auto md:h-full">
               {objectives.map((item, index) => {
                 return <ObjectiveCard key={generateRandomId()} {...item} />
               })}

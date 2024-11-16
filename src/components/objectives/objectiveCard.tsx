@@ -25,11 +25,11 @@ export function ObjectiveCard({
       <div className="flex flex-1 flex-col gap-2">
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center justify-center gap-2">
-            <ObjectiveIcon className="text-apple_green" />
-            <h1 className="text-sm">{objectiveTitle}</h1>
+            <ObjectiveIcon className="text-apple_green md:text-xl" />
+            <h1 className="text-sm md:text-lg">{objectiveTitle}</h1>
           </div>
 
-          <p className="md:text-sm flex flex-col md:flex-row items-center text-xs">
+          <p className="md:text-lg flex flex-col md:flex-row items-center text-xs">
             {moneyFormatter.format(actualAmmount)}/
             <span className="text-snow-600">
               {moneyFormatter.format(totalAmmount)}
