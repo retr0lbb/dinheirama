@@ -9,22 +9,21 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useState } from 'react'
+import {
+  LoginForm,
+  type LoginFormInterface,
+} from '@/components/forms/login-form'
 
-const loginForm = z.object({
-  email: z.string().email(),
-  password: z.string(),
+const loginFormSchema = z.object({
+  email: z.string().email('Campo deve ser um email valido'),
+  password: z.string().min(8, 'sua senha deve ter no minimo 8 caracteres'),
 })
-
-interface LoginForm extends z.infer<typeof loginForm> {}
 
 export default function Login() {
   const [isLoading, setIsLoading] = useState(false)
-  const { register, handleSubmit, control, reset, formState } =
-    useForm<LoginForm>({
-      resolver: zodResolver(loginForm),
-    })
+  const { reset } = useForm()
 
-  async function handleLoginUser(data: LoginForm) {
+  async function handleLoginUser(data: LoginFormInterface) {
     setIsLoading(true)
 
     setInterval(() => {
@@ -43,7 +42,7 @@ export default function Login() {
 
   return (
     <main className="h-screen bg-black flex items-center justify-center antialiased">
-      <div className="space-y-8">
+      <div className="flex flex-col gap-8">
         <header className="flex items-center justify-center flex-col gap-2">
           <h1 className="text-3xl lg:text-5xl text-snow-400 font-bold">
             Bem-vindo de volta!
@@ -53,59 +52,8 @@ export default function Login() {
           </p>
         </header>
 
-        <div className="space-y-5">
-          <form
-            onSubmit={handleSubmit(handleLoginUser)}
-            className="px-4 space-y-5"
-          >
-            <div className="space-y-4">
-              <Input id="email" Title="Email">
-                <Input.Field
-                  type="email"
-                  id="email"
-                  placeholder="example@mail.com"
-                  {...register('email')}
-                />
-                {formState.errors.email && (
-                  <p className="text-sm text-danger_red">
-                    {formState.errors.email.message}
-                  </p>
-                )}
-              </Input>
-
-              <Input id="password" Title="Senha">
-                <Input.Field
-                  type="password"
-                  id="password"
-                  placeholder="Sua senha"
-                  {...register('password')}
-                />
-              </Input>
-              <p className="text-sm text-apple_green w-full text-right pr-4">
-                <Link
-                  className="underline hover:text-apple_green/80 transition-all"
-                  href={'#'}
-                >
-                  Esqueci minha senha.
-                </Link>
-              </p>
-            </div>
-
-            <div className="grid place-items-center gap-2 px-4">
-              <Button type="submit" sizes="md" disabled={isLoading}>
-                {isLoading ? <Spinner colour="green" /> : 'Entrar'}
-              </Button>
-              <span className="text-snow-600 mt-2">
-                Não tem uma conta?{' '}
-                <Link
-                  className="underline text-apple_green hover:text-apple_green/80 transition-all"
-                  href={'/register'}
-                >
-                  Cadastre-se
-                </Link>
-              </span>
-            </div>
-          </form>
+        <div className="flex flex-col gap-5">
+          <LoginForm handleSubmitForm={handleLoginUser} isLoading={isLoading} />
 
           <div className="w-full flex items-center justify-center text-snow-600 text-xs px-6">
             <div className="bg-snow-600 w-full h-px rounded" />
