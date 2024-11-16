@@ -35,12 +35,12 @@ export function ProfileInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
             placeholder="nome_legal255"
             {...register('nickname')}
           />
-          {formState.errors.nickname && (
-            <p className="text-sm text-danger_red">
-              {formState.errors.nickname.message}
-            </p>
-          )}
         </Input>
+        {formState.errors.nickname && (
+          <p className="text-sm text-danger_red mx-4">
+            {formState.errors.nickname.message}
+          </p>
+        )}
 
         <Input Title="Biografia" id="biography">
           <Input.Field
@@ -49,12 +49,12 @@ export function ProfileInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
             placeholder="sou fulano e tenho tantos anos"
             {...register('biography')}
           />
-          {formState.errors.biography && (
-            <p className="text-sm text-danger_red">
-              {formState.errors.biography.message}
-            </p>
-          )}
         </Input>
+        {formState.errors.biography && (
+          <p className="text-sm text-danger_red mx-4">
+            {formState.errors.biography.message}
+          </p>
+        )}
 
         <Input Title="Imagem de perfil" id="profilePic">
           <Input.Field
@@ -63,12 +63,12 @@ export function ProfileInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
             placeholder="Imagem de prerfil"
             {...register('profilePic')}
           />
-          {formState.errors.profilePic && (
-            <p className="text-sm text-danger_red">
-              {formState.errors.profilePic.message}
-            </p>
-          )}
         </Input>
+        {formState.errors.profilePic && (
+          <p className="text-sm text-danger_red mx-4">
+            {formState.errors.profilePic.message}
+          </p>
+        )}
 
         <Input Title="Banner de perfil" id="profileBanner">
           <Input.Field
@@ -77,12 +77,12 @@ export function ProfileInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
             placeholder="Imagem de banner"
             {...register('profileBanner')}
           />
-          {formState.errors.profilePic && (
-            <p className="text-sm text-danger_red">
-              {formState.errors.profilePic.message}
-            </p>
-          )}
         </Input>
+        {formState.errors.profilePic && (
+          <p className="text-sm text-danger_red mx-4">
+            {formState.errors.profilePic.message}
+          </p>
+        )}
       </div>
 
       <div className="grid place-items-center px-4 gap-4">

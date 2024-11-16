@@ -52,12 +52,12 @@ export function PersonalInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
             placeholder="Fulano da silva"
             {...register('name')}
           />
-          {formState.errors.name && (
-            <p className="text-sm text-danger_red">
-              {formState.errors.name.message}
-            </p>
-          )}
         </Input>
+        {formState.errors.name && (
+          <p className="text-sm text-danger_red mx-4">
+            {formState.errors.name.message}
+          </p>
+        )}
 
         <Input Title="Numero de contato" id="tel">
           <Input.Field
@@ -71,12 +71,12 @@ export function PersonalInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
               },
             })}
           />
-          {formState.errors.phone && (
-            <p className="text-sm text-danger_red">
-              {formState.errors.phone.message}
-            </p>
-          )}
         </Input>
+        {formState.errors.phone && (
+          <p className="text-sm text-danger_red mx-4">
+            {formState.errors.phone.message}
+          </p>
+        )}
 
         <Input Title="Email" id="email">
           <Input.Field
@@ -85,12 +85,12 @@ export function PersonalInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
             placeholder="example@mail.com"
             {...register('email')}
           />
-          {formState.errors.email && (
-            <p className="text-sm text-danger_red">
-              {formState.errors.email.message}
-            </p>
-          )}
         </Input>
+        {formState.errors.email && (
+          <p className="text-sm text-danger_red mx-4">
+            {formState.errors.email.message}
+          </p>
+        )}
 
         <Input Title="Senha" id="password">
           <Input.Field
@@ -99,12 +99,12 @@ export function PersonalInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
             placeholder="Sua senha"
             {...register('password')}
           />
-          {formState.errors.password && (
-            <p className="text-sm text-danger_red">
-              {formState.errors.password.message}
-            </p>
-          )}
         </Input>
+        {formState.errors.password && (
+          <p className="text-sm text-danger_red mx-4">
+            {formState.errors.password.message}
+          </p>
+        )}
 
         <Input Title="Confirmar senha" id="cpass">
           <Input.Field
@@ -113,12 +113,12 @@ export function PersonalInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
             placeholder="Confirme sua senha"
             {...register('confirmPassword')}
           />
-          {formState.errors.confirmPassword && (
-            <p className="text-sm text-danger_red">
-              {formState.errors.confirmPassword.message}
-            </p>
-          )}
         </Input>
+        {formState.errors.confirmPassword && (
+          <p className="text-sm text-danger_red mx-4">
+            {formState.errors.confirmPassword.message}
+          </p>
+        )}
       </div>
 
       <div className="grid place-items-center px-4 gap-4">

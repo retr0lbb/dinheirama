@@ -44,12 +44,12 @@ export function IaPreferencesForm({ handleSubmitForm }: PersonalInfoFormProps) {
             placeholder="..."
             {...register('economyArea')}
           />
-          {formState.errors.economyArea && (
-            <p className="text-sm text-danger_red">
-              {formState.errors.economyArea.message}
-            </p>
-          )}
         </Input>
+        {formState.errors.economyArea && (
+          <p className="text-sm text-danger_red mx-4">
+            {formState.errors.economyArea.message}
+          </p>
+        )}
         <Input Title="Descreva sua principal fonte de renda" id="mainIncome">
           <Input.Field
             type="text"
@@ -57,12 +57,12 @@ export function IaPreferencesForm({ handleSubmitForm }: PersonalInfoFormProps) {
             placeholder="..."
             {...register('mainIncome')}
           />
-          {formState.errors.mainIncome && (
-            <p className="text-sm text-danger_red">
-              {formState.errors.mainIncome.message}
-            </p>
-          )}
         </Input>
+        {formState.errors.mainIncome && (
+          <p className="text-sm text-danger_red mx-4">
+            {formState.errors.mainIncome.message}
+          </p>
+        )}
         <Input
           Title="Descreva o que você acha ser o seu maior gasto"
           id="mostExpenses"
@@ -73,12 +73,12 @@ export function IaPreferencesForm({ handleSubmitForm }: PersonalInfoFormProps) {
             placeholder="..."
             {...register('mostExpenses')}
           />
-          {formState.errors.mostExpenses && (
-            <p className="text-sm text-danger_red">
-              {formState.errors.mostExpenses.message}
-            </p>
-          )}
         </Input>
+        {formState.errors.mostExpenses && (
+          <p className="text-sm text-danger_red mx-4">
+            {formState.errors.mostExpenses.message}
+          </p>
+        )}
         <Input Title="descreva todos os seus gastos mensais" id="allExpenses">
           <Input.Field
             type="text"
@@ -86,12 +86,12 @@ export function IaPreferencesForm({ handleSubmitForm }: PersonalInfoFormProps) {
             placeholder="..."
             {...register('allExpenses')}
           />
-          {formState.errors.allExpenses && (
-            <p className="text-sm text-danger_red">
-              {formState.errors.allExpenses.message}
-            </p>
-          )}
         </Input>
+        {formState.errors.allExpenses && (
+          <p className="text-sm text-danger_red mx-4">
+            {formState.errors.allExpenses.message}
+          </p>
+        )}
         <Input Title="Objetivo pessoal" id="personalObjective">
           <Input.Field
             type="text"
@@ -99,12 +99,12 @@ export function IaPreferencesForm({ handleSubmitForm }: PersonalInfoFormProps) {
             placeholder="..."
             {...register('personalObjective')}
           />
-          {formState.errors.personalObjective && (
-            <p className="text-sm text-danger_red">
-              {formState.errors.personalObjective.message}
-            </p>
-          )}
         </Input>
+        {formState.errors.personalObjective && (
+          <p className="text-sm text-danger_red mx-4">
+            {formState.errors.personalObjective.message}
+          </p>
+        )}
         <Input
           Title="Quantas horas do seu dia você tem livre para seus hobbies?"
           id="hobbieTime"
@@ -115,12 +115,12 @@ export function IaPreferencesForm({ handleSubmitForm }: PersonalInfoFormProps) {
             placeholder="..."
             {...register('hobbieTime')}
           />
-          {formState.errors.hobbieTime && (
-            <p className="text-sm text-danger_red">
-              {formState.errors.hobbieTime.message}
-            </p>
-          )}
         </Input>
+        {formState.errors.hobbieTime && (
+          <p className="text-sm text-danger_red mx-4">
+            {formState.errors.hobbieTime.message}
+          </p>
+        )}
 
         <Input
           border="none"
@@ -133,12 +133,12 @@ export function IaPreferencesForm({ handleSubmitForm }: PersonalInfoFormProps) {
             placeholder="0"
             {...register('from0to5')}
           />
-          {formState.errors.from0to5 && (
-            <p className="text-sm text-danger_red">
-              {formState.errors.from0to5.message}
-            </p>
-          )}
         </Input>
+        {formState.errors.from0to5 && (
+          <p className="text-sm text-danger_red mx-4">
+            {formState.errors.from0to5.message}
+          </p>
+        )}
       </div>
 
       <div className="grid place-items-center px-4 gap-4">

@@ -39,12 +39,12 @@ export function BankInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
             placeholder="000000000-00"
             {...register('cpf')}
           />
-          {formState.errors.cpf && (
-            <p className="text-sm text-danger_red">
-              {formState.errors.cpf.message}
-            </p>
-          )}
         </Input>
+        {formState.errors.cpf && (
+          <p className="text-sm text-danger_red mx-4">
+            {formState.errors.cpf.message}
+          </p>
+        )}
 
         <Input Title="Entidade Bancaria" id="bank">
           <Input.Field
@@ -53,12 +53,12 @@ export function BankInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
             placeholder="Banco do Brasil"
             {...register('bank')}
           />
-          {formState.errors.bank && (
-            <p className="text-sm text-danger_red">
-              {formState.errors.bank.message}
-            </p>
-          )}
         </Input>
+        {formState.errors.bank && (
+          <p className="text-sm text-danger_red mx-4">
+            {formState.errors.bank.message}
+          </p>
+        )}
 
         <Input Title="Numero da conta" id="accountNumber">
           <Input.Field
@@ -67,12 +67,12 @@ export function BankInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
             placeholder="00000-0"
             {...register('bankAccountNumber')}
           />
-          {formState.errors.bankAccountNumber && (
-            <p className="text-sm text-danger_red">
-              {formState.errors.bankAccountNumber.message}
-            </p>
-          )}
         </Input>
+        {formState.errors.bankAccountNumber && (
+          <p className="text-sm text-danger_red mx-4">
+            {formState.errors.bankAccountNumber.message}
+          </p>
+        )}
 
         <Input Title="Numero da agencia" id="agencyNumber">
           <Input.Field
@@ -81,12 +81,12 @@ export function BankInfoForm({ handleSubmitForm }: PersonalInfoFormProps) {
             placeholder="00000-000"
             {...register('agencyNumber')}
           />
-          {formState.errors.agencyNumber && (
-            <p className="text-sm text-danger_red">
-              {formState.errors.agencyNumber.message}
-            </p>
-          )}
         </Input>
+        {formState.errors.agencyNumber && (
+          <p className="text-sm text-danger_red mx-4">
+            {formState.errors.agencyNumber.message}
+          </p>
+        )}
       </div>
 
       <div className="grid place-items-center px-4 gap-4">
