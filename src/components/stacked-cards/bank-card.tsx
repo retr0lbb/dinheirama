@@ -14,7 +14,9 @@ interface cardData {
 }
 
 const bankCardVariant = tv({
-  base: 'absolute top-0 left-0 w-full cursor-pointer select-none aspect-video rounded-3xl aspect-video px-2 px-4 lg:px-4 lg:py-6 flex flex-col justify-evenly border border-snow-800/20',
+  base: `absolute top-0 left-0 w-full cursor-pointer select-none aspect-video max-w-[550px] 
+  rounded-xl md:rounded-3xl aspect-video px-4 py-3 lg:px-4 lg:py-6 flex 
+  flex-col justify-evenly border border-snow-800/20`,
   variants: {
     Zindex: {
       50: 'z-index-50',
@@ -49,6 +51,8 @@ const bankCardVariant = tv({
   },
 })
 
+const className = ''
+
 export interface CardProps extends VariantProps<typeof bankCardVariant> {
   isDragAble: boolean
   className?: string
@@ -68,6 +72,7 @@ export function BankCard({
   handleDragEnd,
 }: CardProps) {
   const controls = useDragControls()
+
   return (
     <motion.div
       drag={isDragAble === true ? 'y' : false}
@@ -94,30 +99,36 @@ export function BankCard({
         Zindex,
       })}
     >
-      <div className="w-ful flex items-center justify-between">
-        <FcSimCardChip className="size-16 " />
-        <SiMastercard className="size-16 text-snow-200" />
+      <div className="w-full flex items-center justify-between">
+        <FcSimCardChip className="size-10 md:size-16" />
+        <SiMastercard className="size-10 md:size-16 text-snow-200" />
       </div>
 
       <div className="flex flex-1 justify-center flex-col">
-        <h1 className="text-snow-400 text-xl">{cardData.accountType}</h1>
-        <p className="text-snow-200 font-semibold text-2xl md:text-4xl lg:text-5xl xl:">
+        <h1 className="text-snow-400 text-sm lg:text-xl">
+          {cardData.accountType}
+        </h1>
+        <p className="text-snow-200 font-semibold text-3xl md:text-4xl lg:text-5xl">
           {moneyFormatter.format(cardData.ammount)}
         </p>
       </div>
 
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="font-light text-snow-400 text-sm">Débito</h1>
-          <p className="text-snow-200 font-semibold text-lg lg:text-2xl">
+          <h1 className="font-light text-snow-400 text-xs md:text-lg">
+            Débito
+          </h1>
+          <p className="text-snow-200 font-semibold text-sm lg:text-2xl">
             <span>••••</span> <span>••••</span> <span>••••</span>{' '}
             <span>{`${cardData.accountLast4DigitsNumber ?? '0000'}`}</span>
           </p>
         </div>
 
         <div>
-          <h1 className="font-light text-snow-400 text-lg">Data Validade</h1>
-          <p className="font-semibold text-2xl text-snow-200">
+          <h1 className="font-light text-snow-400 text-xs md:text-lg">
+            Data Validade
+          </h1>
+          <p className="font-semibold text-sm md:text-2xl text-snow-200">
             {cardData.expirationDate}
           </p>
         </div>

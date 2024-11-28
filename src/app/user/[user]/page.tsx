@@ -42,7 +42,7 @@ export default function UserPage({ params }: UserPageProps) {
         </p>
       </div>
 
-      <div className="w-full h-full grid grid-cols-1 lg:grid-cols-5 grid-rows-1 lg:grid-rows-3 gap-2 place-content-center overflow-y-scroll">
+      <div className="w-full h-full grid grid-cols-1 lg:grid-cols-5 auto-rows-auto lg:grid-rows-3 gap-2 overflow-y-scroll">
         <StackedCards.Root />
 
         <div className="lg:col-span-3 row-span-3 flex flex-col items-center overflow-hidden gap-5 lg:gap-8">
@@ -78,7 +78,7 @@ export default function UserPage({ params }: UserPageProps) {
               />
             </div>
           </div>
-          <div className="flex w-full h-full flex-1">
+          <div className="flex w-full h-full flex-1 flex-shrink-0 min-h-52">
             <Chart numberOfRegister={numberOfRegisters} />
           </div>
         </div>
