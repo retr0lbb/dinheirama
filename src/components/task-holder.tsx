@@ -1,8 +1,11 @@
+'use client'
 import type React from 'react'
 import type { IconType } from 'react-icons'
 import { ParticionedSliderProgress } from './slider-shown'
 import { FaRegCircle, FaRegCheckCircle } from 'react-icons/fa'
 import { Button } from './button'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
 
 export interface TasksProps {
   title: string
@@ -34,8 +37,12 @@ interface TaskProps {
 }
 
 function Task(props: TaskProps) {
+  const [isBeingHovered, setIsBeingHovered] = useState(false)
   return (
     <div
+      onMouseOver={ev => setIsBeingHovered(true)}
+      onFocus={ev => setIsBeingHovered(true)}
+      onMouseLeave={ev => setIsBeingHovered(false)}
       className="w-full flex-shrink-0 flex flex-col px-4 py-2 bg-snow-800 border 
   md:hover:border-ofice_green group md:hover:shadow-inner shadow-apple_green 
     transition-all border-snow-600/40 rounded-lg overflow-hidden gap-4"
@@ -54,31 +61,48 @@ function Task(props: TaskProps) {
           </h2>
         </div>
       </div>
+      <AnimatePresence>
+        {isBeingHovered ? (
+          <motion.div
+            initial={{
+              scale: 0,
+              rotate: 10,
+            }}
+            animate={{
+              scale: 1,
+              rotate: 0,
+            }}
+            exit={{
+              scale: 0,
+            }}
+            className="transition-all flex-1 flex-col h-full flex-grow w-full flex gap-3"
+          >
+            <div>
+              <p className="text-snow-600 text-sm">{props.description}</p>
+            </div>
+            <div className="flex items-center justify-between">
+              <p className="text-[#050702] bg-apple_green/40 text-sm font-bold rounded-md px-2 py-0.5">
+                100xp
+              </p>
+              <div>
+                {!props.isComplete && (
+                  <Button variant="primary" sizes="sm">
+                    Adicionar
+                  </Button>
+                )}
 
-      <div className="md:group-hover:flex transition-all flex-1 flex-col h-full flex-grow w-full hidden gap-3">
-        <div>
-          <p className="text-snow-600 text-sm">{props.description}</p>
-        </div>
-        <div className="flex items-center justify-between">
-          <div className="text-[#050702] bg-apple_green/40 text-sm font-bold rounded-md px-2 py-0.5">
-            100xp
-          </div>
-          <div>
-            {!props.isComplete && (
-              <Button variant="primary" sizes="sm">
-                Adicionar
-              </Button>
-            )}
-
-            {props.isComplete && (
-              <Button variant="secondary" disabled sizes="sm">
-                Concluido
-              </Button>
-            )}
-          </div>
-        </div>
-      </div>
-
+                {props.isComplete && (
+                  <Button variant="secondary" disabled sizes="sm">
+                    Concluido
+                  </Button>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        ) : (
+          ''
+        )}
+      </AnimatePresence>
       <ParticionedSliderProgress
         numberOfDivisions={props.frequency}
         numberOfCompletions={props.numberOfCompletions ?? 0}
