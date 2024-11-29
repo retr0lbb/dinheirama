@@ -51,7 +51,7 @@ export function Root() {
   const offsets = [4, 2, 0]
 
   return (
-    <div className="lg:col-span-2 row-span-1 lg:row-span-2 flex flex-col gap-4 px-4 items-center w-full h-full bg-blue-600 overflow-hidden flex-shrink-0">
+    <div className="lg:col-span-2 row-span-1 lg:row-span-2 flex flex-col gap-4 px-4 items-center w-full h-full overflow-hidden flex-shrink-0">
       <div className="flex items-center w-full justify-between">
         <h1 className="text-snow-200 font-bold text-2xl lg:text-3xl">
           Saldo em contas
@@ -63,8 +63,8 @@ export function Root() {
           <MdEdit />
         </button>
       </div>
-      <div className="w-full flex items-start justify-start bg-red-800">
-        <div className="relative w-full min-h-[300px]">
+      <div className="w-full flex items-start justify-start">
+        <div className="relative w-full min-h-[250px]">
           {cards.map((card, index) => {
             const currentZIndex = zIndex[index] || 20
             const offset = offsets[index] || 0

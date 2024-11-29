@@ -43,9 +43,11 @@ export default function UserPage({ params }: UserPageProps) {
       </div>
 
       <div className="w-full h-full grid grid-cols-1 lg:grid-cols-5 auto-rows-auto lg:grid-rows-3 gap-2 overflow-y-scroll">
-        <StackedCards.Root />
+        <div className="flex w-full h-full lg:col-span-2 row-span-1 lg:row-span-2">
+          <StackedCards.Root />
+        </div>
 
-        <div className="lg:col-span-3 row-span-3 flex flex-col items-center overflow-hidden gap-5 lg:gap-8">
+        <div className="lg:col-span-3 row-span-3 flex flex-col items-center overflow-hidden flex-shrink-0 min-h-[300px] gap-5 lg:gap-8">
           <div className="flex items-center justify-between w-full px-2 lg:px-8">
             <h1 className="px-4 lg:px-0 lg:text-4xl text-snow-400">
               Saldo e gasto.
