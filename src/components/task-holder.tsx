@@ -65,15 +65,14 @@ function Task(props: TaskProps) {
         {isBeingHovered ? (
           <motion.div
             initial={{
-              scale: 0,
-              rotate: 10,
+              scale: 0.7,
             }}
             animate={{
               scale: 1,
-              rotate: 0,
+              transition: { duration: 0.05, delay: 0, bounce: 1, mass: 0 },
             }}
             exit={{
-              scale: 0,
+              scale: 0.3,
             }}
             className="transition-all flex-1 flex-col h-full flex-grow w-full flex gap-3"
           >
