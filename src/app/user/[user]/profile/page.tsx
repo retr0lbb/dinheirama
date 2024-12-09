@@ -40,16 +40,18 @@ export default function ProfilePage() {
         <Image
           src={BGIMAGE}
           alt="your wallpaper"
-          className="absolute inset-0 w-full h-full object-cover "
+          className="absolute inset-0 w-full h-full object-cover -z-20 "
         />
-        <div className="flex w-full items-center justify-center gap-4 z-10 bg-snow-900/60 p-2">
+        <div className="flex w-full items-center justify-center gap-4 -z-10 bg-snow-900/60 p-2">
           <Image
             alt="your profile picture"
-            className="rounded-xl size-36"
+            className="rounded-xl size-24 md:size-36"
             src={PROFILEPIC}
           />
           <div className="flex flex-col text-snow-400 w-full">
-            <h1 className="text-7xl font-bold leading-none">retr0lbb</h1>
+            <h1 className="text-4xl md:text-7xl font-bold leading-none">
+              retr0lbb
+            </h1>
             <p className="text-sm text-snow-600">Henrique Barbosa Sampaio</p>
             <p className="text-md text-snow-600">
               lvl <span className="text-ofice_green font-bold text-md">48</span>
@@ -58,7 +60,7 @@ export default function ProfilePage() {
         </div>
       </div>
 
-      <div className="w-full h-full grid grid-cols-3 place-items-center">
+      <div className="w-full h-full grid overflow-y-scroll md:overflow-hidden grid-cols-1 md:grid-cols-3 place-items-center">
         <div className="w-full h-full flex items-center justify-center flex-col gap-4 px-4">
           <h1 className="text-4xl text-snow-200 font-bold">Estatísticas</h1>
 
