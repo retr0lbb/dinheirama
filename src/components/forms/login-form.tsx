@@ -66,7 +66,7 @@ export function LoginForm({ handleSubmitForm, isLoading }: LoginFormProps) {
       </div>
 
       <div className="grid place-items-center gap-2 px-4">
-        <Button type="submit" sizes="md" disabled={isLoading}>
+        <Button variant="primary" type="submit" sizes="md" disabled={isLoading}>
           {isLoading ? <Spinner colour="green" /> : 'Entrar'}
         </Button>
         <span className="text-snow-600 mt-2">
