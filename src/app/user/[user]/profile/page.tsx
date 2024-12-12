@@ -35,14 +35,14 @@ export default function ProfilePage() {
     }
   }
   return (
-    <section className="w-full h-full flex flex-col gap-8 p-5">
-      <div className="flex w-full items-center justify-around relative">
+    <section className="w-full h-full flex flex-col gap-8 p-5 relative">
+      <div className="flex w-full items-center justify-around relative z-10">
         <Image
           src={BGIMAGE}
           alt="your wallpaper"
-          className="absolute inset-0 w-full h-full object-cover -z-20 "
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="flex w-full items-center justify-center gap-4 -z-10 bg-snow-900/60 p-2">
+        <div className="flex w-full items-center justify-center gap-4 z-10 bg-snow-900/60 p-2">
           <Image
             alt="your profile picture"
             className="rounded-xl size-24 md:size-36"
@@ -108,7 +108,7 @@ export default function ProfilePage() {
           </div>
         </div>
 
-        <div className="w-full h-full flex items-center justify-center flex-col gap-4">
+        <div className="w-full h-full flex items-center justify-center flex-col gap-4 pt-10 md:pt-0">
           <h1 className="text-snow-400 text-4xl font-bold ">
             Minhas Conquistas
           </h1>

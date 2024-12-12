@@ -49,7 +49,7 @@ function MiniCard({
       className="flex items-center w-full gap-4 py-1 px-4 cursor-pointer transition-all hover:bg-snow-800"
     >
       <Image
-        className="lg:size-10 2xl:size-16 rounded-lg"
+        className="size-10 lg:size-10 2xl:size-16 rounded-lg"
         src={ImageSRC}
         alt={ImageAlt}
       />

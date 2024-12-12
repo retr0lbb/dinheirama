@@ -16,7 +16,7 @@ export function UserProfileAvatar({
   isColapsed,
 }: UserProfileAvatarProps) {
   return (
-    <div className="md:w-full px-4 z-10 block fixed right-0 top-0 md:bottom-0 md:relative">
+    <div className="md:w-full px-4 z-[20] block fixed right-0 top-0 md:bottom-0 md:relative">
       <Link
         href={`/user/${user}/profile`}
         className="flex items-center border border-transparent rounded-full

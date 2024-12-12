@@ -81,12 +81,14 @@ export default function UserLayout({ children, params }: UserLayoutProps) {
           />
         </NavigationBar>
 
-        <UserProfileAvatar
-          isColapsed={isColapsed}
-          realName="Henrique Barbosa Sampaio"
-          user={user}
-          imageSrc={RAL}
-        />
+        {pathName !== `/user/${user}/profile` && (
+          <UserProfileAvatar
+            isColapsed={isColapsed}
+            realName="Henrique Barbosa Sampaio"
+            user={user}
+            imageSrc={RAL}
+          />
+        )}
       </div>
 
       {children}
